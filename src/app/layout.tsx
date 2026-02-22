@@ -15,9 +15,9 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Mycelium — AI Safety & Animal Welfare",
+  title: "Mycelium — AI Systems That Consider Nonhuman Animal Welfare",
   description:
-    "Mycelium works at the intersection of AI safety and animal welfare. Building a future where advanced AI benefits all sentient beings.",
+    "Mycelium builds the technical infrastructure and capacity for AI models to consider nonhuman welfare. Benchmarks, evals, and tools for nonhuman AI safety.",
 };
 
 export default function RootLayout({
