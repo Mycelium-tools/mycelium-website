@@ -1,56 +1,12 @@
 import Image from "next/image";
-import Link from "next/link";
+import MyceliumHero from "@/components/ui/mycelium-hero";
 
 export default function Home() {
   return (
     <div className="bg-[#f7f5f1] text-[#18211a]">
       <main>
         {/* Hero */}
-        <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pb-32 pt-24">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,#51fcaa0a,transparent)]" />
-          <div
-            className="absolute inset-0 opacity-[0.4]"
-            style={{
-              backgroundImage: "radial-gradient(circle, #51fcaa12 1px, transparent 1px)",
-              backgroundSize: "40px 40px",
-            }}
-          />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_50%,transparent,#f7f5f1_100%)]" />
-
-          <div className="relative mx-auto max-w-3xl text-center">
-            <h1 className="mt-6 font-serif text-5xl font-semibold leading-tight tracking-tight text-[#18211a] sm:text-6xl md:text-7xl">
-              building the technical foundation for{" "}
-              <em className="italic text-[#0a8c5c]">inclusive AI</em>
-            </h1>
-
-            <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-[#8a9e8c]">
-              AI will fundamentally transform the systems that affect animal
-              suffering—for better or worse. Models amplify speciesist biases,
-              threatening to lock in harm as they shape policy and
-              decision-making. We build the infrastructure to change that.
-            </p>
-
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
-              <Link
-                href="/contact"
-                className="rounded-full bg-[#51FCAA] px-8 py-3.5 font-medium text-[#0a3d22] transition-all hover:bg-[#3de89a] hover:scale-[1.02]"
-              >
-                Get in touch
-              </Link>
-              <Link
-                href="/work"
-                className="rounded-full border border-[#ddd9d1] px-8 py-3.5 font-medium text-[#18211a] transition-all hover:border-[#0a8c5c]/30 hover:bg-[#0a8c5c]/5"
-              >
-                Our work
-              </Link>
-            </div>
-          </div>
-
-          <div className="absolute bottom-10 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-[#8a9e8c]">
-            <span className="text-xs tracking-[0.2em] uppercase">Scroll</span>
-            <div className="h-8 w-px bg-gradient-to-b from-[#8a9e8c] to-transparent" />
-          </div>
-        </section>
+        <MyceliumHero />
 
         {/* Mission */}
         <section className="bg-[#f0e8ff] px-6 py-28">

@@ -42,6 +42,9 @@ Use `font-serif` for headings and `font-sans` (default) for everything else.
 - Next.js `Image` component for all images (use `unoptimized` for external/partner logos)
 - Next.js `Link` for internal navigation
 
+## UI/UX workflow
+@docs/ui-ux-workflow.md
+
 ## Reference
 - Awesome Claude Code: https://github.com/hesreallyhim/awesome-claude-code
 
