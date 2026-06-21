@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
-import { Zap } from "lucide-react";
 import Link from "next/link";
 
 // ── Tunables ──────────────────────────────────────────────────────────────────
@@ -10,13 +9,12 @@ const BG = "#050d07";
 const MAX_DEPTH = 5;
 const BASE_LENGTH = 115;
 const LENGTH_DECAY = 0.65;
-const GROWTH_RATE = 0.007;
-// After growth finishes (~3s), ambient decays to 0 over 2s — network goes dark.
-// Mouse interaction then lights sections back up.
-const AMBIENT_MAX = 0.14;
+// Growth wave expands from cursor; branches grow as wave front passes over them
+const WAVE_SPEED = 260;          // px/second
+const MIN_WAVE_DIST = 40;        // px — minimum move before spawning a new wave
+const WAVE_MAX_AGE = 2000;       // ms — prune waves older than this
+const AMBIENT_MAX = 0.0;         // no ambient heartbeat — network is dark at rest
 const AMBIENT_SPEED = 0.004;
-const AMBIENT_FADE_START = 3.0; // seconds after load
-const AMBIENT_FADE_DUR = 2.0;   // seconds to fade ambient to 0
 // Proportional decay: 0.96^120 ≈ 0.008, so glow fades to ~1% in 2 seconds
 const DECAY_RATE = 0.04;
 const HOVER_RADIUS = 80;
@@ -36,6 +34,12 @@ interface MNode {
   ambientOff: number;
   grown: number;
   lw: number;
+}
+
+interface GrowthWave {
+  x: number;
+  y: number;
+  startTime: number;
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -161,17 +165,39 @@ export default function MyceliumHero() {
     let raf: number;
     let forest: { nodes: MNode[] } = { nodes: [] };
     let time = 0;
-    const startTime = performance.now();
     const mouse = { x: -2000, y: -2000 };
     let lastMouseMoveTime = -Infinity;
+    let growthWaves: GrowthWave[] = [];
+    let lastWaveOrigin = { x: -9999, y: -9999 };
 
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       forest = buildForest(canvas.width, canvas.height);
+      growthWaves = [];
+      lastWaveOrigin = { x: -9999, y: -9999 };
     };
 
-    const onMouseMove = (e: MouseEvent) => { mouse.x = e.clientX; mouse.y = e.clientY; lastMouseMoveTime = performance.now(); };
+    const onMouseMove = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      if (e.clientX < rect.left || e.clientX > rect.right ||
+          e.clientY < rect.top  || e.clientY > rect.bottom) {
+        mouse.x = -2000;
+        mouse.y = -2000;
+        return;
+      }
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+      lastMouseMoveTime = performance.now();
+      const dx = mouse.x - lastWaveOrigin.x;
+      const dy = mouse.y - lastWaveOrigin.y;
+      if (dx * dx + dy * dy > MIN_WAVE_DIST * MIN_WAVE_DIST) {
+        const now = performance.now();
+        growthWaves.push({ x: mouse.x, y: mouse.y, startTime: now });
+        growthWaves = growthWaves.filter(w => now - w.startTime < WAVE_MAX_AGE);
+        lastWaveOrigin = { x: mouse.x, y: mouse.y };
+      }
+    };
     const onMouseLeave = () => { mouse.x = -2000; mouse.y = -2000; };
 
     window.addEventListener("resize", resize);
@@ -184,19 +210,26 @@ export default function MyceliumHero() {
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       const { nodes } = forest;
-      const elapsed = (performance.now() - startTime) / 1000;
+      const ambientStrength = AMBIENT_MAX; // always 0; kept for draw-code compatibility
 
-      // Ambient fades out after AMBIENT_FADE_START seconds, reaching 0 after
-      // AMBIENT_FADE_DUR more seconds. Mouse pulses light sections back up.
-      const ambientFade = Math.max(0, 1 - Math.max(0, elapsed - AMBIENT_FADE_START) / AMBIENT_FADE_DUR);
-      const ambientStrength = AMBIENT_MAX * ambientFade;
-
-      // Growth
+      // Wave-driven growth: each branch grows as the wave front from the cursor passes it
+      const nowMs = performance.now();
       for (const n of nodes) {
-        if (n.depth === -1) continue;
-        if ((n.parent?.grown ?? 1) > 0.52) {
-          n.grown = Math.min(1, n.grown + GROWTH_RATE);
+        if (n.depth === -1 || !n.parent) continue;
+        let maxGrown = 0;
+        for (const wave of growthWaves) {
+          const waveFront = ((nowMs - wave.startTime) / 1000) * WAVE_SPEED;
+          // Branch starts drawing when wave reaches parent; fully drawn when it reaches child
+          const pdx = n.parent.x - wave.x;
+          const pdy = n.parent.y - wave.y;
+          const parentDist = Math.sqrt(pdx * pdx + pdy * pdy);
+          if (waveFront > parentDist) {
+            const branchLen = Math.sqrt((n.x - n.parent.x) ** 2 + (n.y - n.parent.y) ** 2);
+            const progress = Math.min(1, (waveFront - parentDist) / (branchLen || 1));
+            if (progress > maxGrown) maxGrown = progress;
+          }
         }
+        n.grown = maxGrown;
       }
 
       // Inner radius: stays lit while mouse is parked there (no movement required)
@@ -292,16 +325,6 @@ export default function MyceliumHero() {
       />
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        <motion.div
-          initial={from}
-          animate={to}
-          transition={{ delay: 0.4, duration: 0.8, ease }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#51FCAA]/10 border border-[#51FCAA]/20 mb-8 backdrop-blur-sm"
-        >
-          <Zap className="h-4 w-4 text-[#51FCAA]" aria-hidden="true" />
-          <span className="text-sm font-medium text-white/80">AI × Animal Welfare</span>
-        </motion.div>
-
         <motion.h1
           initial={from}
           animate={to}
