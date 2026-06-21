@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
-import Link from "next/link";
 
 // ── Tunables ──────────────────────────────────────────────────────────────────
 const BG = "#050d07";
@@ -151,6 +150,7 @@ function buildForest(w: number, h: number): { nodes: MNode[] } {
 // ── Component ─────────────────────────────────────────────────────────────────
 export default function MyceliumHero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
   const [prefersReduced] = useState(() => {
     if (typeof window === "undefined") return false;
     return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -171,8 +171,8 @@ export default function MyceliumHero() {
     let lastWaveOrigin = { x: -9999, y: -9999 };
 
     const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.width = canvas.parentElement?.clientWidth ?? window.innerWidth;
+      canvas.height = canvas.parentElement?.clientHeight ?? 780;
       forest = buildForest(canvas.width, canvas.height);
       growthWaves = [];
       lastWaveOrigin = { x: -9999, y: -9999 };
@@ -185,6 +185,18 @@ export default function MyceliumHero() {
         mouse.x = -2000;
         mouse.y = -2000;
         return;
+      }
+      const textRect = textRef.current?.getBoundingClientRect();
+      if (textRect) {
+        const PAD = 0;
+        if (
+          e.clientX >= textRect.left  - PAD && e.clientX <= textRect.right  + PAD &&
+          e.clientY >= textRect.top   - PAD && e.clientY <= textRect.bottom + PAD
+        ) {
+          mouse.x = -2000;
+          mouse.y = -2000;
+          return;
+        }
       }
       mouse.x = e.clientX;
       mouse.y = e.clientY;
@@ -312,7 +324,7 @@ export default function MyceliumHero() {
   const ease = "easeInOut" as const;
 
   return (
-    <div className="relative min-h-dvh w-full flex flex-col items-center justify-center overflow-hidden bg-[#050d07]">
+    <div className="relative h-[640px] w-full flex flex-col items-center justify-center overflow-hidden bg-[#050d07]">
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" aria-hidden="true" />
 
       <div
@@ -324,7 +336,16 @@ export default function MyceliumHero() {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 58% 44% at 50% 48%, rgba(5,13,7,0.72) 0%, transparent 100%)",
+        }}
+        aria-hidden="true"
+      />
+
+      <div ref={textRef} className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <motion.h1
           initial={from}
           animate={to}
@@ -335,19 +356,7 @@ export default function MyceliumHero() {
           <em className="italic text-[#51FCAA]">inclusive AI</em>
         </motion.h1>
 
-        <motion.p
-          initial={from}
-          animate={to}
-          transition={{ delay: 0.8, duration: 0.8, ease }}
-          className="max-w-2xl mx-auto text-base sm:text-lg leading-relaxed text-white/60 mb-12"
-        >
-          AI will fundamentally transform the systems that affect animal
-          suffering—for better or worse. Models amplify speciesist biases,
-          threatening to lock in harm as they shape policy and decision-making.
-          We build the infrastructure to change that.
-        </motion.p>
-
-        <motion.div
+        {/* <motion.div
           initial={from}
           animate={to}
           transition={{ delay: 1.0, duration: 0.8, ease }}
@@ -365,13 +374,10 @@ export default function MyceliumHero() {
           >
             Our work
           </Link>
-        </motion.div>
+        </motion.div> */}
       </div>
 
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/40">
-        <span className="text-xs tracking-[0.2em] uppercase">Scroll</span>
-        <div className="h-8 w-px bg-gradient-to-b from-white/40 to-transparent" />
-      </div>
+
     </div>
   );
 }

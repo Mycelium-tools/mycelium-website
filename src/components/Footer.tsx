@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="border-t border-[#ddd9d1] bg-[#f7f5f1] px-6 py-8">
+    <footer className="bg-[#fff9ed] px-6 py-16">
       <div className="mx-auto max-w-6xl text-center">
         <div className="flex items-center justify-center gap-4">
           <p className="text-sm text-[#8a9e8c]">© {new Date().getFullYear()} Mycelium</p>

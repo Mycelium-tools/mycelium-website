@@ -11,9 +11,6 @@ export default function Home() {
         {/* Mission */}
         <section className="bg-[#f0e8ff] px-6 py-28">
           <div className="mx-auto max-w-4xl">
-            <span className="text-xs font-semibold tracking-[0.2em] uppercase text-[#0a8c5c]">
-              The problem
-            </span>
             <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-[#18211a] sm:text-5xl">
               the gap is{" "}
               <em className="italic text-[#0a8c5c]">real</em>
@@ -36,14 +33,13 @@ export default function Home() {
         </section>
 
         {/* Partnerships */}
-        <section className="bg-[#edfaf4] px-6 py-24">
+        <section className="bg-[#fff9ed] px-6 py-18 pb-24">
           <div className="mx-auto max-w-4xl">
             <h2 className="mt-4 font-serif text-3xl font-semibold text-[#18211a] sm:text-4xl">
               partnerships
             </h2>
-            <p className="mt-4 max-w-2xl text-lg text-[#5a6b5c]">
-              We collaborate with leading AI×Animals organizations and research
-              institutions to advance shared goals.
+            <p className="mt-4 max-w-2xl text-md text-[#5a6b5c]">
+              We collaborate with leading AI×Animals organizations and research institutions
             </p>
             <div className="mt-10 flex flex-wrap items-end gap-10">
               <div className="flex flex-col items-center gap-3">
@@ -59,72 +55,63 @@ export default function Home() {
                 <span className="text-xs font-medium text-[#8a9e8c]">CaML</span>
               </div>
               <div className="flex flex-col items-center gap-3">
-                <Image src="/partner-logos/electric-sheep.png" alt="Electric Sheep" width={180} height={70} className="object-contain" unoptimized />
+                <Image src="/partner-logos/electric-sheep.png" alt="Electric Sheep" width={220} height={70} className="object-contain" unoptimized />
                 <span className="text-xs font-medium text-[#8a9e8c]">Electric Sheep</span>
               </div>
-              
+
             </div>
           </div>
         </section>
 
         {/* Supported by */}
-        <section className="bg-[#fff9ed] px-6 py-20">
+        <section className="bg-[#fff9ed] px-6 pb-24">
           <div className="mx-auto max-w-4xl">
             <h2 className="mt-4 font-serif text-3xl font-semibold text-[#18211a] sm:text-4xl">
               supported by
             </h2>
-            <div className="mt-10 flex flex-wrap items-center gap-12">
-              <Image
-                src="/donor-logos/Coefficient+Logo+Gray.webp"
-                alt="Coefficient Giving"
-                width={200}
-                height={60}
-                className="object-contain opacity-80 grayscale hover:opacity-100 hover:grayscale-0 transition-all"
-                unoptimized
-              />
-              <Image
-                src="/donor-logos/Logo%20-%20Copy.png"
-                alt="The Pollination Project"
-                width={200}
-                height={60}
-                className="object-contain opacity-80 hover:opacity-100 transition-all"
-                unoptimized
-              />
-            </div>
-          </div>
-        </section>
-
-        {/* Team */}
-        <section className="bg-[#f7f5f1] px-6 py-28">
-          <div className="mx-auto max-w-4xl">
-            <span className="text-xs font-semibold tracking-[0.2em] uppercase text-[#0a8c5c]">
-              Team
-            </span>
-
-            <div className="mt-14 max-w-sm">
-              <div className="rounded-2xl border border-[#ddd9d1] bg-white p-8 shadow-sm">
-                <div className="flex items-center gap-4">
-                  <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full">
-                    <Image
-                      src="/headshot-allen.jpg"
-                      alt="Allen Lu"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div>
-                    <h3 className="font-serif text-xl font-semibold text-[#18211a]">
-                      Allen Lu
-                    </h3>
-                    <p className="mt-0.5 text-sm font-medium text-[#0a8c5c]">
-                      Founder, Executive Director
-                    </p>
-                  </div>
-                </div>
-                <p className="mt-6 leading-relaxed text-[#5a6b5c]">
-                  Long-term strategy, fundraising, operations, and partnerships
-                  with key AI safety and animal welfare organizations.
-                </p>
+            <p className="mt-4 max-w-2xl text-md text-[#5a6b5c]">
+              We're thankful for our supporters, who keep our operations running
+            </p>
+            <div className="mt-10 flex flex-wrap items-end gap-12">
+              <div className="flex flex-col items-center gap-3">
+                <Image
+                  src="/donor-logos/Coefficient+Logo+Gray.webp"
+                  alt="Coefficient Giving"
+                  width={200}
+                  height={60}
+                  unoptimized
+                />
+                {/* <span className="text-xs font-medium text-[#8a9e8c]">Coefficient Giving</span> */}
+              </div>
+              <div className="flex flex-col items-center gap-3">
+                <Image
+                  src="/donor-logos/tpp-logo.jpg"
+                  alt="The Pollination Project"
+                  width={112}
+                  height={60}
+                  unoptimized
+                />
+                {/* <span className="text-xs font-medium text-[#8a9e8c]">The Pollination Project</span> */}
+              </div>
+              <div className="flex flex-col items-center gap-3">
+                <Image
+                  src="/donor-logos/bluedot-logo.png"
+                  alt="BlueDot Impact"
+                  width={190}
+                  height={60}
+                  unoptimized
+                />
+                {/* <span className="text-xs font-medium text-[#8a9e8c]">BlueDot Impact</span> */}
+              </div>
+              <div className="flex flex-col items-center gap-3">
+                <Image
+                  src="/donor-logos/spar-logo.png"
+                  alt="SPAR"
+                  width={208}
+                  height={60}
+                  unoptimized
+                />
+                {/* <span className="text-xs font-medium text-[#8a9e8c]">SPAR</span> */}
               </div>
             </div>
           </div>
