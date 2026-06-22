@@ -18,18 +18,20 @@
 
 | Role | Hex | CSS Variable |
 |------|-----|--------------|
-| Primary | `#0F172A` | `--color-primary` |
-| On Primary | `#FFFFFF` | `--color-on-primary` |
-| Secondary | `#1E293B` | `--color-secondary` |
-| Accent/CTA | `#22C55E` | `--color-accent` |
-| Background | `#020617` | `--color-background` |
-| Foreground | `#F8FAFC` | `--color-foreground` |
-| Muted | `#1A1E2F` | `--color-muted` |
-| Border | `#334155` | `--color-border` |
-| Destructive | `#EF4444` | `--color-destructive` |
-| Ring | `#0F172A` | `--color-ring` |
+| Background | `#fff9ed` | `--background` |
+| Foreground / Text | `#1c1025` | `--foreground` |
+| Purple Primary | `#8157D6` | `--accent` |
+| Purple Hover | `#9e7de0` | `--accent-hover` |
+| Green CTA | `#CED665` | `--accent-cta` |
+| Green CTA Hover | `#dde87a` | `--accent-cta-hover` |
+| Text Muted | `#5a4b6b` | `--muted` |
+| Text Faint | `#8a7aa0` | `--muted-light` |
+| Surface | `#f5eeff` | `--surface` |
+| Surface Raised | `#ffffff` | `--surface-raised` |
+| Border | `#e0d5ec` | `--border` |
+| Border Light | `#ede5f5` | `--border-light` |
 
-**Color Notes:** Dark bg + green positive indicators
+**Color Notes:** Warm off-white background with complementary purple (#8157D6) and yellow-green (#CED665) — purple for primary accents/links, yellow-green for CTAs and highlights.
 
 ### Typography
 

@@ -2,9 +2,10 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
+import Link from "next/link";
 
 // ── Tunables ──────────────────────────────────────────────────────────────────
-const BG = "#050d07";
+const BG = "#fff9ed";
 const MAX_DEPTH = 5;
 const BASE_LENGTH = 115;
 const LENGTH_DECAY = 0.65;
@@ -47,9 +48,10 @@ function lerp(a: number, b: number, t: number) {
 }
 
 function hyphaColor(brightness: number, alpha: number): string {
-  const r = Math.round(lerp(8, 81, brightness));
-  const g = Math.round(lerp(52, 252, brightness));
-  const b = Math.round(lerp(35, 170, brightness));
+  // dim: #6b682c → bright: #D6CF58
+  const r = Math.round(lerp(107, 214, brightness));
+  const g = Math.round(lerp(104, 207, brightness));
+  const b = Math.round(lerp(44, 88, brightness));
   return `rgba(${r},${g},${b},${alpha.toFixed(2)})`;
 }
 
@@ -270,7 +272,7 @@ export default function MyceliumHero() {
         const ambient = ambientStrength * (0.5 + 0.5 * Math.sin(time + n.ambientOff));
         const b = Math.min(1, n.brightness + ambient);
         if (b < 0.005) continue;
-        ctx.strokeStyle = hyphaColor(b, lerp(0, 0.85, b));
+        ctx.strokeStyle = hyphaColor(b, lerp(0.2, 1.0, b));
         ctx.lineWidth = n.lw;
         ctx.beginPath();
         drawPartialBezier(ctx, n.parent.x, n.parent.y, n.cpx, n.cpy, n.x, n.y, n.grown);
@@ -285,17 +287,17 @@ export default function MyceliumHero() {
         if (n.depth === -1) {
           ctx.beginPath();
           ctx.arc(n.x, n.y, lerp(1.6, 3.8, b), 0, Math.PI * 2);
-          ctx.fillStyle = hyphaColor(b, lerp(0, 0.9, b));
+          ctx.fillStyle = hyphaColor(b, lerp(0.2, 1.0, b));
           ctx.fill();
         } else if (n.children.length === 0 && n.grown > 0.92) {
           ctx.beginPath();
           ctx.arc(n.x, n.y, lerp(0.8, 2.2, b), 0, Math.PI * 2);
-          ctx.fillStyle = hyphaColor(b, lerp(0, 0.85, b));
+          ctx.fillStyle = hyphaColor(b, lerp(0.2, 1.0, b));
           ctx.fill();
         } else if (n.children.length > 1 && n.grown > 0.9) {
           ctx.beginPath();
           ctx.arc(n.x, n.y, lerp(0.6, 1.6, b), 0, Math.PI * 2);
-          ctx.fillStyle = hyphaColor(b, lerp(0, 0.7, b));
+          ctx.fillStyle = hyphaColor(b, lerp(0.15, 0.9, b));
           ctx.fill();
         }
       }
@@ -324,14 +326,14 @@ export default function MyceliumHero() {
   const ease = "easeInOut" as const;
 
   return (
-    <div className="relative h-[640px] w-full flex flex-col items-center justify-center overflow-hidden bg-[#050d07]">
+    <div className="relative h-[640px] w-full flex flex-col items-center justify-center overflow-hidden bg-[#fff9ed]">
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" aria-hidden="true" />
 
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 72% 72% at 50% 50%, transparent 28%, #050d07 100%)",
+            "radial-gradient(ellipse 72% 72% at 50% 50%, transparent 28%, #fff9ed 100%)",
         }}
         aria-hidden="true"
       />
@@ -340,21 +342,36 @@ export default function MyceliumHero() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 58% 44% at 50% 48%, rgba(5,13,7,0.72) 0%, transparent 100%)",
+            "radial-gradient(ellipse 58% 44% at 50% 48%, rgba(255,249,237,0.72) 0%, transparent 100%)",
         }}
         aria-hidden="true"
       />
 
-      <div ref={textRef} className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        <motion.h1
+      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto flex flex-col items-center gap-6">
+        <div ref={textRef}>
+          <motion.h1
+            initial={from}
+            animate={to}
+            transition={{ delay: 0.6, duration: 0.8, ease }}
+            className="font-serif text-5xl sm:text-6xl md:text-7xl font-semibold leading-tight tracking-tight text-[#1c1025]"
+          >
+            building the technical foundation for{" "}
+            <em className="italic text-green">inclusive AI</em>
+          </motion.h1>
+        </div>
+
+        <motion.div
           initial={from}
           animate={to}
-          transition={{ delay: 0.6, duration: 0.8, ease }}
-          className="font-serif text-5xl sm:text-6xl md:text-7xl font-semibold leading-tight tracking-tight text-white mb-6"
+          transition={{ delay: 1.0, duration: 0.8, ease }}
         >
-          building the technical foundation for{" "}
-          <em className="italic text-[#51FCAA]">inclusive AI</em>
-        </motion.h1>
+          <Link
+            href="/work"
+            className="inline-block rounded-full bg-green px-8 py-3.5 font-sans font-medium text-[#1c1025] transition-all duration-200 hover:bg-green-hover hover:scale-[1.02] cursor-pointer"
+          >
+            See our work
+          </Link>
+        </motion.div>
 
         {/* <motion.div
           initial={from}
@@ -364,7 +381,7 @@ export default function MyceliumHero() {
         >
           <Link
             href="/contact"
-            className="rounded-full bg-[#51FCAA] px-8 py-3.5 font-medium text-[#0a3d22] transition-all duration-200 hover:bg-[#3de89a] hover:scale-[1.02] cursor-pointer"
+            className="rounded-full bg-[#CED665] px-8 py-3.5 font-medium text-[#1c1025] transition-all duration-200 hover:bg-[#dde87a] hover:scale-[1.02] cursor-pointer"
           >
             Get in touch
           </Link>

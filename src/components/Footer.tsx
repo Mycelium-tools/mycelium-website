@@ -1,14 +1,14 @@
 export default function Footer() {
   return (
-    <footer className="bg-[#fff9ed] px-6 py-16">
+    <footer className="bg-purple px-6 py-16">
       <div className="mx-auto max-w-6xl text-center">
         <div className="flex items-center justify-center gap-4">
-          <p className="text-sm text-[#8a9e8c]">© {new Date().getFullYear()} Mycelium</p>
+          <p className="text-sm text-white/70">© {new Date().getFullYear()} Mycelium</p>
           <a
             href="https://www.linkedin.com/company/projectmycelium/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#8a9e8c] transition-colors hover:text-[#18211a]"
+            className="text-white/70 transition-colors hover:text-white"
             aria-label="LinkedIn"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -16,7 +16,7 @@ export default function Footer() {
             </svg>
           </a>
         </div>
-        <p className="mt-4 text-xs leading-relaxed text-[#8a9e8c]">
+        <p className="mt-4 text-xs leading-relaxed text-white/60">
           Mycelium is a fiscally sponsored project of Anti Entropy (EIN: 88-0967420),<br />
           a 501(c)(3) nonprofit organization. Donations are tax-deductible to the extent allowed by law.
         </p>

@@ -20,13 +20,14 @@ Always run `npx tsc --noEmit` and `npm run lint` after a series of code changes.
 ## Brand colors (do not deviate)
 | Token | Hex | Usage |
 |---|---|---|
-| Background | `#f7f5f1` | cream page background |
-| Text dark | `#18211a` | primary text |
-| Text muted | `#5a6b5c` | body copy |
-| Text faint | `#8a9e8c` | labels, captions |
-| Green primary | `#0a8c5c` | accents, links |
-| Green bright | `#51FCAA` | CTA button fill |
-| Border | `#ddd9d1` | card borders |
+| Background | `#fff9ed` | warm off-white page background |
+| Text dark | `#1c1025` | primary text |
+| Text muted | `#5a4b6b` | body copy |
+| Text faint | `#8a7aa0` | labels, captions |
+| Purple primary | `#8157D6` | accents, links, primary actions |
+| Green accent | `#CED665` | CTA button fill, highlights |
+| Surface | `#f5eeff` | subtle card/section backgrounds |
+| Border | `#e0d5ec` | card borders |
 
 ## Typography
 Two fonts loaded via `next/font/google` in `src/app/layout.tsx`:
