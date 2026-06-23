@@ -72,7 +72,7 @@ export default function MantaPage() {
               MANTA: Do LLMs Hold Their Values?
             </h1>
 
-            <p className="mt-4 text-sm text-faint">June 3, 2026</p>
+            <p className="mt-4 text-sm text-faint">June 22, 2026</p>
 
             <p className="mt-6 text-lg leading-relaxed text-muted">
               We built a benchmark testing whether language models maintain animal welfare
@@ -96,25 +96,8 @@ export default function MantaPage() {
                 </svg>
               </a>
             </div>
-
-            {/* Authors */}
-            <div className="mt-10 border-t border-border pt-8">
-              <p className="text-xs font-medium uppercase tracking-widest text-faint">Authors</p>
-              <p className="mt-2 text-sm text-muted">
-                Isabella Luong, Joyee Chen, Arturs Kanepajs, Jasmine Brazilek, Sankalpa Ghose,
-                David Williams-King, Linh Le, Allen Lu
-              </p>
-              <p className="mt-1 text-xs text-faint">
-                SPAR · Compassion Aligned Machine Learning · NUS · Mila · ERA Cambridge
-              </p>
-            </div>
           </div>
         </section>
-
-        {/* Divider */}
-        <div className="mx-auto max-w-3xl px-6">
-          <hr className="border-border" />
-        </div>
 
         {/* Body */}
         <section className="px-6 py-16">

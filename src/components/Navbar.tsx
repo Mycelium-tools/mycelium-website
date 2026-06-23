@@ -51,7 +51,7 @@ export default function Navbar() {
             </svg>
           </a>
           <a
-            href="https://www.every.org/mycelium"
+            href="https://www.every.org/projectmycelium"
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-full bg-green px-5 py-2.5 text-m font-medium text-foreground transition-colors hover:bg-green-hover"
