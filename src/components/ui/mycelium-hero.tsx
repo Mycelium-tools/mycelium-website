@@ -9,17 +9,16 @@ const BG = "#fff9ed";
 const MAX_DEPTH = 5;
 const BASE_LENGTH = 115;
 const LENGTH_DECAY = 0.65;
-// Growth wave expands from cursor; branches grow as wave front passes over them
-const WAVE_SPEED = 260;          // px/second
-const MIN_WAVE_DIST = 40;        // px — minimum move before spawning a new wave
-const WAVE_MAX_AGE = 2000;       // ms — prune waves older than this
-const AMBIENT_MAX = 0.0;         // no ambient heartbeat — network is dark at rest
-const AMBIENT_SPEED = 0.004;
-// Proportional decay: 0.96^120 ≈ 0.008, so glow fades to ~1% in 2 seconds
-const DECAY_RATE = 0.04;
 const HOVER_RADIUS = 80;
 const MOUSE_RADIUS = 200;
 const ROOT_LINE_W = 2.4;
+
+// Signal propagation system
+const REST_BRIGHTNESS = 0.18;  // base color brightness at rest
+const REST_ALPHA      = 0.22;  // base stroke opacity — muted but present
+const SIGNAL_ALPHA    = 0.95;  // opacity cap when fully lit
+const DECAY_RATE      = 0.055; // signal *= (1 - DECAY_RATE) per frame; ~2s half-life
+const PROP_FACTOR     = 0.85;  // fraction of cursor boost passed to each neighbor per frame
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 interface MNode {
@@ -30,16 +29,9 @@ interface MNode {
   depth: number;
   parent: MNode | null;
   children: MNode[];
-  brightness: number;
-  ambientOff: number;
-  grown: number;
+  signal: number;
+  incoming: number;
   lw: number;
-}
-
-interface GrowthWave {
-  x: number;
-  y: number;
-  startTime: number;
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -99,9 +91,8 @@ function spawnBranch(
     x: tx, y: ty, cpx, cpy,
     depth, parent,
     children: [],
-    brightness: 0,
-    ambientOff: Math.random() * Math.PI * 2,
-    grown: 0,
+    signal: 0,
+    incoming: 0,
     lw: Math.max(0.35, ROOT_LINE_W - depth * 0.38),
   };
   allNodes.push(node);
@@ -134,9 +125,9 @@ function buildForest(w: number, h: number): { nodes: MNode[] } {
     const root: MNode = {
       x: rx, y: ry, cpx: rx, cpy: ry,
       depth: -1, parent: null, children: [],
-      brightness: 0,
-      ambientOff: Math.random() * Math.PI * 2,
-      grown: 1, lw: 0,
+      signal: 0,
+      incoming: 0,
+      lw: 0,
     };
     nodes.push(root);
 
@@ -166,18 +157,12 @@ export default function MyceliumHero() {
 
     let raf: number;
     let forest: { nodes: MNode[] } = { nodes: [] };
-    let time = 0;
     const mouse = { x: -2000, y: -2000 };
-    let lastMouseMoveTime = -Infinity;
-    let growthWaves: GrowthWave[] = [];
-    let lastWaveOrigin = { x: -9999, y: -9999 };
 
     const resize = () => {
       canvas.width = canvas.parentElement?.clientWidth ?? window.innerWidth;
       canvas.height = canvas.parentElement?.clientHeight ?? 780;
       forest = buildForest(canvas.width, canvas.height);
-      growthWaves = [];
-      lastWaveOrigin = { x: -9999, y: -9999 };
     };
 
     const onMouseMove = (e: MouseEvent) => {
@@ -202,15 +187,6 @@ export default function MyceliumHero() {
       }
       mouse.x = e.clientX;
       mouse.y = e.clientY;
-      lastMouseMoveTime = performance.now();
-      const dx = mouse.x - lastWaveOrigin.x;
-      const dy = mouse.y - lastWaveOrigin.y;
-      if (dx * dx + dy * dy > MIN_WAVE_DIST * MIN_WAVE_DIST) {
-        const now = performance.now();
-        growthWaves.push({ x: mouse.x, y: mouse.y, startTime: now });
-        growthWaves = growthWaves.filter(w => now - w.startTime < WAVE_MAX_AGE);
-        lastWaveOrigin = { x: mouse.x, y: mouse.y };
-      }
     };
     const onMouseLeave = () => { mouse.x = -2000; mouse.y = -2000; };
 
@@ -224,89 +200,85 @@ export default function MyceliumHero() {
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       const { nodes } = forest;
-      const ambientStrength = AMBIENT_MAX; // always 0; kept for draw-code compatibility
 
-      // Wave-driven growth: each branch grows as the wave front from the cursor passes it
-      const nowMs = performance.now();
-      for (const n of nodes) {
-        if (n.depth === -1 || !n.parent) continue;
-        let maxGrown = 0;
-        for (const wave of growthWaves) {
-          const waveFront = ((nowMs - wave.startTime) / 1000) * WAVE_SPEED;
-          // Branch starts drawing when wave reaches parent; fully drawn when it reaches child
-          const pdx = n.parent.x - wave.x;
-          const pdy = n.parent.y - wave.y;
-          const parentDist = Math.sqrt(pdx * pdx + pdy * pdy);
-          if (waveFront > parentDist) {
-            const branchLen = Math.sqrt((n.x - n.parent.x) ** 2 + (n.y - n.parent.y) ** 2);
-            const progress = Math.min(1, (waveFront - parentDist) / (branchLen || 1));
-            if (progress > maxGrown) maxGrown = progress;
-          }
-        }
-        n.grown = maxGrown;
-      }
-
-      // Inner radius: stays lit while mouse is parked there (no movement required)
-      // Outer radius: only glows when mouse is actively moving
-      const mouseMoving = performance.now() - lastMouseMoveTime < 32;
+      // A+B: cursor boost + propagate that boost (not accumulated signal) to neighbors.
+      // Propagating cursor-derived boost instead of n.signal breaks the feedback loop —
+      // when the cursor leaves, boost drops to zero and signal decays cleanly.
       for (const n of nodes) {
         const dx = n.x - mouse.x;
         const dy = n.y - mouse.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
+        let cursorBoost = 0;
         if (dist < HOVER_RADIUS) {
-          n.brightness = Math.min(1, n.brightness + 0.08 * (1 - dist / HOVER_RADIUS));
-        } else if (mouseMoving && dist < MOUSE_RADIUS) {
-          n.brightness = Math.min(1, n.brightness + 0.07 * (1 - dist / MOUSE_RADIUS));
+          cursorBoost = 0.38 * (1 - dist / HOVER_RADIUS);
+        } else if (dist < MOUSE_RADIUS) {
+          cursorBoost = 0.16 * (1 - dist / MOUSE_RADIUS);
+        }
+        if (cursorBoost > 0) {
+          n.signal = Math.min(1, n.signal + cursorBoost);
+          const prop = cursorBoost * PROP_FACTOR;
+          if (n.parent !== null) n.parent.incoming += prop;
+          for (const child of n.children) child.incoming += prop;
         }
       }
 
-      // Proportional decay — guaranteed to reach zero, no inter-node feedback
+      // C: apply propagated signal
       for (const n of nodes) {
-        n.brightness *= (1 - DECAY_RATE);
+        n.signal = Math.min(1, n.signal + n.incoming);
+        n.incoming = 0;
       }
 
-      // Draw hyphae
+      // D: decay + snap to zero
+      for (const n of nodes) {
+        n.signal *= (1 - DECAY_RATE);
+        if (n.signal < 0.001) n.signal = 0;
+      }
+
+      // E: draw hyphae — glow pass (wide transparent stroke) then sharp pass
       ctx.lineCap = "round";
       for (const n of nodes) {
-        if (n.depth === -1 || n.grown <= 0 || !n.parent) continue;
-        const ambient = ambientStrength * (0.5 + 0.5 * Math.sin(time + n.ambientOff));
-        const b = Math.min(1, n.brightness + ambient);
-        if (b < 0.005) continue;
-        ctx.strokeStyle = hyphaColor(b, lerp(0.2, 1.0, b));
-        ctx.lineWidth = n.lw;
+        if (n.depth === -1 || !n.parent || n.signal < 0.08) continue;
+        ctx.strokeStyle = hyphaColor(1.0, n.signal * 0.18);
+        ctx.lineWidth = n.lw + lerp(0, 10, n.signal);
         ctx.beginPath();
-        drawPartialBezier(ctx, n.parent.x, n.parent.y, n.cpx, n.cpy, n.x, n.y, n.grown);
+        drawPartialBezier(ctx, n.parent.x, n.parent.y, n.cpx, n.cpy, n.x, n.y, 1);
+        ctx.stroke();
+      }
+      for (const n of nodes) {
+        if (n.depth === -1 || !n.parent) continue;
+        const b = Math.max(REST_BRIGHTNESS, n.signal);
+        const alpha = n.signal > 0.01 ? lerp(REST_ALPHA, SIGNAL_ALPHA, n.signal) : REST_ALPHA;
+        ctx.strokeStyle = hyphaColor(b, alpha);
+        ctx.lineWidth = n.lw + lerp(0, 1.2, n.signal);
+        ctx.beginPath();
+        drawPartialBezier(ctx, n.parent.x, n.parent.y, n.cpx, n.cpy, n.x, n.y, 1);
         ctx.stroke();
       }
 
-      // Draw nodes
+      // E (continued): draw nodes
       for (const n of nodes) {
-        const ambient = ambientStrength * (0.5 + 0.5 * Math.sin(time + n.ambientOff));
-        const b = Math.min(1, n.brightness + ambient);
-        if (b < 0.005) continue;
+        const b = Math.max(REST_BRIGHTNESS, n.signal);
+        const alpha = n.signal > 0.01 ? lerp(REST_ALPHA, SIGNAL_ALPHA, n.signal) : REST_ALPHA;
         if (n.depth === -1) {
           ctx.beginPath();
           ctx.arc(n.x, n.y, lerp(1.6, 3.8, b), 0, Math.PI * 2);
-          ctx.fillStyle = hyphaColor(b, lerp(0.2, 1.0, b));
+          ctx.fillStyle = hyphaColor(b, alpha);
           ctx.fill();
-        } else if (n.children.length === 0 && n.grown > 0.92) {
+        } else if (n.children.length === 0) {
           ctx.beginPath();
           ctx.arc(n.x, n.y, lerp(0.8, 2.2, b), 0, Math.PI * 2);
-          ctx.fillStyle = hyphaColor(b, lerp(0.2, 1.0, b));
+          ctx.fillStyle = hyphaColor(b, alpha);
           ctx.fill();
-        } else if (n.children.length > 1 && n.grown > 0.9) {
+        } else if (n.children.length > 1) {
           ctx.beginPath();
           ctx.arc(n.x, n.y, lerp(0.6, 1.6, b), 0, Math.PI * 2);
-          ctx.fillStyle = hyphaColor(b, lerp(0.15, 0.9, b));
+          ctx.fillStyle = hyphaColor(b, lerp(REST_ALPHA * 0.7, 0.9, b));
           ctx.fill();
         }
       }
-
-      time += AMBIENT_SPEED;
     };
 
     if (prefersReduced) {
-      for (const n of forest.nodes) n.grown = 1;
       tick();
     } else {
       const animate = () => { raf = requestAnimationFrame(animate); tick(); };
@@ -372,26 +344,6 @@ export default function MyceliumHero() {
             See our work
           </Link>
         </motion.div>
-
-        {/* <motion.div
-          initial={from}
-          animate={to}
-          transition={{ delay: 1.0, duration: 0.8, ease }}
-          className="flex flex-wrap items-center justify-center gap-4"
-        >
-          <Link
-            href="/contact"
-            className="rounded-full bg-[#CED665] px-8 py-3.5 font-medium text-[#1c1025] transition-all duration-200 hover:bg-[#dde87a] hover:scale-[1.02] cursor-pointer"
-          >
-            Get in touch
-          </Link>
-          <Link
-            href="/work"
-            className="rounded-full border border-white/30 px-8 py-3.5 font-medium text-white transition-all duration-200 hover:bg-white/5 cursor-pointer"
-          >
-            Our work
-          </Link>
-        </motion.div> */}
       </div>
 
 

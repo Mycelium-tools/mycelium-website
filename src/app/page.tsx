@@ -12,7 +12,7 @@ export default function Home() {
         <section className="bg-background px-6 pb-8">
           <div className="mx-auto max-w-4xl">
             <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
-              what's at {" "}
+              what&apos;s at {" "}
               <em className="italic text-purple">stake</em>
             </h2>
             <div className="mt-10 grid gap-8 sm:grid-cols-2">
@@ -43,19 +43,19 @@ export default function Home() {
             </p>
             <div className="mt-10 flex flex-wrap items-end gap-10">
               <div className="flex flex-col items-center gap-3">
-                <Image src="/partner-logos/sent-futures.webp" alt="Sentient Futures" width={160} height={70} className="object-contain" unoptimized />
+                <Image src="/partner-logos/sent-futures.webp" alt="Sentient Futures" width={180} height={70} className="object-contain" unoptimized />
                 <span className="text-xs font-medium text-faint">Sentient Futures</span>
               </div>
               <div className="flex flex-col items-center gap-3">
-                <Image src="/partner-logos/arcadia-impact.png" alt="Arcadia Impact" width={160} height={70} className="object-contain" unoptimized />
+                <Image src="/partner-logos/arcadia-impact.png" alt="Arcadia Impact" width={180} height={70} className="object-contain" unoptimized />
                 <span className="text-xs font-medium text-faint">Arcadia Impact</span>
               </div>
               <div className="flex flex-col items-center gap-3">
-                <Image src="/partner-logos/caml.png" alt="CaML" width={80} height={80} className="object-contain" unoptimized />
+                <Image src="/partner-logos/caml.png" alt="CaML" width={92} height={80} className="object-contain" unoptimized />
                 <span className="text-xs font-medium text-faint">CaML</span>
               </div>
               <div className="flex flex-col items-center gap-3">
-                <Image src="/partner-logos/electric-sheep.png" alt="Electric Sheep" width={220} height={70} className="object-contain" unoptimized />
+                <Image src="/partner-logos/electric-sheep.png" alt="Electric Sheep" width={250} height={70} className="object-contain" unoptimized />
                 <span className="text-xs font-medium text-faint">Electric Sheep</span>
               </div>
 
