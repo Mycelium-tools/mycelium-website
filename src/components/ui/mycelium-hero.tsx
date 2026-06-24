@@ -20,12 +20,13 @@ const HOVER_RADIUS    = 80;
 const MOUSE_RADIUS    = 200;
 
 // Traveling pulse system
-const PULSE_SPEED      = 0.022; // fraction of edge per frame (~1.5s per edge at 60fps)
-const PULSE_MAX_AGE    = 300;   // frames before pulse dies
-const PULSE_FADE_AT    = 220;   // frame at which fade-out begins
-const MAX_PULSES       = 80;    // hard cap to prevent junction explosion
-const PULSE_SPAWN_DIST = 35;    // px — min mouse movement to spawn a new batch
-const PULSE_RADIUS     = 3;     // px — ball radius at full brightness
+const PULSE_SPEED          = 0.022; // fraction of edge per frame (~1.5s per edge at 60fps)
+const PULSE_MAX_AGE        = 300;   // frames before pulse dies
+const PULSE_FADE_AT        = 220;   // frame at which fade-out begins
+const MAX_PULSES           = 80;    // hard cap to prevent junction explosion
+const PULSE_SPAWN_DIST     = 35;    // px — min mouse movement to spawn a new batch
+const PULSE_RADIUS         = 3;     // px — ball radius at full brightness
+const PULSE_STRENGTH_DECAY = 0.72;  // multiply per hop — pulse shrinks & fades with distance
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 interface MNode {
@@ -44,8 +45,9 @@ interface MNode {
 interface Pulse {
   fromNode: MNode;
   toNode: MNode;
-  t: number;    // progress along this edge [0, 1]
-  age: number;  // frames alive
+  t: number;        // progress along this edge [0, 1]
+  age: number;      // frames alive
+  strength: number; // 1.0 at origin, decays by PULSE_STRENGTH_DECAY per hop
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -230,10 +232,10 @@ export default function MyceliumHero() {
 
       for (const child of nearest.children) {
         if (pulses.length < MAX_PULSES)
-          pulses.push({ fromNode: nearest, toNode: child, t: 0, age: 0 });
+          pulses.push({ fromNode: nearest, toNode: child, t: 0, age: 0, strength: 1.0 });
       }
       if (nearest.parent && pulses.length < MAX_PULSES) {
-        pulses.push({ fromNode: nearest, toNode: nearest.parent, t: 0, age: 0 });
+        pulses.push({ fromNode: nearest, toNode: nearest.parent, t: 0, age: 0, strength: 1.0 });
       }
       lastSpawnOrigin = { x: mouse.x, y: mouse.y };
     };
@@ -315,9 +317,10 @@ export default function MyceliumHero() {
         p.age++;
         if (p.t >= 1) {
           const arrived = p.toNode;
+          const childStrength = p.strength * PULSE_STRENGTH_DECAY;
           for (const child of arrived.children) {
             if (child !== p.fromNode && nextPulses.length + pulses.length < MAX_PULSES) {
-              nextPulses.push({ fromNode: arrived, toNode: child, t: 0, age: p.age });
+              nextPulses.push({ fromNode: arrived, toNode: child, t: 0, age: p.age, strength: childStrength });
             }
           }
         } else if (p.age < PULSE_MAX_AGE) {
@@ -376,16 +379,16 @@ export default function MyceliumHero() {
           : 1 - (p.age - PULSE_FADE_AT) / (PULSE_MAX_AGE - PULSE_FADE_AT);
         const pos = bezierPoint(p);
 
-        // Outer glow halo — use bright end of the blue palette
+        // Outer glow halo — shrinks and fades with distance traveled
         ctx.beginPath();
-        ctx.arc(pos.x, pos.y, PULSE_RADIUS * 2.2, 0, Math.PI * 2);
-        ctx.fillStyle = color(1.0, fadeFraction * 0.18);
+        ctx.arc(pos.x, pos.y, PULSE_RADIUS * 2.2 * p.strength, 0, Math.PI * 2);
+        ctx.fillStyle = color(1.0, fadeFraction * 0.18 * p.strength);
         ctx.fill();
 
-        // Core ball
+        // Core ball — shrinks and fades with distance traveled
         ctx.beginPath();
-        ctx.arc(pos.x, pos.y, PULSE_RADIUS, 0, Math.PI * 2);
-        ctx.fillStyle = color(1.0, fadeFraction * 0.9);
+        ctx.arc(pos.x, pos.y, Math.max(0.3, PULSE_RADIUS * p.strength), 0, Math.PI * 2);
+        ctx.fillStyle = color(1.0, fadeFraction * 0.9 * p.strength);
         ctx.fill();
       }
     };
@@ -421,8 +424,8 @@ export default function MyceliumHero() {
             transition={{ delay: 0.6, duration: 0.8, ease }}
             className="font-serif text-5xl sm:text-6xl md:text-7xl font-semibold leading-tight tracking-tight text-foreground"
           >
-            building the technical foundation for{" "}
-            <em className="italic text-purple">inclusive AI</em>
+            building a foundation for AI to consider{" "}
+            <em className="italic text-purple">all sentient beings</em>
           </motion.h1>
         </div>
 

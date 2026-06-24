@@ -34,7 +34,7 @@ export default function ContactPage() {
             >
               <div className="grid gap-6 sm:grid-cols-2">
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="name" className="text-sm font-medium text-foreground">
+                  <label htmlFor="name" className="text-md font-medium text-foreground">
                     Name
                   </label>
                   <input
@@ -43,11 +43,11 @@ export default function ContactPage() {
                     name="name"
                     required
                     placeholder="Your name"
-                    className="rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder-faint outline-none transition-colors focus:border-foreground/40 focus:ring-2 focus:ring-foreground/5"
+                    className="rounded-xl border border-border bg-background px-4 py-3 text-md text-foreground placeholder-faint outline-none transition-colors focus:border-foreground/40 focus:ring-2 focus:ring-foreground/5"
                   />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="email" className="text-sm font-medium text-foreground">
+                  <label htmlFor="email" className="text-md font-medium text-foreground">
                     Email
                   </label>
                   <input
@@ -56,13 +56,13 @@ export default function ContactPage() {
                     name="email"
                     required
                     placeholder="you@example.com"
-                    className="rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder-faint outline-none transition-colors focus:border-foreground/40 focus:ring-2 focus:ring-foreground/5"
+                    className="rounded-xl border border-border bg-background px-4 py-3 text-md text-foreground placeholder-faint outline-none transition-colors focus:border-foreground/40 focus:ring-2 focus:ring-foreground/5"
                   />
                 </div>
               </div>
 
               <div className="flex flex-col gap-2">
-                <label htmlFor="subject" className="text-sm font-medium text-foreground">
+                <label htmlFor="subject" className="text-md font-medium text-foreground">
                   Subject
                 </label>
                 <input
@@ -70,12 +70,12 @@ export default function ContactPage() {
                   type="text"
                   name="subject"
                   placeholder="What's this about?"
-                  className="rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder-faint outline-none transition-colors focus:border-foreground/40 focus:ring-2 focus:ring-foreground/5"
+                  className="rounded-xl border border-border bg-background px-4 py-3 text-md text-foreground placeholder-faint outline-none transition-colors focus:border-foreground/40 focus:ring-2 focus:ring-foreground/5"
                 />
               </div>
 
               <div className="flex flex-col gap-2">
-                <label htmlFor="message" className="text-sm font-medium text-foreground">
+                <label htmlFor="message" className="text-md font-medium text-foreground">
                   Message
                 </label>
                 <textarea
@@ -84,7 +84,7 @@ export default function ContactPage() {
                   required
                   rows={6}
                   placeholder="Tell us about yourself and how you'd like to collaborate..."
-                  className="resize-none rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder-faint outline-none transition-colors focus:border-foreground/40 focus:ring-2 focus:ring-foreground/5"
+                  className="resize-none rounded-xl border border-border bg-background px-4 py-3 text-md text-foreground placeholder-faint outline-none transition-colors focus:border-foreground/40 focus:ring-2 focus:ring-foreground/5"
                 />
               </div>
 
@@ -96,7 +96,7 @@ export default function ContactPage() {
               </button>
             </form>
 
-            <p className="mt-8 text-sm text-faint">
+            <p className="mt-8 text-md text-faint">
               Prefer email? Reach out to {" "}
               <a href="mailto:allen@projectmycelium.ai" className="text-muted hover:underline">
                 allen@projectmycelium.ai

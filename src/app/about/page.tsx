@@ -12,41 +12,20 @@ export default function AboutPage() {
     <div className="bg-background text-foreground">
       <main className="pt-[73px]">
 
-        {/* Header */}
+        {/* Header / mission */}
         <section className="px-6 py-20">
           <div className="mx-auto max-w-4xl">
-            <h1 className="mt-4 font-serif text-5xl font-semibold leading-tight text-foreground sm:text-6xl">
-              we exist because{" "}
-              <em className="italic text-purple">someone has to</em>
+            <h1 className="mt-4 font-serif text-5xl font-semibold leading-tight text-foreground">
+              we're advancing AI to include {" "}
+              <em className="italic text-purple">all sentient beings</em>
             </h1>
-            <p className="mt-8 max-w-2xl text-xl leading-relaxed text-muted">
-              Mycelium is a nonprofit building the technical infrastructure for a
-              future where AI systems consider nonhuman welfare—not as an
-              afterthought, but as a core design principle.
-            </p>
-          </div>
-        </section>
 
-        {/* Mission */}
-        <section className="bg-surface px-6 py-16">
-          <div className="mx-auto max-w-4xl">
-            <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
-              our mission
-            </h2>
-            <div className="mt-10 grid gap-8 sm:grid-cols-2">
-              <p className="text-lg leading-relaxed text-muted">
-                AI is moving fast—and the values baked into these systems will
-                shape the world for generations. Yet the animal welfare community
-                has had almost no seat at the table. The technical infrastructure
-                to evaluate, challenge, and improve AI reasoning about nonhuman
-                welfare simply didn&apos;t exist.
+            <div className="mt-10">
+              <p className="text-lg leading-relaxed text-muted pb-8">
+                We're at a rare inflection point. The values encoded in AI systems today will shape how humanity—and these systems—relate to animals for generations. The window to influence those values is open, and it won't stay that way.
               </p>
               <p className="text-lg leading-relaxed text-muted">
-                Mycelium was founded to change that. Named after the fungal
-                networks that quietly sustain entire ecosystems, we build the
-                connective tissue between AI safety and animal advocacy—technical
-                tools, benchmarks, and capacity that the broader movement can
-                use and build on.
+                Mycelium was founded for this reason. Named after the fungal networks that quietly sustain entire ecosystems, we build the connective tissue between AI development and animal welfare - the technical tools and research the broader movement can use and build on.
               </p>
             </div>
           </div>
@@ -55,25 +34,23 @@ export default function AboutPage() {
         {/* Approach */}
         <section className="px-6 py-16">
           <div className="mx-auto max-w-4xl">
-            <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
+            <h2 className="mt-4 font-serif text-5xl font-semibold leading-tight text-foreground">
               our approach
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
-              We advance understanding of the nature and intrinsic value of
-              nonhuman minds in three key ways:
+              We advance the understanding of nonhuman minds—and embed that understanding into the AI systems shaping our world.
             </p>
 
-            <div className="mt-12 grid gap-6 sm:grid-cols-3">
+            <div className="mt-12 grid gap-6 sm:grid-cols-2">
               <div className="rounded-2xl border border-border bg-surface p-8">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-green/15 text-purple">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18" />
                   </svg>
                 </div>
-                <h3 className="mt-5 font-serif text-xl font-semibold text-foreground">research</h3>
+                <h3 className="mt-5 font-serif text-xl font-semibold text-foreground">research & engineering</h3>
                 <p className="mt-3 leading-relaxed text-muted">
-                  We conduct and support foundational research about the nature
-                  and value of nonhuman minds.
+                  We build benchmarks and evaluations to measure how AI systems reason about nonhuman animal welfare.
                 </p>
               </div>
 
@@ -83,25 +60,9 @@ export default function AboutPage() {
                     <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
                   </svg>
                 </div>
-                <h3 className="mt-5 font-serif text-xl font-semibold text-foreground">outreach</h3>
+                <h3 className="mt-5 font-serif text-xl font-semibold text-foreground">advocacy</h3>
                 <p className="mt-3 leading-relaxed text-muted">
-                  We engage with decision-makers through direct consultation and
-                  public communication.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-border bg-surface p-8">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-green/15 text-purple">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                    <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
-                  </svg>
-                </div>
-                <h3 className="mt-5 font-serif text-xl font-semibold text-foreground">field-building</h3>
-                <p className="mt-3 leading-relaxed text-muted">
-                  We engage with other researchers through events, awards, and
-                  sponsored projects.
+                  We engage with frontier labs, AI orgs, and other institutions to put nonhuman welfare on the agenda - turning our research into impact.
                 </p>
               </div>
             </div>
@@ -120,7 +81,7 @@ export default function AboutPage() {
         {/* Team */}
         <section className="px-6 py-16">
           <div className="mx-auto max-w-4xl">
-            <h2 className="font-serif text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
+            <h2 className="font-serif text-5xl font-semibold leading-tight text-foreground">
               team
             </h2>
             <div className="mt-8 flex flex-wrap gap-10">
@@ -134,7 +95,14 @@ export default function AboutPage() {
                   />
                 </div>
                 <h3 className="mt-4 font-serif text-xl font-semibold text-foreground">
-                  Allen Lu
+                  <a
+                    href="https://www.linkedin.com/in/allenlu017/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-colors hover:text-purple"
+                  >
+                    Allen Lu
+                  </a>
                 </h3>
                 <p className="mt-1 text-sm font-medium text-purple">
                   Founder, Executive Director
@@ -145,27 +113,26 @@ export default function AboutPage() {
         </section>
 
         {/* CTA */}
-        <section className="px-6 pt-16 pb-24">
+        <section className="px-6 pt-16 pb-40">
           <div className="mx-auto max-w-4xl">
-            <h2 className="font-serif text-3xl font-semibold text-foreground sm:text-4xl">
-              want to get involved?
+            <h2 className="font-serif text-5xl font-semibold text-foreground">
+              get involved 
             </h2>
-            <p className="mt-4 max-w-xl text-lg text-muted">
-              Whether you&apos;re a researcher, funder, or advocate—there&apos;s
-              a place for you in this work.
+            <p className="mt-4 text-lg text-muted">
+              The work is just beginning. Whether you're a researcher, funder, or advocate, there's a place for you in what we're building.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                href="/contact"
-                className="rounded-full bg-green px-8 py-3.5 font-medium text-white transition-all hover:bg-green-hover hover:scale-[1.02]"
-              >
-                get in touch
-              </Link>
               <Link
                 href="/work"
                 className="rounded-full border border-border px-8 py-3.5 font-medium text-foreground transition-all hover:border-purple/30 hover:bg-purple/5"
               >
                 see our work
+              </Link>
+              <Link
+                href="/contact"
+                className="rounded-full bg-green px-8 py-3.5 font-medium text-white transition-all hover:bg-green-hover hover:scale-[1.02]"
+              >
+                get in touch
               </Link>
             </div>
           </div>

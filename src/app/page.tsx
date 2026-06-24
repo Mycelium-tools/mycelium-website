@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import MyceliumHero from "@/components/ui/mycelium-hero";
 
 export default function Home() {
@@ -11,7 +12,7 @@ export default function Home() {
         {/* Mission */}
         <section className="bg-background px-6 py-16">
           <div className="mx-auto max-w-4xl">
-            <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
+            <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-foreground">
               what&apos;s at {" "}
               <em className="italic text-purple">stake</em>
             </h2>
@@ -22,11 +23,17 @@ export default function Home() {
                 shape policy, industry, and decision-making.
               </p>
               <p className="text-lg leading-relaxed text-muted">
-                Like the fungal networks that sustain ecosystems, Mycelium builds
-                the technical infrastructure for AI models to consider nonhuman
-                welfare. Our goal is to prevent value lock-in that would perpetuate suffering
-                indefinitely.
+                Like the fungal networks that sustain ecosystems, <b>Mycelium</b> builds
+                the technical infrastructure for AI models to consider the welfare of all sentient beings.
               </p>
+              <div className="mt-6 flex">
+                <Link
+                  href="/about"
+                  className="inline-block rounded-full bg-purple px-8 py-3.5 font-sans font-medium text-white transition-all duration-200 hover:bg-purple-hover hover:scale-[1.02] cursor-pointer"
+                >
+                  our mission
+                </Link>
+              </div>
             </div>
           </div>
         </section>
@@ -34,10 +41,10 @@ export default function Home() {
         {/* Partnerships */}
         <section className="bg-background px-6 py-16">
           <div className="mx-auto max-w-4xl">
-            <h2 className="mt-4 font-serif text-3xl font-semibold text-foreground sm:text-4xl">
+            <h2 className="mt-4 font-serif text-4xl font-semibold text-foreground sm:text-4xl">
               partnerships
             </h2>
-            <p className="mt-4 max-w-2xl text-md text-muted">
+            <p className="mt-4 max-w-2xl text-lg text-muted">
               We collaborate with leading AI×Animals organizations and research institutions
             </p>
             <div className="mt-10 flex flex-wrap items-end gap-10">
@@ -63,16 +70,16 @@ export default function Home() {
         </section>
 
         {/* Supported by */}
-        <section className="bg-background px-6 pt-16 pb-40">
+        <section className="bg-background px-6 pt-16 pb-48">
           <div className="mx-auto max-w-4xl">
-            <h2 className="mt-4 font-serif text-3xl font-semibold text-foreground sm:text-4xl">
+            <h2 className="mt-4 font-serif text-4xl font-semibold text-foreground sm:text-4xl">
               supported by
             </h2>
-            <p className="mt-4 max-w-2xl text-md text-muted">
+            <p className="mt-4 max-w-2xl text-lg text-muted">
               We&apos;re thankful for our supporters, who keep our operations running
             </p>
             <div className="mt-10 flex flex-wrap items-end gap-12">
-              <div className="flex flex-col items-center gap-3">
+              {/* <div className="flex flex-col items-center gap-3">
                 <Image
                   src="/donor-logos/Coefficient+Logo+Gray.webp"
                   alt="Coefficient Giving"
@@ -80,8 +87,7 @@ export default function Home() {
                   height={60}
                   unoptimized
                 />
-                {/* <span className="text-xs font-medium text-faint">Coefficient Giving</span> */}
-              </div>
+              </div> */}
               <div className="flex flex-col items-center gap-3">
                 <Image
                   src="/donor-logos/tpp-logo.jpg"
