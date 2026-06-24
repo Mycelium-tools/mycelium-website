@@ -11,8 +11,8 @@ export default function WorkPage() {
   return (
     <div className="bg-background text-foreground">
       <main className="pt-[73px]">
-        <section className="px-6 py-28">
-          <div className="mx-auto max-w-5xl">
+        <section className="px-6 py-20">
+          <div className="mx-auto max-w-4xl">
             <h1 className="mt-4 font-serif text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
               our work{" "}
               <em className="italic"></em>
@@ -25,7 +25,7 @@ export default function WorkPage() {
             <div className="mt-16 pt-12">
               <div className="flex flex-col gap-10 sm:flex-row sm:items-center sm:gap-16">
                 <div className="flex-1">
-                  <span className="inline-block rounded-full bg-[#8157D6]/10 px-3 py-1 text-sm font-sans font-medium text-purple">
+                  <span className="inline-block rounded-full bg-green/10 px-3 py-1 text-sm font-sans font-medium text-purple">
                     New Benchmark
                   </span>
                   <h2 className="mt-4 font-serif text-3xl font-semibold leading-snug text-foreground sm:text-4xl">
@@ -40,7 +40,7 @@ export default function WorkPage() {
                   <div className="mt-6 flex flex-wrap items-center gap-3">
                     <Link
                       href="/manta"
-                      className="inline-flex items-center gap-1.5 rounded-full bg-[#8157D6] px-5 py-2.5 text-sm font-medium text-white transition-all duration-150 hover:bg-[#6d45c0] cursor-pointer"
+                      className="inline-flex items-center gap-1.5 rounded-full bg-green px-5 py-2.5 text-sm font-medium text-white transition-all duration-150 hover:bg-green-hover cursor-pointer"
                     >
                       Read the Blog Post
                     </Link>
@@ -48,7 +48,7 @@ export default function WorkPage() {
                       href="https://arxiv.org/abs/2605.16301v2"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-full border border-[#8157D6] px-5 py-2.5 text-sm font-medium text-purple transition-all duration-150 hover:bg-[#8157D6]/10 cursor-pointer"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-green px-5 py-2.5 text-sm font-medium text-purple transition-all duration-150 hover:bg-green/10 cursor-pointer"
                     >
                       Read the Full Paper
                       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

@@ -1,9 +1,20 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
+  const pathname = usePathname();
+  const isActive = pathname === href;
+
   return (
-    <Link href={href} className="group relative text-m font-medium text-muted transition-colors hover:text-foreground">
+    <Link
+      href={href}
+      className={`group relative text-m font-medium transition-colors hover:text-foreground ${
+        isActive ? "text-foreground" : "text-muted"
+      }`}
+    >
       {children}
       <svg
         className="pointer-events-none absolute -bottom-1 left-0 w-full overflow-visible"
@@ -14,9 +25,9 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
         aria-hidden="true"
       >
         <line
-          className="nav-root-stem"
+          className={isActive ? undefined : "nav-root-stem"}
           strokeDasharray="100"
-          strokeDashoffset="100"
+          strokeDashoffset={isActive ? "0" : "100"}
           x1="0" y1="1" x2="100" y2="1"
           stroke="var(--color-purple)"
           strokeWidth="2"
@@ -54,7 +65,7 @@ export default function Navbar() {
             href="https://www.every.org/projectmycelium"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-green px-5 py-2.5 text-m font-medium text-foreground transition-colors hover:bg-green-hover"
+            className="rounded-full bg-green px-5 py-2.5 text-m font-medium text-white transition-colors hover:bg-green-hover"
           >
             donate
           </a>

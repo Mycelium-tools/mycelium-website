@@ -13,7 +13,7 @@ export default function AboutPage() {
       <main className="pt-[73px]">
 
         {/* Header */}
-        <section className="px-6 py-28">
+        <section className="px-6 py-20">
           <div className="mx-auto max-w-4xl">
             <h1 className="mt-4 font-serif text-5xl font-semibold leading-tight text-foreground sm:text-6xl">
               we exist because{" "}
@@ -28,7 +28,7 @@ export default function AboutPage() {
         </section>
 
         {/* Mission */}
-        <section className="bg-green px-6 py-24">
+        <section className="bg-surface px-6 py-16">
           <div className="mx-auto max-w-4xl">
             <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
               our mission
@@ -53,7 +53,7 @@ export default function AboutPage() {
         </section>
 
         {/* Approach */}
-        <section className="px-6 py-24">
+        <section className="px-6 py-16">
           <div className="mx-auto max-w-4xl">
             <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
               our approach
@@ -64,7 +64,7 @@ export default function AboutPage() {
             </p>
 
             <div className="mt-12 grid gap-6 sm:grid-cols-3">
-              <div className="rounded-2xl border border-border bg-white p-8 shadow-sm">
+              <div className="rounded-2xl border border-border bg-surface p-8">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-green/15 text-purple">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18" />
@@ -77,7 +77,7 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-border bg-white p-8 shadow-sm">
+              <div className="rounded-2xl border border-border bg-surface p-8">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-green/15 text-purple">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
@@ -90,7 +90,7 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-border bg-white p-8 shadow-sm">
+              <div className="rounded-2xl border border-border bg-surface p-8">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-green/15 text-purple">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
@@ -118,7 +118,7 @@ export default function AboutPage() {
         </section>
 
         {/* Team */}
-        <section className="px-6 py-18">
+        <section className="px-6 py-16">
           <div className="mx-auto max-w-4xl">
             <h2 className="font-serif text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
               team
@@ -145,7 +145,7 @@ export default function AboutPage() {
         </section>
 
         {/* CTA */}
-        <section className="px-6 py-24">
+        <section className="px-6 pt-16 pb-24">
           <div className="mx-auto max-w-4xl">
             <h2 className="font-serif text-3xl font-semibold text-foreground sm:text-4xl">
               want to get involved?
@@ -157,7 +157,7 @@ export default function AboutPage() {
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 href="/contact"
-                className="rounded-full bg-green px-8 py-3.5 font-medium text-foreground transition-all hover:bg-green-hover hover:scale-[1.02]"
+                className="rounded-full bg-green px-8 py-3.5 font-medium text-white transition-all hover:bg-green-hover hover:scale-[1.02]"
               >
                 get in touch
               </Link>

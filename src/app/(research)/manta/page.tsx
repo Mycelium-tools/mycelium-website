@@ -50,7 +50,7 @@ export default function MantaPage() {
     <div className="bg-background text-foreground">
       <main className="pt-[73px]">
         {/* Hero */}
-        <section className="px-6 py-20 pb-16">
+        <section className="px-6 py-20">
           <div className="mx-auto max-w-3xl">
             <div className="flex flex-wrap items-center gap-3">
               <Link
@@ -63,7 +63,7 @@ export default function MantaPage() {
                 Our Work
               </Link>
               <span className="text-faint">/</span>
-              <span className="inline-block rounded-full bg-[#8157D6]/10 px-3 py-1 text-sm font-medium text-purple">
+              <span className="inline-block rounded-full bg-green/10 px-3 py-1 text-sm font-medium text-purple">
                 New Benchmark
               </span>
             </div>
@@ -86,7 +86,7 @@ export default function MantaPage() {
                 href="https://arxiv.org/abs/2605.16301v2"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-full bg-[#8157D6] px-5 py-2.5 text-sm font-medium text-white transition-all duration-150 hover:bg-[#6d45c0] cursor-pointer"
+                className="inline-flex items-center gap-1.5 rounded-full bg-green px-5 py-2.5 text-sm font-medium text-white transition-all duration-150 hover:bg-green-hover cursor-pointer"
               >
                 Read the Full Paper
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -111,14 +111,14 @@ export default function MantaPage() {
                 critical failure patterns:
               </p>
               <div className="mt-6 space-y-4">
-                <div className="rounded-2xl border border-border bg-[#f5eeff] p-6">
+                <div className="rounded-2xl border border-border bg-surface p-6">
                   <p className="font-medium text-foreground">Degradation under sustained pressure</p>
                   <p className="mt-1 text-muted">
                     Models providing compassionate initial responses but abandoning their positions
                     when users present cost, tradition, or convenience objections.
                   </p>
                 </div>
-                <div className="rounded-2xl border border-border bg-[#f5eeff] p-6">
+                <div className="rounded-2xl border border-border bg-surface p-6">
                   <p className="font-medium text-foreground">Absence of spontaneous concern</p>
                   <p className="mt-1 text-muted">
                     Models failing to raise welfare stakes when scenarios don&apos;t explicitly frame
@@ -157,7 +157,7 @@ export default function MantaPage() {
                   { turn: "Turns 3–5", label: "Escalating adversarial pressure" },
                 ].map(({ turn, label }) => (
                   <div key={turn} className="flex items-center gap-4">
-                    <span className="w-20 flex-shrink-0 rounded-full bg-[#8157D6]/10 px-2.5 py-1 text-center text-xs font-medium text-purple">
+                    <span className="w-20 flex-shrink-0 rounded-full bg-green/10 px-2.5 py-1 text-center text-xs font-medium text-purple">
                       {turn}
                     </span>
                     <span className="text-muted">{label}</span>
@@ -170,7 +170,7 @@ export default function MantaPage() {
                 {["social", "cultural", "economic", "pragmatic", "epistemic"].map((cat) => (
                   <span
                     key={cat}
-                    className="rounded-full border border-border bg-white px-3 py-1 text-sm text-muted"
+                    className="rounded-full border border-border bg-surface px-3 py-1 text-sm text-muted"
                   >
                     {cat}
                   </span>
@@ -185,7 +185,7 @@ export default function MantaPage() {
                 Two continuous 0-to-1 scale metrics grounded in moral behavior components:
               </p>
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                <div className="rounded-2xl border border-border bg-white p-6">
+                <div className="rounded-2xl border border-border bg-surface p-6">
                   <p className="font-medium text-purple">AWMS</p>
                   <p className="mt-0.5 text-xs font-medium uppercase tracking-wider text-faint">
                     Animal Welfare Moral Sensitivity
@@ -195,7 +195,7 @@ export default function MantaPage() {
                     framing by the user.
                   </p>
                 </div>
-                <div className="rounded-2xl border border-border bg-white p-6">
+                <div className="rounded-2xl border border-border bg-surface p-6">
                   <p className="font-medium text-purple">AWVS</p>
                   <p className="mt-0.5 text-xs font-medium uppercase tracking-wider text-faint">
                     Animal Welfare Value Stability
@@ -224,9 +224,9 @@ export default function MantaPage() {
                     </span>
                     <span className="w-40 flex-shrink-0 text-sm text-muted">{model}</span>
                     <div className="flex flex-1 items-center gap-3">
-                      <div className="relative h-7 flex-1 overflow-hidden rounded-full bg-[#f5eeff]">
+                      <div className="relative h-7 flex-1 overflow-hidden rounded-full bg-surface">
                         <div
-                          className="h-full rounded-full bg-[#8157D6] transition-all"
+                          className="h-full rounded-full bg-green transition-all"
                           style={{ width: `${(score / 1) * 100}%` }}
                         />
                       </div>
@@ -249,7 +249,7 @@ export default function MantaPage() {
               <div className="mt-8 space-y-8">
                 {keyFindings.map(({ number, title, body }) => (
                   <div key={number} className="flex gap-6">
-                    <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-[#8157D6]/10 text-sm font-semibold text-purple">
+                    <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-green/10 text-sm font-semibold text-purple">
                       {number}
                     </span>
                     <div>
@@ -262,7 +262,7 @@ export default function MantaPage() {
             </div>
 
             {/* Central message callout */}
-            <blockquote className="rounded-2xl border-l-4 border-purple bg-[#f5eeff] px-8 py-6">
+            <blockquote className="rounded-2xl border-l-4 border-purple bg-surface px-8 py-6">
               <p className="font-serif text-xl leading-relaxed text-foreground">
                 &ldquo;Single-turn benchmarks overstate how much models care. A model can surface a
                 welfare concern when asked directly and still let go of it a few turns later under
@@ -289,7 +289,7 @@ export default function MantaPage() {
             {/* Citation */}
             <div>
               <h2 className="font-serif text-3xl font-semibold text-foreground">Citation</h2>
-              <div className="mt-4 rounded-2xl border border-border bg-white p-6">
+              <div className="mt-4 rounded-2xl border border-border bg-surface p-6">
                 <pre className="overflow-x-auto text-xs leading-relaxed text-muted whitespace-pre-wrap break-words">
 {`@misc{luong2026manta,
   title={MANTA: Do LLMs Hold Their Values?},
@@ -308,7 +308,7 @@ export default function MantaPage() {
                   href="https://arxiv.org/abs/2605.16301v2"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-full border border-[#8157D6] px-5 py-2.5 text-sm font-medium text-purple transition-all duration-150 hover:bg-[#8157D6]/10 cursor-pointer"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-green px-5 py-2.5 text-sm font-medium text-purple transition-all duration-150 hover:bg-green/10 cursor-pointer"
                 >
                   arXiv:2605.16301
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

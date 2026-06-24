@@ -5,20 +5,27 @@ import { motion } from "motion/react";
 import Link from "next/link";
 
 // ── Tunables ──────────────────────────────────────────────────────────────────
-const BG = "#fff9ed";
 const MAX_DEPTH = 5;
 const BASE_LENGTH = 115;
 const LENGTH_DECAY = 0.65;
-const HOVER_RADIUS = 80;
-const MOUSE_RADIUS = 200;
 const ROOT_LINE_W = 2.4;
 
-// Signal propagation system
-const REST_BRIGHTNESS = 0.18;  // base color brightness at rest
-const REST_ALPHA      = 0.22;  // base stroke opacity — muted but present
-const SIGNAL_ALPHA    = 0.95;  // opacity cap when fully lit
-const DECAY_RATE      = 0.055; // signal *= (1 - DECAY_RATE) per frame; ~2s half-life
-const PROP_FACTOR     = 0.85;  // fraction of cursor boost passed to each neighbor per frame
+// Static ambient glow (faint — pulses are the main event)
+const REST_BRIGHTNESS = 0.18;
+const REST_ALPHA      = 0.10;
+const SIGNAL_ALPHA    = 0.60;
+const DECAY_RATE      = 0.055;
+const PROP_FACTOR     = 0.85;
+const HOVER_RADIUS    = 80;
+const MOUSE_RADIUS    = 200;
+
+// Traveling pulse system
+const PULSE_SPEED      = 0.022; // fraction of edge per frame (~1.5s per edge at 60fps)
+const PULSE_MAX_AGE    = 300;   // frames before pulse dies
+const PULSE_FADE_AT    = 220;   // frame at which fade-out begins
+const MAX_PULSES       = 80;    // hard cap to prevent junction explosion
+const PULSE_SPAWN_DIST = 35;    // px — min mouse movement to spawn a new batch
+const PULSE_RADIUS     = 3;     // px — ball radius at full brightness
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 interface MNode {
@@ -34,16 +41,30 @@ interface MNode {
   lw: number;
 }
 
+interface Pulse {
+  fromNode: MNode;
+  toNode: MNode;
+  t: number;    // progress along this edge [0, 1]
+  age: number;  // frames alive
+}
+
 // ── Helpers ───────────────────────────────────────────────────────────────────
 function lerp(a: number, b: number, t: number) {
   return a + (b - a) * t;
 }
 
-function hyphaColor(brightness: number, alpha: number): string {
-  // dim: #6b682c → bright: #D6CF58
-  const r = Math.round(lerp(107, 214, brightness));
-  const g = Math.round(lerp(104, 207, brightness));
-  const b = Math.round(lerp(44, 88, brightness));
+function hexToRgb(hex: string): [number, number, number] {
+  const h = hex.replace(/^\s*#/, "");
+  return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)];
+}
+
+function hyphaColor(
+  brightness: number, alpha: number,
+  dim: [number, number, number], bright: [number, number, number]
+): string {
+  const r = Math.round(lerp(dim[0], bright[0], brightness));
+  const g = Math.round(lerp(dim[1], bright[1], brightness));
+  const b = Math.round(lerp(dim[2], bright[2], brightness));
   return `rgba(${r},${g},${b},${alpha.toFixed(2)})`;
 }
 
@@ -65,6 +86,20 @@ function drawPartialBezier(
   const q1x = lerp(cpx, p2x, t);
   const q1y = lerp(cpy, p2y, t);
   ctx.quadraticCurveTo(q0x, q0y, lerp(q0x, q1x, t), lerp(q0y, q1y, t));
+}
+
+// Returns the (x, y) position of a pulse along its bezier edge
+function bezierPoint(p: Pulse): { x: number; y: number } {
+  const goingDown = p.toNode.parent === p.fromNode;
+  const p0x = p.fromNode.x, p0y = p.fromNode.y;
+  const p2x = p.toNode.x,   p2y = p.toNode.y;
+  const cpx = goingDown ? p.toNode.cpx : p.fromNode.cpx;
+  const cpy = goingDown ? p.toNode.cpy : p.fromNode.cpy;
+  const mt = 1 - p.t;
+  return {
+    x: mt*mt*p0x + 2*mt*p.t*cpx + p.t*p.t*p2x,
+    y: mt*mt*p0y + 2*mt*p.t*cpy + p.t*p.t*p2y,
+  };
 }
 
 // ── Tree builder ──────────────────────────────────────────────────────────────
@@ -155,14 +190,52 @@ export default function MyceliumHero() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    // Read colors from CSS variables at runtime
+    const cssVars = getComputedStyle(document.documentElement);
+    const bg = cssVars.getPropertyValue("--background").trim() || "#fff9ed";
+    const blueHex = cssVars.getPropertyValue("--blue").trim() || "#2A3C54";
+    const dim = hexToRgb(blueHex);
+    // Bright end: mix the base blue toward a light blue-white for glow contrast
+    const bright: [number, number, number] = [
+      Math.round(lerp(dim[0], 195, 0.68)),
+      Math.round(lerp(dim[1], 215, 0.68)),
+      Math.round(lerp(dim[2], 235, 0.68)),
+    ];
+    const color = (b: number, a: number) => hyphaColor(b, a, dim, bright);
+
     let raf: number;
     let forest: { nodes: MNode[] } = { nodes: [] };
     const mouse = { x: -2000, y: -2000 };
+    let pulses: Pulse[] = [];
+    let lastSpawnOrigin = { x: -9999, y: -9999 };
 
     const resize = () => {
       canvas.width = canvas.parentElement?.clientWidth ?? window.innerWidth;
       canvas.height = canvas.parentElement?.clientHeight ?? 780;
       forest = buildForest(canvas.width, canvas.height);
+      pulses = [];
+      lastSpawnOrigin = { x: -9999, y: -9999 };
+    };
+
+    const spawnPulses = () => {
+      const { nodes } = forest;
+      let nearest: MNode | null = null;
+      let nearestDist = 120;
+      for (const n of nodes) {
+        const dx = n.x - mouse.x, dy = n.y - mouse.y;
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if (d < nearestDist) { nearestDist = d; nearest = n; }
+      }
+      if (!nearest || pulses.length >= MAX_PULSES) return;
+
+      for (const child of nearest.children) {
+        if (pulses.length < MAX_PULSES)
+          pulses.push({ fromNode: nearest, toNode: child, t: 0, age: 0 });
+      }
+      if (nearest.parent && pulses.length < MAX_PULSES) {
+        pulses.push({ fromNode: nearest, toNode: nearest.parent, t: 0, age: 0 });
+      }
+      lastSpawnOrigin = { x: mouse.x, y: mouse.y };
     };
 
     const onMouseMove = (e: MouseEvent) => {
@@ -175,10 +248,9 @@ export default function MyceliumHero() {
       }
       const textRect = textRef.current?.getBoundingClientRect();
       if (textRect) {
-        const PAD = 0;
         if (
-          e.clientX >= textRect.left  - PAD && e.clientX <= textRect.right  + PAD &&
-          e.clientY >= textRect.top   - PAD && e.clientY <= textRect.bottom + PAD
+          e.clientX >= textRect.left && e.clientX <= textRect.right &&
+          e.clientY >= textRect.top  && e.clientY <= textRect.bottom
         ) {
           mouse.x = -2000;
           mouse.y = -2000;
@@ -187,6 +259,12 @@ export default function MyceliumHero() {
       }
       mouse.x = e.clientX;
       mouse.y = e.clientY;
+
+      const dx = mouse.x - lastSpawnOrigin.x;
+      const dy = mouse.y - lastSpawnOrigin.y;
+      if (dx*dx + dy*dy > PULSE_SPAWN_DIST * PULSE_SPAWN_DIST) {
+        spawnPulses();
+      }
     };
     const onMouseLeave = () => { mouse.x = -2000; mouse.y = -2000; };
 
@@ -196,23 +274,21 @@ export default function MyceliumHero() {
     resize();
 
     const tick = () => {
-      ctx.fillStyle = BG;
+      ctx.fillStyle = bg;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       const { nodes } = forest;
 
-      // A+B: cursor boost + propagate that boost (not accumulated signal) to neighbors.
-      // Propagating cursor-derived boost instead of n.signal breaks the feedback loop —
-      // when the cursor leaves, boost drops to zero and signal decays cleanly.
+      // Faint static cursor glow (just enough to show cursor location)
       for (const n of nodes) {
         const dx = n.x - mouse.x;
         const dy = n.y - mouse.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
         let cursorBoost = 0;
         if (dist < HOVER_RADIUS) {
-          cursorBoost = 0.38 * (1 - dist / HOVER_RADIUS);
+          cursorBoost = 0.06 * (1 - dist / HOVER_RADIUS);
         } else if (dist < MOUSE_RADIUS) {
-          cursorBoost = 0.16 * (1 - dist / MOUSE_RADIUS);
+          cursorBoost = 0.025 * (1 - dist / MOUSE_RADIUS);
         }
         if (cursorBoost > 0) {
           n.signal = Math.min(1, n.signal + cursorBoost);
@@ -222,23 +298,39 @@ export default function MyceliumHero() {
         }
       }
 
-      // C: apply propagated signal
       for (const n of nodes) {
         n.signal = Math.min(1, n.signal + n.incoming);
         n.incoming = 0;
       }
 
-      // D: decay + snap to zero
       for (const n of nodes) {
         n.signal *= (1 - DECAY_RATE);
         if (n.signal < 0.001) n.signal = 0;
       }
 
-      // E: draw hyphae — glow pass (wide transparent stroke) then sharp pass
+      // Advance pulses — arrived pulses branch into children
+      const nextPulses: Pulse[] = [];
+      for (const p of pulses) {
+        p.t += PULSE_SPEED;
+        p.age++;
+        if (p.t >= 1) {
+          const arrived = p.toNode;
+          for (const child of arrived.children) {
+            if (child !== p.fromNode && nextPulses.length + pulses.length < MAX_PULSES) {
+              nextPulses.push({ fromNode: arrived, toNode: child, t: 0, age: p.age });
+            }
+          }
+        } else if (p.age < PULSE_MAX_AGE) {
+          nextPulses.push(p);
+        }
+      }
+      pulses = nextPulses;
+
+      // Draw hyphae — glow pass then sharp pass
       ctx.lineCap = "round";
       for (const n of nodes) {
         if (n.depth === -1 || !n.parent || n.signal < 0.08) continue;
-        ctx.strokeStyle = hyphaColor(1.0, n.signal * 0.18);
+        ctx.strokeStyle = color(1.0, n.signal * 0.18);
         ctx.lineWidth = n.lw + lerp(0, 10, n.signal);
         ctx.beginPath();
         drawPartialBezier(ctx, n.parent.x, n.parent.y, n.cpx, n.cpy, n.x, n.y, 1);
@@ -248,33 +340,53 @@ export default function MyceliumHero() {
         if (n.depth === -1 || !n.parent) continue;
         const b = Math.max(REST_BRIGHTNESS, n.signal);
         const alpha = n.signal > 0.01 ? lerp(REST_ALPHA, SIGNAL_ALPHA, n.signal) : REST_ALPHA;
-        ctx.strokeStyle = hyphaColor(b, alpha);
+        ctx.strokeStyle = color(b, alpha);
         ctx.lineWidth = n.lw + lerp(0, 1.2, n.signal);
         ctx.beginPath();
         drawPartialBezier(ctx, n.parent.x, n.parent.y, n.cpx, n.cpy, n.x, n.y, 1);
         ctx.stroke();
       }
 
-      // E (continued): draw nodes
+      // Draw nodes
       for (const n of nodes) {
         const b = Math.max(REST_BRIGHTNESS, n.signal);
         const alpha = n.signal > 0.01 ? lerp(REST_ALPHA, SIGNAL_ALPHA, n.signal) : REST_ALPHA;
         if (n.depth === -1) {
           ctx.beginPath();
           ctx.arc(n.x, n.y, lerp(1.6, 3.8, b), 0, Math.PI * 2);
-          ctx.fillStyle = hyphaColor(b, alpha);
+          ctx.fillStyle = color(b, alpha);
           ctx.fill();
         } else if (n.children.length === 0) {
           ctx.beginPath();
           ctx.arc(n.x, n.y, lerp(0.8, 2.2, b), 0, Math.PI * 2);
-          ctx.fillStyle = hyphaColor(b, alpha);
+          ctx.fillStyle = color(b, alpha);
           ctx.fill();
         } else if (n.children.length > 1) {
           ctx.beginPath();
           ctx.arc(n.x, n.y, lerp(0.6, 1.6, b), 0, Math.PI * 2);
-          ctx.fillStyle = hyphaColor(b, lerp(REST_ALPHA * 0.7, 0.9, b));
+          ctx.fillStyle = color(b, lerp(REST_ALPHA * 0.7, 0.9, b));
           ctx.fill();
         }
+      }
+
+      // Draw pulses on top
+      for (const p of pulses) {
+        const fadeFraction = p.age < PULSE_FADE_AT
+          ? 1
+          : 1 - (p.age - PULSE_FADE_AT) / (PULSE_MAX_AGE - PULSE_FADE_AT);
+        const pos = bezierPoint(p);
+
+        // Outer glow halo — use bright end of the blue palette
+        ctx.beginPath();
+        ctx.arc(pos.x, pos.y, PULSE_RADIUS * 2.2, 0, Math.PI * 2);
+        ctx.fillStyle = color(1.0, fadeFraction * 0.18);
+        ctx.fill();
+
+        // Core ball
+        ctx.beginPath();
+        ctx.arc(pos.x, pos.y, PULSE_RADIUS, 0, Math.PI * 2);
+        ctx.fillStyle = color(1.0, fadeFraction * 0.9);
+        ctx.fill();
       }
     };
 
@@ -298,37 +410,19 @@ export default function MyceliumHero() {
   const ease = "easeInOut" as const;
 
   return (
-    <div className="relative h-[640px] w-full flex flex-col items-center justify-center overflow-hidden bg-[#fff9ed]">
+    <div className="relative h-[640px] w-full flex flex-col items-center justify-center overflow-hidden bg-background">
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" aria-hidden="true" />
 
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 72% 72% at 50% 50%, transparent 28%, #fff9ed 100%)",
-        }}
-        aria-hidden="true"
-      />
-
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 58% 44% at 50% 48%, rgba(255,249,237,0.72) 0%, transparent 100%)",
-        }}
-        aria-hidden="true"
-      />
-
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto flex flex-col items-center gap-6">
+<div className="relative z-10 text-center px-6 max-w-4xl mx-auto flex flex-col items-center gap-6">
         <div ref={textRef}>
           <motion.h1
             initial={from}
             animate={to}
             transition={{ delay: 0.6, duration: 0.8, ease }}
-            className="font-serif text-5xl sm:text-6xl md:text-7xl font-semibold leading-tight tracking-tight text-[#1c1025]"
+            className="font-serif text-5xl sm:text-6xl md:text-7xl font-semibold leading-tight tracking-tight text-foreground"
           >
             building the technical foundation for{" "}
-            <em className="italic text-green">inclusive AI</em>
+            <em className="italic text-purple">inclusive AI</em>
           </motion.h1>
         </div>
 
@@ -339,7 +433,7 @@ export default function MyceliumHero() {
         >
           <Link
             href="/work"
-            className="inline-block rounded-full bg-green px-8 py-3.5 font-sans font-medium text-[#1c1025] transition-all duration-200 hover:bg-green-hover hover:scale-[1.02] cursor-pointer"
+            className="inline-block rounded-full bg-purple px-8 py-3.5 font-sans font-medium text-white transition-all duration-200 hover:bg-purple-hover hover:scale-[1.02] cursor-pointer"
           >
             See our work
           </Link>

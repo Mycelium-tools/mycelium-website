@@ -3,8 +3,8 @@
 :root {
   --background: #fff9ed;
   --foreground: #1c1025;
-  --accent: #67419C;
-  --accent-hover: #9e7de0;
+  --accent: #A6AD3E;
+  --accent-hover: #CED665;
   --accent-cta: #A6AD3E;
   --accent-cta-hover: #e3dc6a;
   --muted: #5a4b6b;
@@ -16,15 +16,19 @@
   --purple: #67419C;
   --purple-bright: #b5a0e8;
   --green: #A6AD3E;
+  --blue: #2A3C54;
+  --blue-hover: #3a5170;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-purple: var(--purple);
-  --color-purple-hover: var(--accent-hover);
-  --color-green: var(--green);
-  --color-green-hover: var(--accent-cta-hover);
+  --color-purple: var(--blue);
+  --color-purple-hover: var(--blue-hover);
+  --color-green: var(--blue);
+  --color-green-hover: var(--blue-hover);
+  --color-blue: var(--blue);
+  --color-blue-hover: var(--blue-hover);
   --color-muted: var(--muted);
   --color-faint: var(--muted-light);
   --color-surface: var(--surface);

@@ -9,14 +9,14 @@ export default function Home() {
         <MyceliumHero />
 
         {/* Mission */}
-        <section className="bg-background px-6 pb-8">
+        <section className="bg-background px-6 py-16">
           <div className="mx-auto max-w-4xl">
             <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
               what&apos;s at {" "}
               <em className="italic text-purple">stake</em>
             </h2>
-            <div className="mt-10 grid gap-8 sm:grid-cols-2">
-              <p className="text-lg leading-relaxed text-muted">
+            <div className="mt-10">
+              <p className="text-lg leading-relaxed text-muted pb-8">
                 Models are trained on data that reflects and amplifies speciesist
                 biases, threatening to lock in animal suffering as these systems
                 shape policy, industry, and decision-making.
@@ -24,8 +24,7 @@ export default function Home() {
               <p className="text-lg leading-relaxed text-muted">
                 Like the fungal networks that sustain ecosystems, Mycelium builds
                 the technical infrastructure for AI models to consider nonhuman
-                welfare—and to reason about it ethically as capabilities grow.
-                Our goal: prevent value lock-in that would perpetuate suffering
+                welfare. Our goal is to prevent value lock-in that would perpetuate suffering
                 indefinitely.
               </p>
             </div>
@@ -33,7 +32,7 @@ export default function Home() {
         </section>
 
         {/* Partnerships */}
-        <section className="bg-background px-6 py-18 pb-24">
+        <section className="bg-background px-6 py-16">
           <div className="mx-auto max-w-4xl">
             <h2 className="mt-4 font-serif text-3xl font-semibold text-foreground sm:text-4xl">
               partnerships
@@ -64,7 +63,7 @@ export default function Home() {
         </section>
 
         {/* Supported by */}
-        <section className="bg-background px-6 py-12 pb-32">
+        <section className="bg-background px-6 pt-16 pb-40">
           <div className="mx-auto max-w-4xl">
             <h2 className="mt-4 font-serif text-3xl font-semibold text-foreground sm:text-4xl">
               supported by
