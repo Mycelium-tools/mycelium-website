@@ -11,8 +11,8 @@ const LENGTH_DECAY = 0.65;
 const ROOT_LINE_W = 2.4;
 
 // Static ambient glow (faint — pulses are the main event)
-const REST_BRIGHTNESS = 0.18;
-const REST_ALPHA      = 0.10;
+const REST_BRIGHTNESS = 0.28;
+const REST_ALPHA      = 0.22;
 const SIGNAL_ALPHA    = 0.60;
 const DECAY_RATE      = 0.055;
 const PROP_FACTOR     = 0.85;
@@ -53,6 +53,16 @@ interface Pulse {
 // ── Helpers ───────────────────────────────────────────────────────────────────
 function lerp(a: number, b: number, t: number) {
   return a + (b - a) * t;
+}
+
+function makeRng(seed: number) {
+  let s = seed;
+  return () => {
+    s = (s + 0x6D2B79F5) | 0;
+    let t = Math.imul(s ^ (s >>> 15), 1 | s);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
 }
 
 function hexToRgb(hex: string): [number, number, number] {
@@ -110,7 +120,8 @@ function spawnBranch(
   angle: number, length: number,
   depth: number, parent: MNode,
   bounds: { w: number; h: number },
-  allNodes: MNode[]
+  allNodes: MNode[],
+  rng: () => number
 ): void {
   if (depth > MAX_DEPTH) return;
 
@@ -120,7 +131,7 @@ function spawnBranch(
   if (tx < -90 || tx > bounds.w + 90 || ty < -90 || ty > bounds.h + 90) return;
 
   const perpRad = rad + Math.PI / 2;
-  const perpOff = (Math.random() - 0.5) * length * 0.38;
+  const perpOff = (rng() - 0.5) * length * 0.38;
   const cpx = (px + tx) / 2 + Math.cos(perpRad) * perpOff;
   const cpy = (py + ty) / 2 + Math.sin(perpRad) * perpOff;
 
@@ -136,29 +147,30 @@ function spawnBranch(
   parent.children.push(node);
 
   if (depth < MAX_DEPTH) {
-    const count = depth < 2 ? 2 + Math.floor(Math.random() * 2) : 2;
+    const count = depth < 2 ? 2 + Math.floor(rng() * 2) : 2;
     const spread = 32 + (MAX_DEPTH - depth) * 7;
     for (let i = 0; i < count; i++) {
       const offset = count === 1 ? 0 : -spread + (2 * spread / (count - 1)) * i;
       spawnBranch(
         tx, ty,
-        angle + offset + (Math.random() - 0.5) * 10,
-        length * LENGTH_DECAY * (0.82 + Math.random() * 0.36),
-        depth + 1, node, bounds, allNodes
+        angle + offset + (rng() - 0.5) * 10,
+        length * LENGTH_DECAY * (0.82 + rng() * 0.36),
+        depth + 1, node, bounds, allNodes, rng
       );
     }
   }
 }
 
 function buildForest(w: number, h: number): { nodes: MNode[] } {
+  const rng = makeRng(137);
   const nodes: MNode[] = [];
   const seedCount = Math.max(2, Math.round(w / 370));
   const pad = w * 0.09;
   const step = (w - 2 * pad) / Math.max(1, seedCount - 1);
 
   for (let i = 0; i < seedCount; i++) {
-    const rx = pad + step * i + (Math.random() - 0.5) * 55;
-    const ry = h * 0.22 + Math.random() * h * 0.56;
+    const rx = pad + step * i + (rng() - 0.5) * 55;
+    const ry = h * 0.48 + rng() * h * 0.46;
     const root: MNode = {
       x: rx, y: ry, cpx: rx, cpy: ry,
       depth: -1, parent: null, children: [],
@@ -168,10 +180,10 @@ function buildForest(w: number, h: number): { nodes: MNode[] } {
     };
     nodes.push(root);
 
-    const armCount = 4 + Math.floor(Math.random() * 4);
+    const armCount = 4 + Math.floor(rng() * 4);
     for (let a = 0; a < armCount; a++) {
-      const baseAngle = (360 / armCount) * a + (Math.random() - 0.5) * 18;
-      spawnBranch(rx, ry, baseAngle, BASE_LENGTH, 0, root, { w, h }, nodes);
+      const baseAngle = (360 / armCount) * a + (rng() - 0.5) * 18;
+      spawnBranch(rx, ry, baseAngle, BASE_LENGTH, 0, root, { w, h }, nodes, rng);
     }
   }
   return { nodes };
@@ -210,13 +222,28 @@ export default function MyceliumHero() {
     const mouse = { x: -2000, y: -2000 };
     let pulses: Pulse[] = [];
     let lastSpawnOrigin = { x: -9999, y: -9999 };
+    let resizeTimer: ReturnType<typeof setTimeout> | null = null;
+    let forestBuilt = false;
+
+    const rebuild = (w: number, h: number) => {
+      forest = buildForest(w, h);
+      pulses = [];
+      lastSpawnOrigin = { x: -9999, y: -9999 };
+    };
 
     const resize = () => {
       canvas.width = canvas.parentElement?.clientWidth ?? window.innerWidth;
       canvas.height = canvas.parentElement?.clientHeight ?? 780;
-      forest = buildForest(canvas.width, canvas.height);
-      pulses = [];
-      lastSpawnOrigin = { x: -9999, y: -9999 };
+      if (!forestBuilt) {
+        rebuild(canvas.width, canvas.height);
+        forestBuilt = true;
+      } else {
+        if (resizeTimer) clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          rebuild(canvas.width, canvas.height);
+          resizeTimer = null;
+        }, 400);
+      }
     };
 
     const spawnPulses = () => {
@@ -402,6 +429,7 @@ export default function MyceliumHero() {
 
     return () => {
       cancelAnimationFrame(raf);
+      if (resizeTimer) clearTimeout(resizeTimer);
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", onMouseMove);
       document.removeEventListener("mouseleave", onMouseLeave);
@@ -416,7 +444,16 @@ export default function MyceliumHero() {
     <div className="relative h-[640px] w-full flex flex-col items-center justify-center overflow-hidden bg-background">
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" aria-hidden="true" />
 
-<div className="relative z-10 text-center px-6 max-w-4xl mx-auto flex flex-col items-center gap-6">
+      {/* Radial gradient to soften the network behind the hero text */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse 52% 58% at 50% 50%, rgba(255,249,237,0.60) 0%, rgba(255,249,237,0.08) 45%, rgba(255,249,237,0) 72%)",
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto flex flex-col items-center gap-6">
         <div ref={textRef}>
           <motion.h1
             initial={from}

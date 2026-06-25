@@ -43,7 +43,7 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center gap-2.5">
-          <Image src="/logo3.png" alt="" width={48} height={48} className="object-contain" unoptimized />
+          <Image src="/logo-purple.png" alt="" width={48} height={48} className="object-contain" unoptimized />
           <span className="font-serif text-2xl font-semibold text-foreground">mycelium</span>
         </Link>
         <div className="flex items-center gap-8">

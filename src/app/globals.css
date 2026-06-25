@@ -16,8 +16,9 @@
   --purple: #67419C;
   --purple-bright: #b5a0e8;
   --green: #A6AD3E;
-  --blue: #2A3C54;
-  --blue-hover: #3a5170;
+  --blue: #845987;
+  --blue-hover: #6f4672;
+  --footer-primary: #442846;
 }
 
 @theme inline {

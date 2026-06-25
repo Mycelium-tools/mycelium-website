@@ -13,8 +13,8 @@ export default function Home() {
         <section className="bg-background px-6 py-16">
           <div className="mx-auto max-w-4xl">
             <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-foreground">
-              what&apos;s at {" "}
-              <em className="italic text-purple">stake</em>
+              who we are {" "}
+              <em className="italic text-purple"></em>
             </h2>
             <div className="mt-10">
               <p className="text-lg leading-relaxed text-muted pb-8">
@@ -88,17 +88,17 @@ export default function Home() {
                   unoptimized
                 />
               </div> */}
-              <div className="flex flex-col items-center gap-3">
+              <a href="https://thepollinationproject.org/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-3 cursor-pointer transition-transform duration-200 hover:-translate-y-1 hover:scale-[1.05]">
                 <Image
-                  src="/donor-logos/tpp-logo.jpg"
+                  src="/donor-logos/tpp-logo-square.jpg"
                   alt="The Pollination Project"
                   width={112}
                   height={60}
                   unoptimized
                 />
-                {/* <span className="text-xs font-medium text-faint">The Pollination Project</span> */}
-              </div>
-              <div className="flex flex-col items-center gap-3">
+                <span className="text-xs font-medium text-faint">The Pollination Project</span>
+              </a>
+              <a href="https://bluedot.org/programs/rapid-grants" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-3 cursor-pointer transition-transform duration-200 hover:-translate-y-1 hover:scale-[1.05]">
                 <Image
                   src="/donor-logos/bluedot-logo.png"
                   alt="BlueDot Impact"
@@ -106,9 +106,9 @@ export default function Home() {
                   height={60}
                   unoptimized
                 />
-                {/* <span className="text-xs font-medium text-faint">BlueDot Impact</span> */}
-              </div>
-              <div className="flex flex-col items-center gap-3">
+                <span className="text-xs font-medium text-faint">BlueDot Impact</span>
+              </a>
+              <a href="https://sparai.org/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-3 cursor-pointer transition-transform duration-200 hover:-translate-y-1 hover:scale-[1.05]">
                 <Image
                   src="/donor-logos/spar-logo.png"
                   alt="SPAR"
@@ -116,8 +116,8 @@ export default function Home() {
                   height={60}
                   unoptimized
                 />
-                {/* <span className="text-xs font-medium text-faint">SPAR</span> */}
-              </div>
+                <span className="text-xs font-medium text-faint">SPAR</span>
+              </a>
             </div>
           </div>
         </section>
