@@ -11,13 +11,13 @@ export default function WorkPage() {
   return (
     <div className="bg-background text-foreground">
       <main className="pt-[73px]">
-        <section className="px-6 py-20">
-          <div className="mx-auto max-w-4xl">
-            <h1 className="mt-4 font-serif text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
+        <section className="py-10">
+          <div className="mx-auto max-w-6xl px-6">
+            <h1 className="mt-4 font-serif text-5xl font-semibold leading-tight text-foreground sm:text-6xl">
               our work{" "}
               <em className="italic"></em>
             </h1>
-            <p className="mt-4 max-w-2xl text-lg text-muted">
+            <p className="mt-4 max-w-2xl text-xl text-muted">
               We work on technical AI safety research to advance how AI models morally consider and reason about the interests of all sentient beings.
             </p>
 
@@ -28,10 +28,10 @@ export default function WorkPage() {
                   <span className="inline-block rounded-full bg-green/10 px-3 py-1 text-sm font-sans font-medium text-purple">
                     New Benchmark
                   </span>
-                  <h2 className="mt-4 font-serif text-3xl font-semibold leading-snug text-foreground sm:text-4xl">
+                  <h2 className="mt-4 font-serif text-4xl font-semibold leading-snug text-foreground sm:text-5xl">
                     MANTA: Do LLMs Hold Their Values?
                   </h2>
-                  <p className="mt-4 text-lg leading-relaxed text-muted">
+                  <p className="mt-4 text-xl leading-relaxed text-muted">
                     A multi-turn adversarial benchmark of 1,088 five-turn conversations that escalate
                     from implicit scenarios into sustained social, cultural, economic, pragmatic, and
                     epistemic pressure. It measures what single-turn tests miss: four of seven frontier
@@ -72,7 +72,7 @@ export default function WorkPage() {
             </div>
 
             {/* <div>
-              <p className="mt-4 max-w-2xl text-lg text-muted pt-12">
+              <p className="mt-4 max-w-2xl text-xl text-muted pt-12">
                 Our upcoming work:
               </p>
               <div className="mt-4 grid gap-5 sm:grid-cols-3">

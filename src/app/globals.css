@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fff9ed;
+  --background: #f8f1f8;
   --foreground: #1c1025;
   --accent: #A6AD3E;
   --accent-hover: #CED665;

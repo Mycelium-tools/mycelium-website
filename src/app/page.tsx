@@ -10,19 +10,19 @@ export default function Home() {
         <MyceliumHero />
 
         {/* Mission */}
-        <section className="bg-background px-6 py-16">
-          <div className="mx-auto max-w-4xl">
-            <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-foreground">
+        <section className="bg-background py-8">
+          <div className="mx-auto max-w-6xl px-6">
+            <h2 className="mt-4 font-serif text-5xl font-semibold leading-tight text-foreground">
               who we are {" "}
               <em className="italic text-purple"></em>
             </h2>
             <div className="mt-10">
-              <p className="text-lg leading-relaxed text-muted pb-8">
+              <p className="text-xl leading-relaxed text-muted pb-8">
                 Models are trained on data that reflects and amplifies speciesist
                 biases, threatening to lock in animal suffering as these systems
                 shape policy, industry, and decision-making.
               </p>
-              <p className="text-lg leading-relaxed text-muted">
+              <p className="text-xl leading-relaxed text-muted">
                 Like the fungal networks that sustain ecosystems, <b>Mycelium</b> builds
                 the technical infrastructure for AI models to consider the welfare of all sentient beings.
               </p>
@@ -39,12 +39,12 @@ export default function Home() {
         </section>
 
         {/* Partnerships */}
-        <section className="bg-background px-6 py-16">
-          <div className="mx-auto max-w-4xl">
-            <h2 className="mt-4 font-serif text-4xl font-semibold text-foreground sm:text-4xl">
+        <section className="bg-background py-8">
+          <div className="mx-auto max-w-6xl px-6">
+            <h2 className="mt-4 font-serif text-5xl font-semibold text-foreground sm:text-5xl">
               partnerships
             </h2>
-            <p className="mt-4 max-w-2xl text-lg text-muted">
+            <p className="mt-4 max-w-2xl text-xl text-muted">
               We collaborate with leading AI×Animals organizations and research institutions
             </p>
             <div className="mt-10 flex flex-wrap items-end gap-10">
@@ -70,12 +70,12 @@ export default function Home() {
         </section>
 
         {/* Supported by */}
-        <section className="bg-background px-6 pt-16 pb-48">
-          <div className="mx-auto max-w-4xl">
-            <h2 className="mt-4 font-serif text-4xl font-semibold text-foreground sm:text-4xl">
+        <section className="bg-background pt-8 pb-24">
+          <div className="mx-auto max-w-6xl px-6">
+            <h2 className="mt-4 font-serif text-5xl font-semibold text-foreground sm:text-5xl">
               supported by
             </h2>
-            <p className="mt-4 max-w-2xl text-lg text-muted">
+            <p className="mt-4 max-w-2xl text-xl text-muted">
               We&apos;re thankful for our supporters, who keep our operations running
             </p>
             <div className="mt-10 flex flex-wrap items-end gap-12">

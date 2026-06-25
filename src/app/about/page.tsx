@@ -13,18 +13,18 @@ export default function AboutPage() {
       <main className="pt-[73px]">
 
         {/* Header / mission */}
-        <section className="px-6 py-20">
-          <div className="mx-auto max-w-4xl">
+        <section className="py-10">
+          <div className="mx-auto max-w-6xl px-6">
             <h1 className="mt-4 font-serif text-5xl font-semibold leading-tight text-foreground">
               we're advancing AI to include {" "}
               <em className="italic text-purple">all sentient beings</em>
             </h1>
 
             <div className="mt-10">
-              <p className="text-lg leading-relaxed text-muted pb-8">
+              <p className="text-xl leading-relaxed text-muted pb-8">
                 We're at a rare inflection point. The values encoded in AI systems today will shape how humanity—and these systems—relate to animals for generations. The window to influence those values is open, and it won't stay that way.
               </p>
-              <p className="text-lg leading-relaxed text-muted">
+              <p className="text-xl leading-relaxed text-muted">
                 Mycelium was founded for this reason. Named after the fungal networks that quietly sustain entire ecosystems, we build the connective tissue between AI development and animal welfare - the technical tools and research the broader movement can use and build on.
               </p>
             </div>
@@ -32,12 +32,12 @@ export default function AboutPage() {
         </section>
 
         {/* Approach */}
-        <section className="px-6 py-16">
-          <div className="mx-auto max-w-4xl">
+        <section className="py-8">
+          <div className="mx-auto max-w-6xl px-6">
             <h2 className="mt-4 font-serif text-5xl font-semibold leading-tight text-foreground">
               our approach
             </h2>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
+            <p className="mt-6 max-w-2xl text-xl leading-relaxed text-muted">
               We advance the understanding of nonhuman minds—and embed that understanding into the AI systems shaping our world.
             </p>
 
@@ -79,8 +79,8 @@ export default function AboutPage() {
         </section>
 
         {/* Team */}
-        <section className="px-6 py-16">
-          <div className="mx-auto max-w-4xl">
+        <section className="py-8">
+          <div className="mx-auto max-w-6xl px-6">
             <h2 className="font-serif text-5xl font-semibold leading-tight text-foreground">
               team
             </h2>
@@ -113,12 +113,12 @@ export default function AboutPage() {
         </section>
 
         {/* CTA */}
-        <section className="px-6 pt-16 pb-40">
-          <div className="mx-auto max-w-4xl">
+        <section className="pt-8 pb-20">
+          <div className="mx-auto max-w-6xl px-6">
             <h2 className="font-serif text-5xl font-semibold text-foreground">
-              get involved 
+              get involved
             </h2>
-            <p className="mt-4 text-lg text-muted">
+            <p className="mt-4 text-xl text-muted">
               The work is just beginning. Whether you're a researcher, funder, or advocate, there's a place for you in what we're building.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">

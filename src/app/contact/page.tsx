@@ -10,21 +10,21 @@ export default function ContactPage() {
     <div className="bg-background text-foreground">
       <main className="pt-[73px]">
         {/* Header */}
-        <section className="px-6 pt-20">
-          <div className="mx-auto max-w-4xl">
-            <h1 className="mt-4 font-serif text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
+        <section className="pt-10">
+          <div className="mx-auto max-w-6xl px-6">
+            <h1 className="mt-4 font-serif text-5xl font-semibold leading-tight text-foreground sm:text-6xl">
               let&apos;s{" "}
               <em className="italic">build together</em>
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-muted">
+            <p className="mt-6 text-xl leading-relaxed text-muted">
               Mycelium is a small team working on a big problem. Whether you're a student, researcher, engineer, funder, or just someone who wants to make AI go well for all sentient beings, we'd love to hear from you.
             </p>
           </div>
         </section>
 
         {/* Contact form */}
-        <section className="px-6 pt-16 pb-24">
-          <div className="mx-auto max-w-4xl">
+        <section className="pt-8 pb-24">
+          <div className="mx-auto max-w-6xl px-6">
           <div className="max-w-2xl">
             {/* Replace YOUR_FORM_ID with your Formspree form ID from formspree.io */}
             <form
