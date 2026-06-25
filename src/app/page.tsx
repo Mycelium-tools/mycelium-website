@@ -49,20 +49,20 @@ export default function Home() {
             </p>
             <div className="mt-10 flex flex-wrap items-end gap-10">
               <div className="flex flex-col items-center gap-3">
-                <Image src="/partner-logos/sent-futures.webp" alt="Sentient Futures" width={180} height={70} className="object-contain" unoptimized />
-                <span className="text-xs font-medium text-faint">Sentient Futures</span>
+                <Image src="/partner-logos/sent-futures.webp" alt="Sentient Futures" width={180} height={70} className="object-contain rounded-xl" unoptimized />
+                <span className="text-sm font-medium text-faint">Sentient Futures</span>
               </div>
               <div className="flex flex-col items-center gap-3">
-                <Image src="/partner-logos/arcadia-impact.png" alt="Arcadia Impact" width={180} height={70} className="object-contain" unoptimized />
-                <span className="text-xs font-medium text-faint">Arcadia Impact</span>
+                <Image src="/partner-logos/arcadia-impact.png" alt="Arcadia Impact" width={180} height={70} className="object-contain rounded-xl" unoptimized />
+                <span className="text-sm font-medium text-faint">Arcadia Impact</span>
               </div>
               <div className="flex flex-col items-center gap-3">
-                <Image src="/partner-logos/caml.png" alt="CaML" width={92} height={80} className="object-contain" unoptimized />
-                <span className="text-xs font-medium text-faint">CaML</span>
+                <Image src="/partner-logos/caml.png" alt="CaML" width={92} height={80} className="object-contain rounded-xl" unoptimized />
+                <span className="text-sm font-medium text-faint">CaML</span>
               </div>
               <div className="flex flex-col items-center gap-3">
-                <Image src="/partner-logos/electric-sheep.png" alt="Electric Sheep" width={250} height={70} className="object-contain" unoptimized />
-                <span className="text-xs font-medium text-faint">Electric Sheep</span>
+                <Image src="/partner-logos/electric-sheep.png" alt="Electric Sheep" width={250} height={70} className="object-contain rounded-xl" unoptimized />
+                <span className="text-sm font-medium text-faint">Electric Sheep</span>
               </div>
 
             </div>
@@ -94,9 +94,10 @@ export default function Home() {
                   alt="The Pollination Project"
                   width={112}
                   height={60}
+                  className="rounded-xl"
                   unoptimized
                 />
-                <span className="text-xs font-medium text-faint">The Pollination Project</span>
+                <span className="text-sm font-medium text-faint">The Pollination Project</span>
               </a>
               <a href="https://bluedot.org/programs/rapid-grants" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-3 cursor-pointer transition-transform duration-200 hover:-translate-y-1 hover:scale-[1.05]">
                 <Image
@@ -104,9 +105,10 @@ export default function Home() {
                   alt="BlueDot Impact"
                   width={190}
                   height={60}
+                  className="rounded-xl"
                   unoptimized
                 />
-                <span className="text-xs font-medium text-faint">BlueDot Impact</span>
+                <span className="text-sm font-medium text-faint">BlueDot Impact</span>
               </a>
               <a href="https://sparai.org/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-3 cursor-pointer transition-transform duration-200 hover:-translate-y-1 hover:scale-[1.05]">
                 <Image
@@ -114,9 +116,10 @@ export default function Home() {
                   alt="SPAR"
                   width={208}
                   height={60}
+                  className="rounded-xl"
                   unoptimized
                 />
-                <span className="text-xs font-medium text-faint">SPAR</span>
+                <span className="text-sm font-medium text-faint">SPAR</span>
               </a>
             </div>
           </div>
