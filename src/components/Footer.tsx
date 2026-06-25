@@ -3,7 +3,7 @@ export default function Footer() {
     <footer className="px-6 py-16" style={{ backgroundColor: "var(--footer-primary)" }}>
       <div className="mx-auto max-w-6xl text-center">
         <div className="flex items-center justify-center gap-4">
-          <p className="text-sm text-white/70">© {new Date().getFullYear()} Mycelium</p>
+          <p className="text-md text-white/70">© {new Date().getFullYear()} Mycelium</p>
           <a
             href="https://www.linkedin.com/company/projectmycelium/"
             target="_blank"
@@ -16,7 +16,7 @@ export default function Footer() {
             </svg>
           </a>
         </div>
-        <p className="mt-4 text-xs leading-relaxed text-white/60">
+        <p className="mt-4 text-sm leading-relaxed text-white/60">
           Mycelium is a fiscally sponsored project of Anti Entropy (EIN: 88-0967420),<br />
           a 501(c)(3) nonprofit organization. Donations are tax-deductible to the extent allowed by law.
         </p>

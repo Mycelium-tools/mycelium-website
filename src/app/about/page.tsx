@@ -104,40 +104,13 @@ export default function AboutPage() {
                     Allen Lu
                   </a>
                 </h3>
-                <p className="mt-1 text-sm font-medium text-purple">
+                <p className="mt-1 text-sm font-medium text-purple pb-8">
                   Founder, Executive Director
                 </p>
               </div>
             </div>
           </div>
         </section>
-
-        {/* CTA */}
-        <section className="pt-8 pb-20">
-          <div className="mx-auto max-w-6xl px-6">
-            <h2 className="font-serif text-5xl font-semibold text-foreground">
-              get involved
-            </h2>
-            <p className="mt-4 text-xl text-muted">
-              The work is just beginning. Whether you're a researcher, funder, or advocate, there's a place for you in what we're building.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                href="/work"
-                className="rounded-full border border-border px-8 py-3.5 font-medium text-foreground transition-all hover:border-purple/30 hover:bg-purple/5"
-              >
-                see our work
-              </Link>
-              <Link
-                href="/contact"
-                className="rounded-full bg-green px-8 py-3.5 font-medium text-white transition-all hover:bg-green-hover hover:scale-[1.02]"
-              >
-                get in touch
-              </Link>
-            </div>
-          </div>
-        </section>
-
       </main>
     </div>
   );
