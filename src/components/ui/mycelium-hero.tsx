@@ -475,8 +475,8 @@ export default function MyceliumHero() {
             transition={{ delay: 0.6, duration: 0.8, ease }}
             className="font-serif text-5xl sm:text-6xl md:text-7xl font-semibold leading-tight tracking-tight text-foreground"
           >
-            building a foundation for AI to consider{" "}
-            <em className="italic text-purple">nonhuman welfare</em>
+            Building the foundation for AI to consider {" "}
+            <em className="italic text-purple">all sentient beings</em>
           </motion.h1>
         </div>
 

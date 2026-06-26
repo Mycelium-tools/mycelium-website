@@ -22,13 +22,13 @@ export default function AboutPage() {
 
             <div className="mt-10">
               <p className="text-xl leading-relaxed text-muted pb-8">
-                AI is transforming the world.
-
-                Today's
-
+                AI is no longer a research curiosity. It informs farming practices, wildlife management, policy decisions, and consumer behavior at scale — affecting the lives of billions of animals who have no voice in how these systems are designed.
+              </p>
+              <p className="text-xl leading-relaxed text-muted pb-8">
+                The problem isn&apos;t just that AI ignores animals. It&apos;s structural: AI systems are trained on human data, optimized for human preferences, and evaluated on human-centric metrics. Nonhuman animal welfare isn&apos;t an afterthought — it simply isn&apos;t in the frame at all. And as AI&apos;s influence over consequential decisions grows, that gap compounds.
               </p>
               <p className="text-xl leading-relaxed text-muted">
-                Mycelium was founded for this reason. Named after the fungal networks that quietly sustain entire ecosystems, we build the connective tissue to bridge AI safety and animal welfare - the technical tools and research the broader movement can use and build on.
+                Named after the fungal networks that sustain entire ecosystems beneath the surface, Mycelium builds the connective tissue between AI safety and animal welfare: the benchmarks, evaluations, and open-source infrastructure the broader movement can use and build on.
               </p>
             </div>
           </div>

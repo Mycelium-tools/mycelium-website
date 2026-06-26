@@ -13,25 +13,25 @@ export default function Home() {
         <section className="bg-background py-8">
           <div className="mx-auto max-w-6xl px-6">
             <h2 className="mt-4 font-serif text-5xl font-semibold leading-tight text-foreground pt-8">
-              who we are {" "}
+              our mission {" "}
               <em className="italic text-purple"></em>
             </h2>
             <div className="mt-10">
               <p className="text-xl leading-relaxed text-muted pb-8">
-                Models are trained on data that reflects and amplifies speciesist
-                biases, threatening to lock in animal suffering as these systems
-                shape policy, industry, and decision-making.
+                AI is transforming the world - not only for humanity, but also for the rest of sentient life that calls the world their home. 
+              </p>
+              <p className="text-xl leading-relaxed text-muted pb-8">
+                AI is already managing wildlife, changing consumer habits, and soon may be completely integrated into factory farms, further perpetuating animal suffering. As these systems become more capable and autonomous, it becomes imperative that we make sure they are built with every sentient being in mind.
               </p>
               <p className="text-xl leading-relaxed text-muted">
-                Like the fungal networks that sustain ecosystems, <b>Mycelium</b> builds
-                the technical infrastructure for AI models to consider the welfare of all sentient beings.
+                Like the fungal networks that sustain ecosystems, <b>Mycelium</b> builds the connective infrastructure between AI safety and animal welfare - the benchmarks, evaluations, and tools that advance AI systems to consider all sentient beings.
               </p>
               <div className="mt-6 flex">
                 <Link
                   href="/about"
                   className="inline-block rounded-full bg-purple px-8 py-3.5 font-sans font-medium text-white transition-all duration-200 hover:bg-purple-hover hover:scale-[1.02] cursor-pointer"
                 >
-                  our mission
+                  about us
                 </Link>
               </div>
             </div>

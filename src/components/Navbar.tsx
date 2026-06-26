@@ -11,13 +11,13 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
   return (
     <Link
       href={href}
-      className={`group relative text-m font-medium transition-colors hover:text-foreground ${
+      className={`group relative text-lg font-medium transition-colors hover:text-foreground ${
         isActive ? "text-foreground" : "text-muted"
       }`}
     >
       {children}
       <svg
-        className="pointer-events-none absolute -bottom-1 left-0 w-full overflow-visible"
+        className={`pointer-events-none absolute -bottom-1 left-0 w-full overflow-visible${isActive ? "" : " nav-underline"}`}
         height="2"
         viewBox="0 0 100 2"
         preserveAspectRatio="none"
@@ -54,14 +54,14 @@ export default function Navbar() {
             href="https://tally.so/r/3qK9eO"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative flex items-center gap-1 text-m font-medium text-muted transition-colors hover:text-foreground"
+            className="group relative flex items-center gap-1 text-lg font-medium text-muted transition-colors hover:text-foreground"
           >
             community
             <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true" className="shrink-0 transition-transform duration-150 group-hover:-translate-y-px group-hover:translate-x-px">
               <path d="M2 9L9 2M9 2H4M9 2V7" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
             <svg
-              className="pointer-events-none absolute -bottom-1 left-0 w-full overflow-visible"
+              className="pointer-events-none absolute -bottom-1 left-0 w-full overflow-visible nav-underline"
               height="2"
               viewBox="0 0 100 2"
               preserveAspectRatio="none"
@@ -83,7 +83,7 @@ export default function Navbar() {
             href="https://www.every.org/projectmycelium"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-green px-5 py-2.5 text-m font-medium text-white transition-all duration-200 hover:bg-green-hover hover:scale-[1.02]"
+            className="rounded-full bg-green px-5 py-2.5 text-lg font-medium text-white transition-all duration-200 hover:bg-green-hover hover:scale-[1.02]"
           >
             donate
           </a>

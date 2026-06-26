@@ -18,7 +18,7 @@ export default function WorkPage() {
               <em className="italic"></em>
             </h1>
             <p className="mt-4 max-w-4xl text-xl text-muted">
-              We work on technical AI safety research to advance how...
+              We work on technical AI safety research to advance how frontier AI systems reason about and represent nonhuman animal welfare — building the benchmarks, evaluations, and open-source tools the field needs.
             </p>
 
             {/* Project listing */}
