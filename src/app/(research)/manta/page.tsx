@@ -86,7 +86,7 @@ export default function MantaPage() {
                 href="https://arxiv.org/abs/2605.16301v2"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-full bg-green px-5 py-2.5 text-sm font-medium text-white transition-all duration-150 hover:bg-green-hover cursor-pointer"
+                className="inline-flex items-center gap-1.5 rounded-full bg-green px-5 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:bg-green-hover hover:scale-[1.02] cursor-pointer"
               >
                 Read the Full Paper
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

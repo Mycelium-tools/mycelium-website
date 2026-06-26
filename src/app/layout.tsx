@@ -23,6 +23,15 @@ export const metadata: Metadata = {
   title: "Mycelium — AI Systems That Consider Nonhuman Animal Welfare",
   description:
     "Mycelium builds the technical infrastructure and capacity for AI models to consider nonhuman welfare. Benchmarks, evals, and tools for nonhuman AI safety.",
+  icons: {
+    icon: [
+      { url: "/favicon_io/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon_io/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon_io/favicon.ico" },
+    ],
+    apple: "/favicon_io/apple-touch-icon.png",
+  },
+  manifest: "/favicon_io/site.webmanifest",
 };
 
 export default function RootLayout({

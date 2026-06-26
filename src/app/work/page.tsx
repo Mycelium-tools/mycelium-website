@@ -13,60 +13,66 @@ export default function WorkPage() {
       <main className="pt-[73px]">
         <section className="py-10">
           <div className="mx-auto max-w-6xl px-6">
-            <h1 className="mt-4 font-serif text-5xl font-semibold leading-tight text-foreground sm:text-6xl">
+            <h1 className="mt-4 font-serif text-6xl font-semibold leading-tight text-foreground">
               our work{" "}
               <em className="italic"></em>
             </h1>
-            <p className="mt-4 max-w-2xl text-xl text-muted">
-              We work on technical AI safety research to advance how AI models morally consider and reason about the interests of all sentient beings.
+            <p className="mt-4 max-w-4xl text-xl text-muted">
+              We work on technical AI safety research to advance how...
             </p>
 
-            {/* Featured research highlight */}
-            <div className="mt-16 pt-12">
-              <div className="flex flex-col gap-10 sm:flex-row sm:items-center sm:gap-16">
-                <div className="flex-1">
-                  <span className="inline-block rounded-full bg-green/10 px-3 py-1 text-sm font-sans font-medium text-purple">
-                    New Benchmark
-                  </span>
-                  <h2 className="mt-4 font-serif text-4xl font-semibold leading-snug text-foreground sm:text-5xl">
-                    MANTA: Do LLMs Hold Their Values?
-                  </h2>
-                  <p className="mt-4 text-xl leading-relaxed text-muted">
-                    A multi-turn adversarial benchmark of 1,088 five-turn conversations that escalate
-                    from implicit scenarios into sustained social, cultural, economic, pragmatic, and
-                    epistemic pressure. It measures what single-turn tests miss: four of seven frontier
-                    models shifted ranking once their animal-welfare values were placed under pressure.
-                  </p>
-                  <div className="mt-6 flex flex-wrap items-center gap-3">
-                    <Link
-                      href="/manta"
-                      className="inline-flex items-center gap-1.5 rounded-full bg-green px-5 py-2.5 text-sm font-medium text-white transition-all duration-150 hover:bg-green-hover cursor-pointer"
-                    >
-                      Read the Blog Post
-                    </Link>
-                    <a
-                      href="https://arxiv.org/abs/2605.16301v2"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-full border border-green px-5 py-2.5 text-sm font-medium text-purple transition-all duration-150 hover:bg-green/10 cursor-pointer"
-                    >
-                      Read the Full Paper
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
-                        <polyline points="15 3 21 3 21 9" />
-                        <line x1="10" y1="14" x2="21" y2="3" />
-                      </svg>
-                    </a>
+            {/* Project listing */}
+            <div className="mt-12 flex flex-col gap-6">
+              <p className="text-sm font-sans font-medium uppercase tracking-widest text-faint">Projects</p>
+
+              <div className="rounded-2xl border border-border bg-surface p-8 sm:p-10">
+                <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:gap-12">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-sans font-medium uppercase tracking-widest text-faint">Research</span>
+                      <span className="text-faint">·</span>
+                      <span className="text-xs font-sans font-medium uppercase tracking-widest text-faint">Benchmark</span>
+                    </div>
+                    <h2 className="mt-3 font-serif text-4xl font-semibold leading-snug text-foreground sm:text-5xl">
+                      MANTA: Do LLMs Hold Their Values?
+                    </h2>
+                    <p className="mt-4 text-lg leading-relaxed text-muted">
+                      A multi-turn adversarial benchmark of 1,088 five-turn conversations that escalate
+                      from implicit scenarios into sustained social, cultural, economic, pragmatic, and
+                      epistemic pressure. It measures what single-turn tests miss: four of seven frontier
+                      models shifted ranking once their animal-welfare values were placed under pressure.
+                    </p>
+                    <div className="mt-6 flex flex-wrap items-center gap-3">
+                      <Link
+                        href="/manta"
+                        className="inline-flex items-center gap-1.5 rounded-full bg-green px-5 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:bg-green-hover hover:scale-[1.02] cursor-pointer"
+                      >
+                        Read the Blog Post
+                      </Link>
+                      <a
+                        href="https://arxiv.org/abs/2605.16301v2"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 rounded-full border border-border px-5 py-2.5 text-sm font-medium text-purple transition-all duration-150 hover:border-purple/40 hover:bg-purple/8 cursor-pointer"
+                      >
+                        Read the Full Paper
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+                          <polyline points="15 3 21 3 21 9" />
+                          <line x1="10" y1="14" x2="21" y2="3" />
+                        </svg>
+                      </a>
+                    </div>
                   </div>
-                </div>
-                <div className="flex-shrink-0 sm:w-[420px]">
-                  <Image
-                    src="/manta-hero.png"
-                    alt="MANTA benchmark visualization"
-                    width={420}
-                    height={320}
-                    className="w-full rounded-2xl object-cover"
-                  />
+                  <div className="flex-shrink-0 sm:w-[380px]">
+                    <Image
+                      src="/manta-hero.png"
+                      alt="MANTA benchmark visualization"
+                      width={380}
+                      height={290}
+                      className="w-full rounded-xl object-cover"
+                    />
+                  </div>
                 </div>
               </div>
             </div>

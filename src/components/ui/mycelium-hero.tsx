@@ -8,7 +8,7 @@ import Link from "next/link";
 const MAX_DEPTH = 5;
 const BASE_LENGTH = 115;
 const LENGTH_DECAY = 0.65;
-const ROOT_LINE_W = 2.4;
+const ROOT_LINE_W = 2.5;
 
 // Static ambient glow (faint — pulses are the main event)
 const REST_BRIGHTNESS = 0.28;
@@ -168,24 +168,42 @@ function buildForest(w: number, h: number): { nodes: MNode[] } {
   const pad = w * 0.09;
   const step = (w - 2 * pad) / Math.max(1, seedCount - 1);
 
+  // Bottom half seeds (original)
   for (let i = 0; i < seedCount; i++) {
     const rx = pad + step * i + (rng() - 0.5) * 55;
     const ry = h * 0.48 + rng() * h * 0.46;
     const root: MNode = {
       x: rx, y: ry, cpx: rx, cpy: ry,
       depth: -1, parent: null, children: [],
-      signal: 0,
-      incoming: 0,
-      lw: 0,
+      signal: 0, incoming: 0, lw: 0,
     };
     nodes.push(root);
-
     const armCount = 4 + Math.floor(rng() * 4);
     for (let a = 0; a < armCount; a++) {
       const baseAngle = (360 / armCount) * a + (rng() - 0.5) * 18;
       spawnBranch(rx, ry, baseAngle, BASE_LENGTH, 0, root, { w, h }, nodes, rng);
     }
   }
+
+  // Top half seeds (fill the sparse upper area)
+  const topSeedCount = Math.max(2, Math.round(w / 420));
+  const topStep = (w - 2 * pad) / Math.max(1, topSeedCount - 1);
+  for (let i = 0; i < topSeedCount; i++) {
+    const rx = pad + topStep * i + (rng() - 0.5) * 55;
+    const ry = rng() * h * 0.42;
+    const root: MNode = {
+      x: rx, y: ry, cpx: rx, cpy: ry,
+      depth: -1, parent: null, children: [],
+      signal: 0, incoming: 0, lw: 0,
+    };
+    nodes.push(root);
+    const armCount = 4 + Math.floor(rng() * 3);
+    for (let a = 0; a < armCount; a++) {
+      const baseAngle = (360 / armCount) * a + (rng() - 0.5) * 18;
+      spawnBranch(rx, ry, baseAngle, BASE_LENGTH, 0, root, { w, h }, nodes, rng);
+    }
+  }
+
   return { nodes };
 }
 
@@ -207,14 +225,10 @@ export default function MyceliumHero() {
     // Read colors from CSS variables at runtime
     const cssVars = getComputedStyle(document.documentElement);
     const bg = cssVars.getPropertyValue("--background").trim() || "#fff9ed";
-    const blueHex = cssVars.getPropertyValue("--blue").trim() || "#2A3C54";
-    const dim = hexToRgb(blueHex);
-    // Bright end: mix the base blue toward a light blue-white for glow contrast
-    const bright: [number, number, number] = [
-      Math.round(lerp(dim[0], 195, 0.68)),
-      Math.round(lerp(dim[1], 215, 0.68)),
-      Math.round(lerp(dim[2], 235, 0.68)),
-    ];
+    const purpleHex = cssVars.getPropertyValue("--purple-primary").trim() || "#845987";
+    const purpleBrightHex = cssVars.getPropertyValue("--purple-bright").trim() || "#d0acd2";
+    const dim = hexToRgb(purpleHex);
+    const bright = hexToRgb(purpleBrightHex);
     const color = (b: number, a: number) => hyphaColor(b, a, dim, bright);
 
     let raf: number;
@@ -462,7 +476,7 @@ export default function MyceliumHero() {
             className="font-serif text-5xl sm:text-6xl md:text-7xl font-semibold leading-tight tracking-tight text-foreground"
           >
             building a foundation for AI to consider{" "}
-            <em className="italic text-purple">all sentient beings</em>
+            <em className="italic text-purple">nonhuman welfare</em>
           </motion.h1>
         </div>
 

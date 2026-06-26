@@ -12,7 +12,7 @@ export default function Home() {
         {/* Mission */}
         <section className="bg-background py-8">
           <div className="mx-auto max-w-6xl px-6">
-            <h2 className="mt-4 font-serif text-5xl font-semibold leading-tight text-foreground">
+            <h2 className="mt-4 font-serif text-5xl font-semibold leading-tight text-foreground pt-8">
               who we are {" "}
               <em className="italic text-purple"></em>
             </h2>
@@ -44,7 +44,7 @@ export default function Home() {
             <h2 className="mt-4 font-serif text-5xl font-semibold text-foreground sm:text-5xl">
               partnerships
             </h2>
-            <p className="mt-4 max-w-2xl text-xl text-muted">
+            <p className="mt-4 max-w-4xl text-xl text-muted">
               We collaborate with leading AI×Animals organizations and research institutions
             </p>
             <div className="mt-10 flex flex-wrap items-end gap-10">

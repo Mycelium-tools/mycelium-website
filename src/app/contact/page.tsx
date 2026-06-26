@@ -16,7 +16,7 @@ export default function ContactPage() {
               let&apos;s{" "}
               <em className="italic">build together</em>
             </h1>
-            <p className="mt-6 text-xl leading-relaxed text-muted">
+            <p className="mt-6 text-lg leading-relaxed text-muted">
               Mycelium is a small team working on a big problem. Whether you're a student, researcher, engineer, funder, or just someone who wants to make AI go well for all sentient beings, we'd love to hear from you.
             </p>
           </div>

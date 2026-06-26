@@ -3,35 +3,25 @@
 :root {
   --background: #fffdf4;
   --foreground: #1c1025;
-  --accent: #A6AD3E;
-  --accent-hover: #CED665;
-  --accent-cta: #A6AD3E;
-  --accent-cta-hover: #e3dc6a;
   --muted: #5a4b6b;
-  --muted-light: #8a7aa0;
+  --faint: #8a7aa0;
   --surface: #f5eeff;
-  --surface-raised: #ffffff;
   --border: #e0d5ec;
-  --border-light: #ede5f5;
-  --purple: #67419C;
-  --purple-bright: #b5a0e8;
-  --green: #A6AD3E;
-  --blue: #845987;
-  --blue-hover: #6f4672;
+  --purple-primary: #845987;
+  --purple-primary-hover: #6f4672;
+  --purple-bright: #d0acd2;
   --footer-primary: #442846;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-purple: var(--blue);
-  --color-purple-hover: var(--blue-hover);
-  --color-green: var(--blue);
-  --color-green-hover: var(--blue-hover);
-  --color-blue: var(--blue);
-  --color-blue-hover: var(--blue-hover);
+  --color-purple: var(--purple-primary);
+  --color-purple-hover: var(--purple-primary-hover);
+  --color-green: var(--purple-primary);
+  --color-green-hover: var(--purple-primary-hover);
   --color-muted: var(--muted);
-  --color-faint: var(--muted-light);
+  --color-faint: var(--faint);
   --color-surface: var(--surface);
   --color-border: var(--border);
   --font-sans: var(--font-atkinson), ui-sans-serif, system-ui, sans-serif;
