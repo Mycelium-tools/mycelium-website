@@ -10,25 +10,25 @@ export default function ContactPage() {
     <div className="bg-background text-foreground">
       <main className="pt-[73px]">
         {/* Header */}
-        <section className="pt-10">
-          <div className="mx-auto max-w-6xl px-6">
-            <h1 className="mt-4 font-serif text-5xl font-semibold leading-tight text-foreground sm:text-6xl">
+        <section className="pt-16 sm:pt-10">
+          <div className="mx-auto max-w-6xl px-10 sm:px-12 lg:px-8">
+            <h1 className="mt-4 font-serif text-6xl font-semibold leading-tight text-foreground">
               let&apos;s{" "}
-              <em className="italic">build together</em>
+              <em className="italic text-purple">build together</em>
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-muted">
+            <p className="mt-6 max-w-4xl text-lg leading-relaxed text-muted">
               Mycelium is a small team working on a big problem. Whether you're a student, researcher, engineer, funder, or just someone who wants to make AI go well for all sentient beings, we'd love to hear from you.
             </p>
           </div>
         </section>
 
         {/* Contact form */}
-        <section className="pt-8 pb-24">
-          <div className="mx-auto max-w-6xl px-6">
-          <div className="max-w-2xl">
+        <section className="pt-12 pb-20 sm:pt-8 sm:pb-24">
+          <div className="mx-auto max-w-6xl px-10 sm:px-12 lg:px-8">
+          <div className="max-w-3xl">
             {/* Replace YOUR_FORM_ID with your Formspree form ID from formspree.io */}
             <form
-              action="https://formspree.io/f/YOUR_FORM_ID"
+              action="https://formspree.io/f/mqevqloj"
               method="POST"
               className="flex flex-col gap-6"
             >

@@ -455,7 +455,7 @@ export default function MyceliumHero() {
   const ease = "easeInOut" as const;
 
   return (
-    <div className="relative h-[640px] w-full flex flex-col items-center justify-center overflow-hidden bg-background">
+    <div className="relative h-[720px] w-full flex flex-col items-center justify-center overflow-hidden bg-background">
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" aria-hidden="true" />
 
       {/* Radial gradient to soften the network behind the hero text */}
@@ -467,13 +467,13 @@ export default function MyceliumHero() {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto flex flex-col items-center gap-6">
+      <div className="relative z-10 text-center px-10 sm:px-12 lg:px-8 max-w-4xl mx-auto flex flex-col items-center gap-6">
         <div ref={textRef}>
           <motion.h1
             initial={from}
             animate={to}
             transition={{ delay: 0.6, duration: 0.8, ease }}
-            className="font-serif text-5xl sm:text-6xl md:text-7xl font-semibold leading-tight tracking-tight text-foreground"
+            className="font-serif text-5xl sm:text-6xl font-semibold leading-tight tracking-tight text-foreground"
           >
             Building the foundation for AI to consider {" "}
             <em className="italic text-purple">all sentient beings</em>

@@ -10,21 +10,15 @@ export default function Home() {
         <MyceliumHero />
 
         {/* Mission */}
-        <section className="bg-background py-8">
-          <div className="mx-auto max-w-6xl px-6">
+        <section className="bg-background py-12 sm:py-8">
+          <div className="mx-auto max-w-6xl px-10 sm:px-12 lg:px-8">
             <h2 className="mt-4 font-serif text-5xl font-semibold leading-tight text-foreground pt-8">
               our mission {" "}
               <em className="italic text-purple"></em>
             </h2>
             <div className="mt-10">
-              <p className="text-xl leading-relaxed text-muted pb-8">
-                AI is transforming the world - not only for humanity, but also for the rest of sentient life that calls the world their home. 
-              </p>
-              <p className="text-xl leading-relaxed text-muted pb-8">
-                AI is already managing wildlife, changing consumer habits, and soon may be completely integrated into factory farms, further perpetuating animal suffering. As these systems become more capable and autonomous, it becomes imperative that we make sure they are built with every sentient being in mind.
-              </p>
               <p className="text-xl leading-relaxed text-muted">
-                Like the fungal networks that sustain ecosystems, <b>Mycelium</b> builds the connective infrastructure between AI safety and animal welfare - the benchmarks, evaluations, and tools that advance AI systems to consider all sentient beings.
+                <b>Mycelium</b> builds the connective infrastructure between AI safety and animal welfare - the benchmarks, evaluations, and tools that advance AI systems to consider all sentient beings.
               </p>
               <div className="mt-6 flex">
                 <Link
@@ -39,8 +33,8 @@ export default function Home() {
         </section>
 
         {/* Partnerships */}
-        <section className="bg-background py-8">
-          <div className="mx-auto max-w-6xl px-6">
+        <section className="bg-background py-12 sm:py-8">
+          <div className="mx-auto max-w-6xl px-10 sm:px-12 lg:px-8">
             <h2 className="mt-4 font-serif text-5xl font-semibold text-foreground sm:text-5xl">
               partnerships
             </h2>
@@ -70,8 +64,8 @@ export default function Home() {
         </section>
 
         {/* Supported by */}
-        <section className="bg-background pt-8 pb-24">
-          <div className="mx-auto max-w-6xl px-6">
+        <section className="bg-background pt-12 pb-20 sm:pt-8 sm:pb-24">
+          <div className="mx-auto max-w-6xl px-10 sm:px-12 lg:px-8">
             <h2 className="mt-4 font-serif text-5xl font-semibold text-foreground sm:text-5xl">
               supported by
             </h2>

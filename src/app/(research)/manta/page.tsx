@@ -50,8 +50,9 @@ export default function MantaPage() {
     <div className="bg-background text-foreground">
       <main className="pt-[73px]">
         {/* Hero */}
-        <section className="px-6 py-20">
-          <div className="mx-auto max-w-3xl">
+        <section className="py-20">
+          <div className="mx-auto max-w-6xl px-10 sm:px-12 lg:px-8">
+          <div className="max-w-4xl">
             <div className="flex flex-wrap items-center gap-3">
               <Link
                 href="/work"
@@ -97,11 +98,13 @@ export default function MantaPage() {
               </a>
             </div>
           </div>
+          </div>
         </section>
 
         {/* Body */}
-        <section className="px-6 py-16">
-          <div className="mx-auto max-w-3xl space-y-16">
+        <section className="py-16">
+          <div className="mx-auto max-w-6xl px-10 sm:px-12 lg:px-8">
+          <div className="max-w-4xl space-y-16">
 
             {/* The Problem */}
             <div>
@@ -320,6 +323,7 @@ export default function MantaPage() {
               </div>
             </div>
 
+          </div>
           </div>
         </section>
       </main>

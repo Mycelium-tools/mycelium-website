@@ -11,8 +11,8 @@ export default function WorkPage() {
   return (
     <div className="bg-background text-foreground">
       <main className="pt-[73px]">
-        <section className="py-10">
-          <div className="mx-auto max-w-6xl px-6">
+        <section className="py-16 sm:py-10">
+          <div className="mx-auto max-w-6xl px-10 sm:px-12 lg:px-8">
             <h1 className="mt-4 font-serif text-6xl font-semibold leading-tight text-foreground">
               our work{" "}
               <em className="italic"></em>
