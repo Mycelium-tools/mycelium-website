@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Our Work — Mycelium",
@@ -25,53 +24,42 @@ export default function WorkPage() {
             <div className="mt-12 flex flex-col gap-6">
               <p className="text-sm font-sans font-medium uppercase tracking-widest text-faint">Projects</p>
 
-              <div className="rounded-2xl border border-border bg-surface p-8 sm:p-10">
-                <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:gap-12">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs font-sans font-medium uppercase tracking-widest text-faint">Research</span>
-                      <span className="text-faint">·</span>
-                      <span className="text-xs font-sans font-medium uppercase tracking-widest text-faint">Benchmark</span>
-                    </div>
-                    <h2 className="mt-3 font-serif text-4xl font-semibold leading-snug text-foreground sm:text-5xl">
-                      MANTA: Do LLMs Hold Their Values?
+              <div className="rounded-2xl border border-border bg-surface p-6 sm:p-10">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-sans font-medium uppercase tracking-widest text-faint">Research</span>
+                  <span className="text-faint">·</span>
+                  <span className="text-xs font-sans font-medium uppercase tracking-widest text-faint">Benchmark</span>
+                </div>
+                <div className="mt-3 flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-12">
+                  <Image
+                    src="/manta-ray-logo.png"
+                    alt="MANTA logo"
+                    width={300}
+                    height={300}
+                    className="h-28 w-28 flex-shrink-0 object-contain sm:order-2 sm:h-auto sm:w-[300px]"
+                  />
+                  <div className="flex-1 sm:order-1">
+                    <h2 className="font-serif text-3xl font-semibold leading-snug text-foreground sm:text-5xl">
+                      MANTA: Do LLMs Hold Their Values on Animal Welfare?
                     </h2>
-                    <p className="mt-4 text-lg leading-relaxed text-muted">
-                      A multi-turn adversarial benchmark of 1,088 five-turn conversations that escalate
-                      from implicit scenarios into sustained social, cultural, economic, pragmatic, and
-                      epistemic pressure. It measures what single-turn tests miss: four of seven frontier
-                      models shifted ranking once their animal-welfare values were placed under pressure.
+                    <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
+                      MANTA <i>(Multi-turn Assessment of Nonhuman Thinking & Alignment)</i> measures whether frontier models hold their animal welfare values when users push back. Measured across 1,000+ five-turn conversations applying sustained economic, social, pragmatic, epistemic, and cultural pressure.
                     </p>
                     <div className="mt-6 flex flex-wrap items-center gap-3">
-                      <Link
-                        href="/manta"
-                        className="inline-flex items-center gap-1.5 rounded-full bg-green px-5 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:bg-green-hover hover:scale-[1.02] cursor-pointer"
-                      >
-                        Read the Blog Post
-                      </Link>
                       <a
-                        href="https://arxiv.org/abs/2605.16301v2"
+                        href="https://www.mantabench.org/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 rounded-full border border-border px-5 py-2.5 text-sm font-medium text-purple transition-all duration-150 hover:border-purple/40 hover:bg-purple/8 cursor-pointer"
+                        className="inline-flex items-center gap-2 rounded-full bg-green px-7 py-3.5 text-base font-medium text-white transition-all duration-200 hover:bg-green-hover hover:scale-[1.02] cursor-pointer"
                       >
-                        Read the Full Paper
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        Read more
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                           <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
                           <polyline points="15 3 21 3 21 9" />
                           <line x1="10" y1="14" x2="21" y2="3" />
                         </svg>
                       </a>
                     </div>
-                  </div>
-                  <div className="flex-shrink-0 sm:w-[380px]">
-                    <Image
-                      src="/manta-hero.png"
-                      alt="MANTA benchmark visualization"
-                      width={380}
-                      height={290}
-                      className="w-full rounded-xl object-cover"
-                    />
                   </div>
                 </div>
               </div>
