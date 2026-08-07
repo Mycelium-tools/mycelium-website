@@ -20,7 +20,7 @@ const atkinsonHyperlegible = Atkinson_Hyperlegible({
 });
 
 export const metadata: Metadata = {
-  title: "Mycelium — AI Systems That Consider Nonhuman Animal Welfare",
+  title: "Mycelium",
   description:
     "Mycelium builds the technical infrastructure and capacity for AI models to consider nonhuman welfare. Benchmarks, evals, and tools for nonhuman AI safety.",
   icons: {
