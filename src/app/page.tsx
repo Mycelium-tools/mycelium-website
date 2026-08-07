@@ -50,10 +50,10 @@ export default function Home() {
                 <Image src="/partner-logos/arcadia-impact.png" alt="Arcadia Impact" width={180} height={70} className="object-contain rounded-xl" unoptimized />
                 <span className="text-sm font-medium text-faint">Arcadia Impact</span>
               </div>
-              <div className="flex flex-col items-center gap-3">
+              {/* <div className="flex flex-col items-center gap-3">
                 <Image src="/partner-logos/caml.png" alt="CaML" width={92} height={80} className="object-contain rounded-xl" unoptimized />
                 <span className="text-sm font-medium text-faint">CaML</span>
-              </div>
+              </div> */}
               <div className="flex flex-col items-center gap-3">
                 <Image src="/partner-logos/electric-sheep.png" alt="Electric Sheep" width={250} height={70} className="object-contain rounded-xl" unoptimized />
                 <span className="text-sm font-medium text-faint">Electric Sheep</span>
@@ -70,10 +70,10 @@ export default function Home() {
               supported by
             </h2>
             <p className="mt-4 max-w-2xl text-xl text-muted">
-              We&apos;re thankful for our supporters, who keep our operations running
+              We&apos;re thankful for our supporters, who keep our operations running, such as
             </p>
-            <div className="mt-10 flex flex-wrap items-end gap-12">
-              {/* <div className="flex flex-col items-center gap-3">
+            <div className="mt-10 flex flex-wrap items-center gap-12">
+              <a href="https://coefficientgiving.org/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-3 cursor-pointer transition-transform duration-200 hover:-translate-y-1 hover:scale-[1.05]">
                 <Image
                   src="/donor-logos/Coefficient+Logo+Gray.webp"
                   alt="Coefficient Giving"
@@ -81,7 +81,8 @@ export default function Home() {
                   height={60}
                   unoptimized
                 />
-              </div> */}
+                {/* <span className="text-sm font-medium text-faint">Coefficient Giving</span> */}
+              </a>
               <a href="https://thepollinationproject.org/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-3 cursor-pointer transition-transform duration-200 hover:-translate-y-1 hover:scale-[1.05]">
                 <Image
                   src="/donor-logos/tpp-logo-square.jpg"
@@ -91,7 +92,7 @@ export default function Home() {
                   className="rounded-xl"
                   unoptimized
                 />
-                <span className="text-sm font-medium text-faint">The Pollination Project</span>
+                {/* <span className="text-sm font-medium text-faint">The Pollination Project</span> */}
               </a>
               <a href="https://bluedot.org/programs/rapid-grants" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-3 cursor-pointer transition-transform duration-200 hover:-translate-y-1 hover:scale-[1.05]">
                 <Image
@@ -102,7 +103,7 @@ export default function Home() {
                   className="rounded-xl"
                   unoptimized
                 />
-                <span className="text-sm font-medium text-faint">BlueDot Impact</span>
+                {/* <span className="text-sm font-medium text-faint">BlueDot Impact</span> */}
               </a>
               <a href="https://sparai.org/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-3 cursor-pointer transition-transform duration-200 hover:-translate-y-1 hover:scale-[1.05]">
                 <Image
@@ -113,9 +114,12 @@ export default function Home() {
                   className="rounded-xl"
                   unoptimized
                 />
-                <span className="text-sm font-medium text-faint">SPAR</span>
+                {/* <span className="text-sm font-medium text-faint">SPAR</span> */}
               </a>
             </div>
+            <p className="mt-6 text-base text-faint">
+              …and other independent and anonymous donors
+            </p>
           </div>
         </section>
       </main>
