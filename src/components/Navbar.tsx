@@ -26,24 +26,12 @@ function NavLink({
       }`}
     >
       {children}
-      <svg
-        className={`pointer-events-none absolute -bottom-1 left-0 w-full overflow-visible${isActive ? "" : " nav-underline"}`}
-        height="2"
-        viewBox="0 0 100 2"
-        preserveAspectRatio="none"
-        fill="none"
+      <span
         aria-hidden="true"
-      >
-        <line
-          className={isActive ? undefined : "nav-root-stem"}
-          strokeDasharray="100"
-          strokeDashoffset={isActive ? "0" : "100"}
-          x1="0" y1="1" x2="100" y2="1"
-          stroke="var(--color-purple)"
-          strokeWidth="2"
-          vectorEffect="non-scaling-stroke"
-        />
-      </svg>
+        className={`pointer-events-none absolute -bottom-1 left-0 h-0.5 w-full rounded-full bg-purple origin-left transition-transform duration-200 ease-out motion-reduce:transition-none ${
+          isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+        }`}
+      />
     </Link>
   );
 }

@@ -37,21 +37,3 @@ body {
 .font-serif {
   font-family: var(--font-crimson-pro), ui-serif, Georgia, serif;
 }
-
-/* Mycelium root hover animation for nav links */
-@keyframes draw-stem {
-  from { stroke-dashoffset: 100; }
-  to   { stroke-dashoffset: 0; }
-}
-
-.nav-underline {
-  opacity: 0;
-}
-
-.group:hover .nav-underline {
-  opacity: 1;
-}
-
-.group:hover .nav-root-stem {
-  animation: draw-stem 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
