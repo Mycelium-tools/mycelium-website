@@ -26,24 +26,12 @@ function NavLink({
       }`}
     >
       {children}
-      <svg
-        className={`pointer-events-none absolute -bottom-1 left-0 w-full overflow-visible${isActive ? "" : " nav-underline"}`}
-        height="2"
-        viewBox="0 0 100 2"
-        preserveAspectRatio="none"
-        fill="none"
+      <span
         aria-hidden="true"
-      >
-        <line
-          className={isActive ? undefined : "nav-root-stem"}
-          strokeDasharray="100"
-          strokeDashoffset={isActive ? "0" : "100"}
-          x1="0" y1="1" x2="100" y2="1"
-          stroke="var(--color-purple)"
-          strokeWidth="2"
-          vectorEffect="non-scaling-stroke"
-        />
-      </svg>
+        className={`pointer-events-none absolute -bottom-1 left-0 h-0.5 w-full rounded-full bg-purple origin-left transition-transform duration-200 ease-out motion-reduce:transition-none ${
+          isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+        }`}
+      />
     </Link>
   );
 }
@@ -55,9 +43,8 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-10 sm:px-12 lg:px-8 py-4">
-        <Link href="/" onClick={close} className="flex items-center gap-2.5 transition-transform duration-200 hover:scale-105">
-          <Image src="/logo-purple.png" alt="" width={48} height={48} className="object-contain" unoptimized />
-          <span className="font-serif text-2xl font-semibold text-foreground">mycelium</span>
+        <Link href="/" onClick={close} className="flex items-center transition-transform duration-200 hover:scale-105">
+          <Image src="/mycelium-lockup.png" alt="mycelium logo" width={157} height={48} className="object-contain" unoptimized />
         </Link>
 
         {/* Desktop nav */}
