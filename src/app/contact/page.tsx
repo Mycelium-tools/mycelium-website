@@ -12,11 +12,11 @@ export default function ContactPage() {
         {/* Header */}
         <section className="pt-16 sm:pt-10">
           <div className="mx-auto max-w-6xl px-10 sm:px-12 lg:px-8">
-            <h1 className="mt-4 font-serif text-6xl font-semibold leading-tight text-foreground">
+            <h1 className="mt-4 font-serif text-5xl font-semibold leading-tight text-foreground sm:text-6xl">
               let&apos;s{" "}
               <em className="italic text-purple">build together</em>
             </h1>
-            <p className="mt-6 max-w-4xl text-lg leading-relaxed text-muted">
+            <p className="mt-6 max-w-4xl text-base leading-relaxed text-muted sm:text-lg">
               Mycelium is a small team working on a big problem. Whether you're a student, researcher, engineer, funder, or just someone who wants to make AI go well for all sentient beings, we'd love to hear from you.
             </p>
           </div>
@@ -34,7 +34,7 @@ export default function ContactPage() {
             >
               <div className="grid gap-6 sm:grid-cols-2">
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="name" className="text-md font-medium text-foreground">
+                  <label htmlFor="name" className="text-base font-medium text-foreground">
                     Name
                   </label>
                   <input
@@ -43,11 +43,11 @@ export default function ContactPage() {
                     name="name"
                     required
                     placeholder="Your name"
-                    className="rounded-xl border border-border bg-background px-4 py-3 text-md text-foreground placeholder-faint outline-none transition-colors focus:border-foreground/40 focus:ring-2 focus:ring-foreground/5"
+                    className="rounded-xl border border-border bg-background px-4 py-3 text-base text-foreground placeholder-faint outline-none transition-colors focus:border-foreground/40 focus:ring-2 focus:ring-foreground/5"
                   />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="email" className="text-md font-medium text-foreground">
+                  <label htmlFor="email" className="text-base font-medium text-foreground">
                     Email
                   </label>
                   <input
@@ -56,13 +56,13 @@ export default function ContactPage() {
                     name="email"
                     required
                     placeholder="you@example.com"
-                    className="rounded-xl border border-border bg-background px-4 py-3 text-md text-foreground placeholder-faint outline-none transition-colors focus:border-foreground/40 focus:ring-2 focus:ring-foreground/5"
+                    className="rounded-xl border border-border bg-background px-4 py-3 text-base text-foreground placeholder-faint outline-none transition-colors focus:border-foreground/40 focus:ring-2 focus:ring-foreground/5"
                   />
                 </div>
               </div>
 
               <div className="flex flex-col gap-2">
-                <label htmlFor="subject" className="text-md font-medium text-foreground">
+                <label htmlFor="subject" className="text-base font-medium text-foreground">
                   Subject
                 </label>
                 <input
@@ -70,12 +70,12 @@ export default function ContactPage() {
                   type="text"
                   name="subject"
                   placeholder="What's this about?"
-                  className="rounded-xl border border-border bg-background px-4 py-3 text-md text-foreground placeholder-faint outline-none transition-colors focus:border-foreground/40 focus:ring-2 focus:ring-foreground/5"
+                  className="rounded-xl border border-border bg-background px-4 py-3 text-base text-foreground placeholder-faint outline-none transition-colors focus:border-foreground/40 focus:ring-2 focus:ring-foreground/5"
                 />
               </div>
 
               <div className="flex flex-col gap-2">
-                <label htmlFor="message" className="text-md font-medium text-foreground">
+                <label htmlFor="message" className="text-base font-medium text-foreground">
                   Message
                 </label>
                 <textarea
@@ -84,7 +84,7 @@ export default function ContactPage() {
                   required
                   rows={6}
                   placeholder="Tell us about yourself and how you'd like to collaborate..."
-                  className="resize-none rounded-xl border border-border bg-background px-4 py-3 text-md text-foreground placeholder-faint outline-none transition-colors focus:border-foreground/40 focus:ring-2 focus:ring-foreground/5"
+                  className="resize-none rounded-xl border border-border bg-background px-4 py-3 text-base text-foreground placeholder-faint outline-none transition-colors focus:border-foreground/40 focus:ring-2 focus:ring-foreground/5"
                 />
               </div>
 
@@ -96,7 +96,7 @@ export default function ContactPage() {
               </button>
             </form>
 
-            <p className="mt-8 text-md text-faint">
+            <p className="mt-8 text-base text-faint">
               Prefer email? Reach out to {" "}
               <a href="mailto:allen@projectmycelium.ai" className="text-muted hover:underline">
                 allen@projectmycelium.ai
