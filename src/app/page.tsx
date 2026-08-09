@@ -12,12 +12,12 @@ export default function Home() {
         {/* Mission */}
         <section className="bg-background py-12 sm:py-8">
           <div className="mx-auto max-w-6xl px-10 sm:px-12 lg:px-8">
-            <h2 className="mt-4 font-serif text-5xl font-semibold leading-tight text-foreground pt-8">
+            <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-foreground pt-8 sm:text-5xl">
               our mission {" "}
               <em className="italic text-purple"></em>
             </h2>
             <div className="mt-10">
-              <p className="text-xl leading-relaxed text-muted">
+              <p className="text-lg leading-relaxed text-muted sm:text-xl">
                 <b>Mycelium</b> builds the connective infrastructure between AI safety and animal welfare - the benchmarks, evaluations, and tools that advance AI systems to consider all sentient beings.
               </p>
               <div className="mt-6 flex">
@@ -35,11 +35,11 @@ export default function Home() {
         {/* Partnerships */}
         <section className="bg-background py-12 sm:py-8">
           <div className="mx-auto max-w-6xl px-10 sm:px-12 lg:px-8">
-            <h2 className="mt-4 font-serif text-5xl font-semibold text-foreground sm:text-5xl">
+            <h2 className="mt-4 font-serif text-4xl font-semibold text-foreground sm:text-5xl">
               partnerships
             </h2>
-            <p className="mt-4 max-w-4xl text-xl text-muted">
-              We collaborate with leading AI×Animals organizations and research institutions
+            <p className="mt-4 max-w-4xl text-lg text-muted sm:text-xl">
+              We collaborate with leading AI safety organizations and research institutions
             </p>
             <div className="mt-10 flex flex-wrap items-end gap-10">
               <div className="flex flex-col items-center gap-3">
@@ -66,10 +66,10 @@ export default function Home() {
         {/* Supported by */}
         <section className="bg-background pt-12 pb-20 sm:pt-8 sm:pb-24">
           <div className="mx-auto max-w-6xl px-10 sm:px-12 lg:px-8">
-            <h2 className="mt-4 font-serif text-5xl font-semibold text-foreground sm:text-5xl">
+            <h2 className="mt-4 font-serif text-4xl font-semibold text-foreground sm:text-5xl">
               supported by
             </h2>
-            <p className="mt-4 max-w-2xl text-xl text-muted">
+            <p className="mt-4 max-w-2xl text-lg text-muted sm:text-xl">
               We&apos;re thankful for our supporters, who keep our operations running, such as
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-12">

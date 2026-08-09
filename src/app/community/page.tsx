@@ -9,14 +9,14 @@ export default function CommunityPage() {
   return (
     <div className="bg-background text-foreground">
       <main className="pt-[73px]">
-        <section className="py-10">
-          <div className="mx-auto max-w-6xl px-6">
-            <h1 className="mt-4 font-serif text-6xl font-semibold leading-tight text-foreground">
+        <section className="py-16 sm:py-10">
+          <div className="mx-auto max-w-6xl px-10 sm:px-12 lg:px-8">
+            <h1 className="mt-4 font-serif text-5xl font-semibold leading-tight text-foreground sm:text-6xl">
               let&apos;s <em className="italic text-purple">connect</em>
             </h1>
-            <div className="mt-10 max-w-4xl">
-              <p className="text-lg leading-relaxed text-muted pb-8">
-                We&apos;ve found our home in the Sentient Futures slack community, an active hub for making AI go well for all sentient beings. Join us on their slack to connect with over a thousand advocates, researchers, and builders working at this critical intersection.
+            <div className="mt-6 max-w-4xl">
+              <p className="text-base leading-relaxed text-muted pb-8 sm:text-lg">
+                We&apos;ve found our home in the <b>Sentient Futures</b> slack community, an active hub for making AI go well for all sentient beings. Join us on their slack to connect with over a thousand advocates, researchers, and builders working at this critical intersection.
               </p>
               <a
                 href="https://tally.so/r/3qK9eO"

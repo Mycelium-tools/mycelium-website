@@ -15,22 +15,22 @@ export default function AboutPage() {
         {/* Header / mission */}
         <section className="py-16 sm:py-10">
           <div className="mx-auto max-w-6xl px-10 sm:px-12 lg:px-8">
-            <h1 className="mt-4 font-serif text-6xl font-semibold leading-tight text-foreground">
+            <h1 className="mt-4 font-serif text-5xl font-semibold leading-tight text-foreground sm:text-6xl">
               we're advancing AI to include {" "}
               <em className="italic text-purple">all sentient beings</em>
             </h1>
 
             <div className="mt-10">
-              <p className="text-xl leading-relaxed text-muted pb-8">
+              <p className="text-lg leading-relaxed text-muted pb-8 sm:text-xl">
                 AI is transforming the world - not only for humanity, but also for the rest of sentient life that calls the world their home. 
               </p>
-              <p className="text-xl leading-relaxed text-muted pb-8">
+              <p className="text-lg leading-relaxed text-muted pb-8 sm:text-xl">
                 AI is already managing wildlife, changing the food system through consumer habits, and soon may be completely integrated into factory farms, further perpetuating animal suffering. As these systems become more capable and autonomous, it becomes imperative that we make sure they are built with every being in mind.
               </p>
-              <p className="text-xl leading-relaxed text-muted pb-8">
+              <p className="text-lg leading-relaxed text-muted pb-8 sm:text-xl">
                 This is a critical moment in time, to shape these systems to account for nonhuman welfare before these dangerous values become locked-in for good.
               </p>
-              <p className="text-xl leading-relaxed text-muted">
+              <p className="text-lg leading-relaxed text-muted sm:text-xl">
                 Named after the fungal networks that sustain entire ecosystems beneath the surface, <b>Mycelium</b> bridges the gap between AI safety and animal welfare, building the benchmarks, evaluations, and other technical infrastructure needed to advance AI models to consider humans, animals, and all sentient beings.
               </p>
             </div>
@@ -40,7 +40,7 @@ export default function AboutPage() {
         {/* Team */}
         <section className="py-12 sm:py-8">
           <div className="mx-auto max-w-6xl px-10 sm:px-12 lg:px-8">
-            <h2 className="font-serif text-5xl font-semibold leading-tight text-foreground">
+            <h2 className="font-serif text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
               team
             </h2>
             <div className="mt-8 flex flex-wrap gap-10">
