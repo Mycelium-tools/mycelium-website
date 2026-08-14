@@ -74,6 +74,36 @@ export default function AboutPage() {
                   Founder, Executive Director
                 </p>
               </div>
+              <div className="flex flex-col items-start">
+                <a
+                  href="https://www.linkedin.com/in/isabella-my-luong/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cursor-pointer transition-transform duration-200 hover:scale-[1.05]"
+                >
+                  <div className="relative h-56 w-56 overflow-hidden rounded-2xl">
+                    <Image
+                      src="/headshot-isabella.png"
+                      alt="Isabella Luong"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </a>
+                <h3 className="mt-4 font-serif text-2xl font-semibold text-foreground">
+                  <a
+                    href="https://www.linkedin.com/in/isabella-my-luong/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-colors hover:text-purple"
+                  >
+                    Isabella Luong
+                  </a>
+                </h3>
+                <p className="mt-1 text-base font-medium text-purple pb-8">
+                  Researcher Engineer, Evals
+                </p>
+              </div>
             </div>
           </div>
         </section>
