@@ -455,7 +455,7 @@ export default function MyceliumHero() {
   const ease = "easeInOut" as const;
 
   return (
-    <div className="relative h-[700px] w-full flex flex-col items-center justify-center overflow-hidden bg-background">
+    <div className="relative h-[800px] w-full flex flex-col items-center justify-center overflow-hidden bg-background">
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" aria-hidden="true" />
 
       {/* Radial gradient to soften the network behind the hero text */}
