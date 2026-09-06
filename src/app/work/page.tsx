@@ -24,23 +24,26 @@ export default function WorkPage() {
             <div className="mt-12 flex flex-col gap-6">
               <p className="text-sm font-sans font-medium uppercase tracking-widest text-faint">Projects</p>
 
-              <div className="rounded-2xl border border-border bg-surface p-6 sm:p-10">
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-sans font-medium uppercase tracking-widest text-faint">Benchmarks & Evals</span>
-                </div>
-                <div className="mt-3 flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-12">
-                  <Image
-                    src="/manta-ray-logo.png"
-                    alt="MANTA logo"
-                    width={300}
-                    height={300}
-                    className="h-28 w-28 flex-shrink-0 object-contain sm:order-2 sm:h-auto sm:w-[300px]"
-                  />
-                  <div className="flex-1 sm:order-1">
-                    <h2 className="font-serif text-3xl font-semibold leading-snug text-foreground sm:text-5xl">
+              <article className="rounded-2xl border border-border bg-surface p-6 sm:p-8">
+                <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-8">
+                  <div className="flex h-32 w-32 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border bg-purple/10 p-4 sm:h-52 sm:w-52 sm:p-6">
+                    <Image
+                      src="/manta-ray-logo.png"
+                      alt="MANTA logo"
+                      width={300}
+                      height={300}
+                      className="h-full w-full scale-[1.33] object-contain"
+                      unoptimized
+                    />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <span className="inline-block rounded-full border border-border bg-purple/10 px-3 py-1 text-xs font-sans font-medium uppercase tracking-widest text-faint">
+                      Benchmarks & Evals
+                    </span>
+                    <h2 className="mt-4 font-serif text-2xl font-semibold leading-snug text-foreground sm:text-3xl">
                       MANTA: Do LLMs Hold Their Values on Animal Welfare?
                     </h2>
-                    <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
+                    <p className="mt-3 text-base leading-relaxed text-muted sm:text-lg">
                       MANTA <i>(Multi-turn Assessment of Nonhuman Thinking & Alignment)</i> measures whether frontier models hold their animal welfare values when users push back. Measured across 1,000+ five-turn conversations applying sustained economic, social, pragmatic, epistemic, and cultural pressure.
                     </p>
                     <p className="mt-4 flex items-center gap-2 text-sm italic text-faint">
@@ -52,12 +55,12 @@ export default function WorkPage() {
                       </svg>
                       Released: May 2026 · Last updated: August 2026
                     </p>
-                    <div className="mt-6 flex flex-wrap items-center gap-3">
+                    <div className="mt-6">
                       <a
                         href="https://www.mantabench.org/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-full bg-green px-7 py-3.5 text-base font-medium text-white transition-all duration-200 hover:bg-green-hover hover:scale-[1.02] cursor-pointer"
+                        className="inline-flex items-center gap-2 rounded-full bg-green px-6 py-3 text-base font-medium text-white transition-all duration-200 hover:bg-green-hover hover:scale-[1.02] cursor-pointer"
                       >
                         Visit the official website
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -69,27 +72,29 @@ export default function WorkPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </article>
 
-              <div className="rounded-2xl border border-border bg-surface p-6 sm:p-10">
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-sans font-medium uppercase tracking-widest text-faint">Research Experiments</span>
-                </div>
-                <div className="mt-3 flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-12">
-                  <Image
-                    src="/donor-logos/spar-logo.png"
-                    alt="SPAR logo"
-                    width={311}
-                    height={162}
-                    className="h-28 w-auto flex-shrink-0 rounded-xl object-contain sm:order-2 sm:h-auto sm:w-[300px]"
-                    unoptimized
-                  />
-                  <div className="flex-1 sm:order-1">
-                    <h2 className="font-serif text-3xl font-semibold leading-snug text-foreground sm:text-5xl">
+              <article className="rounded-2xl border border-border bg-surface p-6 sm:p-8">
+                <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-8">
+                  <div className="flex h-32 w-32 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border bg-purple/10 p-4 sm:h-52 sm:w-52 sm:p-6">
+                    <Image
+                      src="/robot-logo.png"
+                      alt="Emergent Alignment project illustration"
+                      width={298}
+                      height={298}
+                      className="h-full w-full object-contain"
+                      unoptimized
+                    />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <span className="inline-block rounded-full border border-border bg-purple/10 px-3 py-1 text-xs font-sans font-medium uppercase tracking-widest text-faint">
+                      Research Experiments
+                    </span>
+                    <h2 className="mt-4 font-serif text-2xl font-semibold leading-snug text-foreground sm:text-3xl">
                       Emergent Alignment: Does Nonhuman Welfare Generalize?
                     </h2>
-                    <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
-                      <i>Emergent misalignment</i> showed that training on one narrow bad behavior makes models broadly misaligned. We invert the question: does fine-tuning a model on a single good value (e.g. moral consideration for nonhuman beings), make it broadly more aligned?
+                    <p className="mt-3 text-base leading-relaxed text-muted sm:text-lg">
+                      <a href="https://www.lesswrong.com/posts/ifechgnJRtJdduFGC/emergent-misalignment-narrow-finetuning-can-produce-broadly" target="_blank" rel="noopener noreferrer" className="text-[#4a6fa5] underline underline-offset-4 transition-colors hover:text-[#3a5a8a]"><i>Emergent misalignment</i></a> showed that training on one narrow bad behavior makes models broadly misaligned. We invert the question: does fine-tuning a model on a single good value, moral consideration for nonhuman beings, make it broadly more aligned? We evaluate across nonhuman welfare, general alignment, and capability benchmarks.
                     </p>
                     <p className="mt-4 flex items-center gap-2 text-sm italic text-faint">
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -100,12 +105,12 @@ export default function WorkPage() {
                       </svg>
                       In progress
                     </p>
-                    <div className="mt-6 flex flex-wrap items-center gap-3">
+                    <div className="mt-6">
                       <a
                         href="https://sparai.org/projects/f26/rec9MdqTLmwjnxJo3/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-full bg-green px-7 py-3.5 text-base font-medium text-white transition-all duration-200 hover:bg-green-hover hover:scale-[1.02] cursor-pointer"
+                        className="inline-flex items-center gap-2 rounded-full bg-green px-6 py-3 text-base font-medium text-white transition-all duration-200 hover:bg-green-hover hover:scale-[1.02] cursor-pointer"
                       >
                         View project
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -117,7 +122,7 @@ export default function WorkPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </article>
             </div>
 
             {/* <div>
