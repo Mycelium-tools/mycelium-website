@@ -22,43 +22,43 @@ export default function AboutPage() {
 
             {/* ORIGINAL INTRO - kept for comparison, remove once the new copy is settled
             <div className="mt-10">
-              <p className="text-lg leading-relaxed text-muted pb-8 sm:text-xl">
+              <p className="text-base leading-relaxed text-muted pb-8 sm:text-lg">
                 AI is transforming the world - not only for humanity, but also for the rest of sentient life that calls the world their home. 
               </p>
-              <p className="text-lg leading-relaxed text-muted pb-8 sm:text-xl">
+              <p className="text-base leading-relaxed text-muted pb-8 sm:text-lg">
                 AI is already managing wildlife, changing the food system through consumer habits, and soon may be completely integrated into factory farms, further perpetuating animal suffering. As these systems become more capable and autonomous, it becomes imperative that we make sure they are built with every being in mind.
               </p>
-              <p className="text-lg leading-relaxed text-muted pb-8 sm:text-xl">
+              <p className="text-base leading-relaxed text-muted pb-8 sm:text-lg">
                 This is a critical moment in time, to shape these systems to account for nonhuman welfare before these dangerous values become locked-in for good.
               </p>
-              <p className="text-lg leading-relaxed text-muted sm:text-xl">
+              <p className="text-base leading-relaxed text-muted sm:text-lg">
                 Named after the fungal networks that sustain entire ecosystems beneath the surface, <b>Mycelium</b> bridges the gap between AI safety and animal welfare, building the benchmarks, evaluations, and other technical infrastructure needed to advance AI models to consider humans, animals, and all sentient beings.
               </p>
             </div>
             */}
 
             <div className="mt-10">
-              <p className="text-lg leading-relaxed text-muted pb-8 sm:text-xl">
+              <p className="text-base leading-relaxed text-muted pb-8 sm:text-lg">
                 <b>Mycelium</b> builds the foundation for AI systems to consider all sentient beings. Through technical research and engineering, we develop benchmarks, evaluations, and other research experiments that build an evidence base for frontier labs to take seriously the moral patienthood of nonhuman beings.
               </p>
-              <p className="text-lg leading-relaxed text-muted pb-4 sm:text-xl">
+              <p className="text-base leading-relaxed text-muted pb-4 sm:text-lg">
                 How future AGI weighs the interests of nonhuman beings matters in certain plausible futures:
               </p>
-              <ul className="list-disc space-y-3 pl-6 pb-8 text-lg leading-relaxed text-muted sm:text-xl">
+              <ul className="list-disc space-y-3 pl-6 pb-8 text-base leading-relaxed text-muted sm:text-lg">
                 <li>
                   Most future sentient beings could be digital, and vastly outnumber biological beings. These could take the form of advanced AIs, digital humans, etc.
                 </li>
                 <li>
-                  Factory farming may persist for decades. Many argue that AI-accelerated alternative proteins will prevent this from happening. However, there are <a href="https://www.dwarkesh.com/p/lewis-bollard" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] underline underline-offset-4 transition-colors hover:text-[#1d4ed8]">good reasons why</a> this is not the case, and in these worlds where AGI automates future factory farms, it&apos;s important they have more welfare-positive traits towards animals.
+                  Factory farming may persist for decades. Many argue that AI-accelerated alternative proteins will prevent this from happening. However, there are <a href="https://www.dwarkesh.com/p/lewis-bollard" target="_blank" rel="noopener noreferrer" className="text-[#4a6fa5] underline underline-offset-4 transition-colors hover:text-[#3a5a8a]">good reasons why</a> this is not the case, and in these worlds where AGI automates future factory farms, it&apos;s important they have more welfare-positive traits towards animals.
                 </li>
                 <li>
-                  Wild animal suffering runs rampant. This is <a href="https://www.lesswrong.com/posts/bSwPsHZdjJHe5SnR5/does-focusing-on-animal-welfare-make-sense-if-you-re-ai" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] underline underline-offset-4 transition-colors hover:text-[#1d4ed8]">more likely</a> in worlds where humanity flourishes, and we erect parks, rainforests, and more without regard to wild animals.
+                  Wild animal suffering runs rampant. This is <a href="https://www.lesswrong.com/posts/bSwPsHZdjJHe5SnR5/does-focusing-on-animal-welfare-make-sense-if-you-re-ai" target="_blank" rel="noopener noreferrer" className="text-[#4a6fa5] underline underline-offset-4 transition-colors hover:text-[#3a5a8a]">more likely</a> in worlds where humanity flourishes, and we erect parks, rainforests, and more without regard to wild animals.
                 </li>
               </ul>
-              <p className="text-lg leading-relaxed text-muted pb-8 sm:text-xl">
+              <p className="text-base leading-relaxed text-muted pb-8 sm:text-lg">
                 In addition, work on nonhuman welfare may positively steer general alignment. AIs that learn disregard towards animals may be learning a general principle of disregard toward less powerful beings. This could mean future AGI has a greater chance of misalignment towards humanity (future less powerful beings).
               </p>
-              <p className="text-lg leading-relaxed text-muted pb-8 sm:text-xl">
+              <p className="text-base leading-relaxed text-muted pb-8 sm:text-lg">
                 Instilling a broader universal sense of moral patienthood into AI systems now (before values lock-in) is essential for future AGI to consider the welfare of nonhuman beings.
               </p>
             </div>
@@ -88,16 +88,16 @@ export default function AboutPage() {
                 </div>
               </a>
               <div>
-                <p className="text-lg leading-relaxed text-muted sm:text-xl">
+                <p className="text-base leading-relaxed text-muted sm:text-lg">
                   <a
                     href="https://www.linkedin.com/in/allenlu017/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#2563eb] underline underline-offset-4 transition-colors hover:text-[#1d4ed8]"
+                    className="text-[#4a6fa5] underline underline-offset-4 transition-colors hover:text-[#3a5a8a]"
                   >
                     Allen Lu
                   </a>
-                  {" "} is the Founder & Executive Director of Mycelium. Allen is a Visiting Fellow at <a href="https://constellation.org/" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] underline underline-offset-4 transition-colors hover:text-[#1d4ed8]">Constellation</a> and a current mentor in <a href="https://sparai.org/" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] underline underline-offset-4 transition-colors hover:text-[#1d4ed8]">SPAR</a>. Outside of Mycelium, he works as a Technical Researcher on the <a href="https://nonhumanminds.org/welfare-alignment-project/" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] underline underline-offset-4 transition-colors hover:text-[#1d4ed8]">Welfare Alignment Project</a> at the NYU Center for Mind, Ethics, and Policy.
+                  {" "} is the Founder & Executive Director of Mycelium. Allen is a Visiting Fellow at <a href="https://constellation.org/" target="_blank" rel="noopener noreferrer" className="text-[#4a6fa5] underline underline-offset-4 transition-colors hover:text-[#3a5a8a]">Constellation</a> and a current mentor in <a href="https://sparai.org/" target="_blank" rel="noopener noreferrer" className="text-[#4a6fa5] underline underline-offset-4 transition-colors hover:text-[#3a5a8a]">SPAR</a>. Outside of Mycelium, he works as a Technical Researcher on the <a href="https://nonhumanminds.org/welfare-alignment-project/" target="_blank" rel="noopener noreferrer" className="text-[#4a6fa5] underline underline-offset-4 transition-colors hover:text-[#3a5a8a]">Welfare Alignment Project</a> at the NYU Center for Mind, Ethics, and Policy.
                 </p>
               </div>
             </div>

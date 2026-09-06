@@ -17,7 +17,7 @@ export default function Home() {
               <em className="italic text-purple"></em>
             </h2>
             <div className="mt-10">
-              <p className="text-lg leading-relaxed text-muted sm:text-xl">
+              <p className="text-base leading-relaxed text-muted sm:text-lg">
                 <b>Mycelium</b> builds the foundation for AI systems to consider all sentient beings. Through technical research and engineering, we develop benchmarks, evaluations, and other experiments that build an evidence base for frontier labs to take seriously the moral patienthood of nonhuman beings.
               </p>
               <div className="mt-6 flex">
@@ -38,7 +38,7 @@ export default function Home() {
             <h2 className="mt-4 font-serif text-4xl font-semibold text-foreground sm:text-5xl">
               partnerships
             </h2>
-            <p className="mt-4 max-w-4xl text-lg text-muted sm:text-xl">
+            <p className="mt-4 max-w-4xl text-base leading-relaxed text-muted sm:text-lg">
               We collaborate with leading AI safety organizations and research institutions
             </p>
             <div className="mt-10 flex flex-wrap items-end gap-10">
@@ -69,7 +69,7 @@ export default function Home() {
             <h2 className="mt-4 font-serif text-4xl font-semibold text-foreground sm:text-5xl">
               supported by
             </h2>
-            <p className="mt-4 max-w-2xl text-lg text-muted sm:text-xl">
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
               We&apos;re thankful for our supporters, who keep our operations running, such as
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-12">

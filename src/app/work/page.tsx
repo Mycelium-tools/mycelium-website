@@ -16,7 +16,7 @@ export default function WorkPage() {
               our work{" "}
               <em className="italic"></em>
             </h1>
-            <p className="mt-4 text-lg text-muted sm:text-xl">
+            <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
               We work on technical AI safety research to advance how frontier AI systems reason about and represent nonhuman beings, like animals and future digital minds. This includes benchmarks, evaluations, and other open-source tools.
             </p>
 

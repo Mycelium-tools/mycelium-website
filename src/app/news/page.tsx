@@ -52,7 +52,7 @@ export default function NewsPage() {
             <h1 className="mt-4 font-serif text-5xl font-semibold leading-tight text-foreground sm:text-6xl">
               news
             </h1>
-            <p className="mt-4 max-w-4xl text-lg text-muted sm:text-xl">
+            <p className="mt-4 max-w-4xl text-base leading-relaxed text-muted sm:text-lg">
               Research releases, announcements, and milestones from our work.
             </p>
 
