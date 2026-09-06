@@ -489,7 +489,7 @@ export default function MyceliumHero() {
             href="/work"
             className="inline-block rounded-full bg-purple px-8 py-3.5 font-sans font-medium text-white transition-all duration-200 hover:bg-purple-hover hover:scale-[1.02] cursor-pointer"
           >
-            See our work
+            see our work
           </Link>
         </motion.div>
       </div>

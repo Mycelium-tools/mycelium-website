@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Our Work — Mycelium",
-  description: "Benchmarks, evals, and red-teaming frameworks for frontier model evaluation on animal welfare reasoning.",
+  description: "Benchmarks, evals, and red-teaming frameworks for evaluating how frontier models reason about nonhuman welfare and moral patienthood.",
 };
 
 export default function WorkPage() {
@@ -16,7 +16,7 @@ export default function WorkPage() {
               our work{" "}
               <em className="italic"></em>
             </h1>
-            <p className="mt-4 max-w-4xl text-lg text-muted sm:text-xl">
+            <p className="mt-4 text-lg text-muted sm:text-xl">
               We work on technical AI safety research to advance how frontier AI systems reason about and represent nonhuman beings, like animals and future digital minds. This includes benchmarks, evaluations, and other open-source tools.
             </p>
 
@@ -60,6 +60,54 @@ export default function WorkPage() {
                         className="inline-flex items-center gap-2 rounded-full bg-green px-7 py-3.5 text-base font-medium text-white transition-all duration-200 hover:bg-green-hover hover:scale-[1.02] cursor-pointer"
                       >
                         Visit the official website
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+                          <polyline points="15 3 21 3 21 9" />
+                          <line x1="10" y1="14" x2="21" y2="3" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="rounded-2xl border border-border bg-surface p-6 sm:p-10">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-sans font-medium uppercase tracking-widest text-faint">Research Experiments</span>
+                </div>
+                <div className="mt-3 flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-12">
+                  <Image
+                    src="/donor-logos/spar-logo.png"
+                    alt="SPAR logo"
+                    width={311}
+                    height={162}
+                    className="h-28 w-auto flex-shrink-0 rounded-xl object-contain sm:order-2 sm:h-auto sm:w-[300px]"
+                    unoptimized
+                  />
+                  <div className="flex-1 sm:order-1">
+                    <h2 className="font-serif text-3xl font-semibold leading-snug text-foreground sm:text-5xl">
+                      Emergent Alignment: Does Nonhuman Welfare Generalize?
+                    </h2>
+                    <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
+                      <i>Emergent misalignment</i> showed that training on one narrow bad behavior makes models broadly misaligned. We invert the question: does fine-tuning a model on a single good value (e.g. moral consideration for nonhuman beings), make it broadly more aligned?
+                    </p>
+                    <p className="mt-4 flex items-center gap-2 text-sm italic text-faint">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                        <line x1="16" y1="2" x2="16" y2="6" />
+                        <line x1="8" y1="2" x2="8" y2="6" />
+                        <line x1="3" y1="10" x2="21" y2="10" />
+                      </svg>
+                      In progress
+                    </p>
+                    <div className="mt-6 flex flex-wrap items-center gap-3">
+                      <a
+                        href="https://sparai.org/projects/f26/rec9MdqTLmwjnxJo3/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full bg-green px-7 py-3.5 text-base font-medium text-white transition-all duration-200 hover:bg-green-hover hover:scale-[1.02] cursor-pointer"
+                      >
+                        View project
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                           <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
                           <polyline points="15 3 21 3 21 9" />
