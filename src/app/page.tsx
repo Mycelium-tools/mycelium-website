@@ -17,8 +17,8 @@ export default function Home() {
               <em className="italic text-purple"></em>
             </h2>
             <div className="mt-10">
-              <p className="text-lg leading-relaxed text-muted sm:text-xl">
-                <b>Mycelium</b> builds the connective infrastructure between AI safety and animal welfare - the benchmarks, evaluations, and tools that advance AI systems to consider all sentient beings.
+              <p className="text-base leading-relaxed text-muted sm:text-lg">
+                <b>Mycelium</b> builds the foundation for AI systems to consider all sentient beings. Through technical research and engineering, we develop benchmarks, evaluations, and other experiments that build an evidence base for frontier labs to take seriously the moral patienthood of nonhuman beings.
               </p>
               <div className="mt-6 flex">
                 <Link
@@ -38,7 +38,7 @@ export default function Home() {
             <h2 className="mt-4 font-serif text-4xl font-semibold text-foreground sm:text-5xl">
               partnerships
             </h2>
-            <p className="mt-4 max-w-4xl text-lg text-muted sm:text-xl">
+            <p className="mt-4 max-w-4xl text-base leading-relaxed text-muted sm:text-lg">
               We collaborate with leading AI safety organizations and research institutions
             </p>
             <div className="mt-10 flex flex-wrap items-end gap-10">
@@ -69,7 +69,7 @@ export default function Home() {
             <h2 className="mt-4 font-serif text-4xl font-semibold text-foreground sm:text-5xl">
               supported by
             </h2>
-            <p className="mt-4 max-w-2xl text-lg text-muted sm:text-xl">
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
               We&apos;re thankful for our supporters, who keep our operations running, such as
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-12">
@@ -120,6 +120,19 @@ export default function Home() {
             <p className="mt-6 text-base text-faint">
               …and other independent and anonymous donors
             </p>
+            <a
+              href="https://manifund.org/projects/mycelium-moral-patienthood-for-agi"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group mt-8 inline-flex items-center gap-2 text-lg font-medium text-purple transition-colors hover:text-purple-hover"
+            >
+              support our work through Manifund
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+            </a>
           </div>
         </section>
       </main>

@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About — Mycelium",
-  description: "Mycelium is building the technical infrastructure for AI systems that consider nonhuman animal welfare.",
+  description: "Mycelium builds the foundation for AI systems to consider all sentient beings - benchmarks, evaluations, and research that build an evidence base for the moral patienthood of nonhuman beings.",
 };
 
 export default function AboutPage() {
@@ -16,28 +16,95 @@ export default function AboutPage() {
         <section className="py-16 sm:py-10">
           <div className="mx-auto max-w-6xl px-10 sm:px-12 lg:px-8">
             <h1 className="mt-4 font-serif text-5xl font-semibold leading-tight text-foreground sm:text-6xl">
-              we're advancing AI to include {" "}
-              <em className="italic text-purple">all sentient beings</em>
+              advancing {" "}
+              <em className="italic text-purple">moral patienthood</em> {" "} in frontier AI
             </h1>
 
+            {/* ORIGINAL INTRO - kept for comparison, remove once the new copy is settled
             <div className="mt-10">
-              <p className="text-lg leading-relaxed text-muted pb-8 sm:text-xl">
+              <p className="text-base leading-relaxed text-muted pb-8 sm:text-lg">
                 AI is transforming the world - not only for humanity, but also for the rest of sentient life that calls the world their home. 
               </p>
-              <p className="text-lg leading-relaxed text-muted pb-8 sm:text-xl">
+              <p className="text-base leading-relaxed text-muted pb-8 sm:text-lg">
                 AI is already managing wildlife, changing the food system through consumer habits, and soon may be completely integrated into factory farms, further perpetuating animal suffering. As these systems become more capable and autonomous, it becomes imperative that we make sure they are built with every being in mind.
               </p>
-              <p className="text-lg leading-relaxed text-muted pb-8 sm:text-xl">
+              <p className="text-base leading-relaxed text-muted pb-8 sm:text-lg">
                 This is a critical moment in time, to shape these systems to account for nonhuman welfare before these dangerous values become locked-in for good.
               </p>
-              <p className="text-lg leading-relaxed text-muted sm:text-xl">
+              <p className="text-base leading-relaxed text-muted sm:text-lg">
                 Named after the fungal networks that sustain entire ecosystems beneath the surface, <b>Mycelium</b> bridges the gap between AI safety and animal welfare, building the benchmarks, evaluations, and other technical infrastructure needed to advance AI models to consider humans, animals, and all sentient beings.
+              </p>
+            </div>
+            */}
+
+            <div className="mt-10">
+              <p className="text-base leading-relaxed text-muted pb-8 sm:text-lg">
+                <b>Mycelium</b> builds the foundation for AI systems to consider all sentient beings. Through technical research and engineering, we develop benchmarks, evaluations, and other research experiments that build an evidence base for frontier labs to take seriously the moral patienthood of nonhuman beings.
+              </p>
+              <p className="text-base leading-relaxed text-muted pb-4 sm:text-lg">
+                How future AGI weighs the interests of nonhuman beings matters in certain plausible futures:
+              </p>
+              <ul className="list-disc space-y-3 pl-6 pb-8 text-base leading-relaxed text-muted sm:text-lg">
+                <li>
+                  Most future sentient beings could be digital, and vastly outnumber biological beings. These could take the form of advanced AIs, digital humans, etc.
+                </li>
+                <li>
+                  Factory farming may persist for decades. Many argue that AI-accelerated alternative proteins will prevent this from happening. However, there are <a href="https://www.dwarkesh.com/p/lewis-bollard" target="_blank" rel="noopener noreferrer" className="text-[#4a6fa5] underline underline-offset-4 transition-colors hover:text-[#3a5a8a]">good reasons why</a> this is not the case, and in these worlds where AGI automates future factory farms, it&apos;s important they have more welfare-positive traits towards animals.
+                </li>
+                <li>
+                  Wild animal suffering runs rampant. This is <a href="https://www.lesswrong.com/posts/bSwPsHZdjJHe5SnR5/does-focusing-on-animal-welfare-make-sense-if-you-re-ai" target="_blank" rel="noopener noreferrer" className="text-[#4a6fa5] underline underline-offset-4 transition-colors hover:text-[#3a5a8a]">more likely</a> in worlds where humanity flourishes, and we erect parks, rainforests, and more without regard to wild animals.
+                </li>
+              </ul>
+              <p className="text-base leading-relaxed text-muted pb-8 sm:text-lg">
+                In addition, work on nonhuman welfare may positively steer general alignment. AIs that learn disregard towards animals may be learning a general principle of disregard toward less powerful beings. This could mean future AGI has a greater chance of misalignment towards humanity (future less powerful beings).
+              </p>
+              <p className="text-base leading-relaxed text-muted pb-8 sm:text-lg">
+                Instilling a broader universal sense of moral patienthood into AI systems now (before values lock-in) is essential for future AGI to consider the welfare of nonhuman beings.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Team */}
+        {/* Founder */}
+        <section className="py-12 sm:py-8">
+          <div className="mx-auto max-w-6xl px-10 sm:px-12 lg:px-8">
+            <h2 className="font-serif text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
+              who we are
+            </h2>
+            <div className="mt-8 flex flex-col gap-8 rounded-2xl border border-border bg-surface p-8 sm:flex-row sm:items-center sm:gap-10">
+              <a
+                href="https://www.linkedin.com/in/allenlu017/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 cursor-pointer transition-transform duration-200 hover:scale-[1.03]"
+              >
+                <div className="relative h-40 w-40 overflow-hidden rounded-full">
+                  <Image
+                    src="/headshot-allen.jpg"
+                    alt="Allen Lu"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </a>
+              <div>
+                <p className="text-base leading-relaxed text-muted sm:text-lg">
+                  <a
+                    href="https://www.linkedin.com/in/allenlu017/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#4a6fa5] underline underline-offset-4 transition-colors hover:text-[#3a5a8a]"
+                  >
+                    Allen Lu
+                  </a>
+                  {" "} is the Founder & Executive Director of Mycelium. Allen is a Visiting Fellow at <a href="https://constellation.org/" target="_blank" rel="noopener noreferrer" className="text-[#4a6fa5] underline underline-offset-4 transition-colors hover:text-[#3a5a8a]">Constellation</a> and a current mentor in <a href="https://sparai.org/" target="_blank" rel="noopener noreferrer" className="text-[#4a6fa5] underline underline-offset-4 transition-colors hover:text-[#3a5a8a]">SPAR</a>. Outside of Mycelium, he works as a Technical Researcher on the <a href="https://nonhumanminds.org/welfare-alignment-project/" target="_blank" rel="noopener noreferrer" className="text-[#4a6fa5] underline underline-offset-4 transition-colors hover:text-[#3a5a8a]">Welfare Alignment Project</a> at the NYU Center for Mind, Ethics, and Policy.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* TEAM SECTION - temporarily hidden, bring back in a few weeks
         <section className="py-12 sm:py-8">
           <div className="mx-auto max-w-6xl px-10 sm:px-12 lg:px-8">
             <h2 className="font-serif text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
@@ -107,6 +174,7 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
+        */}
       </main>
     </div>
   );
