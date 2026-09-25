@@ -12,20 +12,20 @@ const ROOT_LINE_W = 2.5;
 
 // Static ambient glow (faint — pulses are the main event)
 const REST_BRIGHTNESS = 0.28;
-const REST_ALPHA      = 0.22;
-const SIGNAL_ALPHA    = 0.60;
-const DECAY_RATE      = 0.055;
-const PROP_FACTOR     = 0.85;
-const HOVER_RADIUS    = 80;
-const MOUSE_RADIUS    = 200;
+const REST_ALPHA = 0.22;
+const SIGNAL_ALPHA = 0.60;
+const DECAY_RATE = 0.055;
+const PROP_FACTOR = 0.85;
+const HOVER_RADIUS = 80;
+const MOUSE_RADIUS = 200;
 
 // Traveling pulse system
-const PULSE_SPEED          = 0.022; // fraction of edge per frame (~1.5s per edge at 60fps)
-const PULSE_MAX_AGE        = 300;   // frames before pulse dies
-const PULSE_FADE_AT        = 220;   // frame at which fade-out begins
-const MAX_PULSES           = 80;    // hard cap to prevent junction explosion
-const PULSE_SPAWN_DIST     = 35;    // px — min mouse movement to spawn a new batch
-const PULSE_RADIUS         = 3;     // px — ball radius at full brightness
+const PULSE_SPEED = 0.022; // fraction of edge per frame (~1.5s per edge at 60fps)
+const PULSE_MAX_AGE = 300;   // frames before pulse dies
+const PULSE_FADE_AT = 220;   // frame at which fade-out begins
+const MAX_PULSES = 80;    // hard cap to prevent junction explosion
+const PULSE_SPAWN_DIST = 35;    // px — min mouse movement to spawn a new batch
+const PULSE_RADIUS = 3;     // px — ball radius at full brightness
 const PULSE_STRENGTH_DECAY = 0.72;  // multiply per hop — pulse shrinks & fades with distance
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -104,13 +104,13 @@ function drawPartialBezier(
 function bezierPoint(p: Pulse): { x: number; y: number } {
   const goingDown = p.toNode.parent === p.fromNode;
   const p0x = p.fromNode.x, p0y = p.fromNode.y;
-  const p2x = p.toNode.x,   p2y = p.toNode.y;
+  const p2x = p.toNode.x, p2y = p.toNode.y;
   const cpx = goingDown ? p.toNode.cpx : p.fromNode.cpx;
   const cpy = goingDown ? p.toNode.cpy : p.fromNode.cpy;
   const mt = 1 - p.t;
   return {
-    x: mt*mt*p0x + 2*mt*p.t*cpx + p.t*p.t*p2x,
-    y: mt*mt*p0y + 2*mt*p.t*cpy + p.t*p.t*p2y,
+    x: mt * mt * p0x + 2 * mt * p.t * cpx + p.t * p.t * p2x,
+    y: mt * mt * p0y + 2 * mt * p.t * cpy + p.t * p.t * p2y,
   };
 }
 
@@ -266,7 +266,7 @@ export default function MyceliumHero() {
       let nearestDist = 120;
       for (const n of nodes) {
         const dx = n.x - mouse.x, dy = n.y - mouse.y;
-        const d = Math.sqrt(dx*dx + dy*dy);
+        const d = Math.sqrt(dx * dx + dy * dy);
         if (d < nearestDist) { nearestDist = d; nearest = n; }
       }
       if (!nearest || pulses.length >= MAX_PULSES) return;
@@ -284,7 +284,7 @@ export default function MyceliumHero() {
     const onMouseMove = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
       if (e.clientX < rect.left || e.clientX > rect.right ||
-          e.clientY < rect.top  || e.clientY > rect.bottom) {
+        e.clientY < rect.top || e.clientY > rect.bottom) {
         mouse.x = -2000;
         mouse.y = -2000;
         return;
@@ -293,7 +293,7 @@ export default function MyceliumHero() {
       if (textRect) {
         if (
           e.clientX >= textRect.left && e.clientX <= textRect.right &&
-          e.clientY >= textRect.top  && e.clientY <= textRect.bottom
+          e.clientY >= textRect.top && e.clientY <= textRect.bottom
         ) {
           mouse.x = -2000;
           mouse.y = -2000;
@@ -305,7 +305,7 @@ export default function MyceliumHero() {
 
       const dx = mouse.x - lastSpawnOrigin.x;
       const dy = mouse.y - lastSpawnOrigin.y;
-      if (dx*dx + dy*dy > PULSE_SPAWN_DIST * PULSE_SPAWN_DIST) {
+      if (dx * dx + dy * dy > PULSE_SPAWN_DIST * PULSE_SPAWN_DIST) {
         spawnPulses();
       }
     };
@@ -475,8 +475,7 @@ export default function MyceliumHero() {
             transition={{ delay: 0.6, duration: 0.8, ease }}
             className="font-serif text-5xl sm:text-6xl font-semibold leading-tight tracking-tight text-foreground"
           >
-            Building the foundation for AI to consider {" "}
-            <em className="italic text-purple">all sentient beings</em>
+            Advancing {" "} <em className="italic text-purple">robust moral character</em>{" "}in frontier AI
           </motion.h1>
         </div>
 

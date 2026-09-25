@@ -17,7 +17,7 @@ export default function WorkPage() {
               <em className="italic"></em>
             </h1>
             <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
-              We work on technical AI safety research to advance how frontier AI systems reason about and represent nonhuman beings, like animals and future digital minds. This includes benchmarks, evaluations, and other open-source tools.
+              We work on technical AI safety research to advance the study of robust moral values in AI character, with a specific focus on the moral patienthood of nonhuman beings within frontier models. This includes benchmarks, evaluations, and other research experiments.
             </p>
 
             {/* Project listing */}
