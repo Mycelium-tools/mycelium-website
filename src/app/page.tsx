@@ -18,7 +18,10 @@ export default function Home() {
             </h2>
             <div className="mt-10">
               <p className="text-base leading-relaxed text-muted sm:text-lg">
-                <b>Mycelium</b> builds the foundation for AI systems to consider all sentient beings. Through technical research and engineering, we develop benchmarks, evaluations, and other experiments that build an evidence base for frontier labs to take seriously the moral patienthood of nonhuman beings.
+                At <b>Mycelium</b>, we work on advancing robust moral values in AI character, with a particular focus on the <em>welfare of neglected beings</em> - like digital minds and nonhuman animals. We think that broadening the moral circle of consideration to include all sentient beings will reduce long-term suffering and steer general alignment in a positive direction.
+              </p>
+              <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
+                Our technical work includes benchmarks, evaluations, and other research, giving frontier labs the ability to measure and shape the moral character of their models.
               </p>
               <div className="mt-6 flex">
                 <Link
@@ -118,7 +121,7 @@ export default function Home() {
               </a>
             </div>
             <p className="mt-6 text-base text-faint">
-              …and other independent and anonymous donors
+              …and other independent donors
             </p>
             <a
               href="https://manifund.org/projects/mycelium-moral-patienthood-for-agi"
