@@ -121,7 +121,7 @@ export default function Home() {
               </a>
             </div>
             <p className="mt-6 text-base text-faint">
-              Skyler Hoffman + other independent donors
+              …and Skyler Hoffman + other independent donors
             </p>
             <a
               href="https://manifund.org/projects/mycelium-moral-patienthood-for-agi"
