@@ -123,19 +123,6 @@ export default function Home() {
             <p className="mt-6 text-base text-faint">
               …as well as Skyler Hoffman and other independent donors
             </p>
-            <a
-              href="https://manifund.org/projects/mycelium-moral-patienthood-for-agi"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group mt-8 inline-flex items-center gap-2 text-lg font-medium text-purple transition-colors hover:text-purple-hover"
-            >
-              support our work through Manifund
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
-                <polyline points="15 3 21 3 21 9" />
-                <line x1="10" y1="14" x2="21" y2="3" />
-              </svg>
-            </a>
           </div>
         </section>
       </main>
