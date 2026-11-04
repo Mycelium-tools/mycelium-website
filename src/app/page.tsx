@@ -76,7 +76,7 @@ export default function Home() {
               We&apos;re thankful for our supporters, who keep our operations running, such as
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-12">
-              <a href="https://coefficientgiving.org/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-3 cursor-pointer transition-transform duration-200 hover:-translate-y-1 hover:scale-[1.05]">
+              <div className="flex flex-col items-center gap-3">
                 <Image
                   src="/donor-logos/Coefficient+Logo+Gray.webp"
                   alt="Coefficient Giving"
@@ -85,8 +85,8 @@ export default function Home() {
                   unoptimized
                 />
                 {/* <span className="text-sm font-medium text-faint">Coefficient Giving</span> */}
-              </a>
-              <a href="https://thepollinationproject.org/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-3 cursor-pointer transition-transform duration-200 hover:-translate-y-1 hover:scale-[1.05]">
+              </div>
+              <div className="flex flex-col items-center gap-3">
                 <Image
                   src="/donor-logos/tpp-logo-square.jpg"
                   alt="The Pollination Project"
@@ -96,8 +96,8 @@ export default function Home() {
                   unoptimized
                 />
                 {/* <span className="text-sm font-medium text-faint">The Pollination Project</span> */}
-              </a>
-              <a href="https://bluedot.org/programs/rapid-grants" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-3 cursor-pointer transition-transform duration-200 hover:-translate-y-1 hover:scale-[1.05]">
+              </div>
+              <div className="flex flex-col items-center gap-3">
                 <Image
                   src="/donor-logos/bluedot-logo.png"
                   alt="BlueDot Impact"
@@ -107,8 +107,8 @@ export default function Home() {
                   unoptimized
                 />
                 {/* <span className="text-sm font-medium text-faint">BlueDot Impact</span> */}
-              </a>
-              <a href="https://sparai.org/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-3 cursor-pointer transition-transform duration-200 hover:-translate-y-1 hover:scale-[1.05]">
+              </div>
+              <div className="flex flex-col items-center gap-3">
                 <Image
                   src="/donor-logos/spar-logo.png"
                   alt="SPAR"
@@ -118,7 +118,7 @@ export default function Home() {
                   unoptimized
                 />
                 {/* <span className="text-sm font-medium text-faint">SPAR</span> */}
-              </a>
+              </div>
             </div>
             <p className="mt-6 text-base text-faint">
               …as well as Skyler Hoffman and other independent donors
