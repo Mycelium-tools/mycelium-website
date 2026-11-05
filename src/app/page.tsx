@@ -53,15 +53,14 @@ export default function Home() {
                 <Image src="/partner-logos/arcadia-impact.png" alt="Arcadia Impact" width={180} height={70} className="object-contain rounded-xl" unoptimized />
                 <span className="text-sm font-medium text-faint">Arcadia Impact</span>
               </div>
-              {/* <div className="flex flex-col items-center gap-3">
-                <Image src="/partner-logos/caml.png" alt="CaML" width={92} height={80} className="object-contain rounded-xl" unoptimized />
-                <span className="text-sm font-medium text-faint">CaML</span>
-              </div> */}
               <div className="flex flex-col items-center gap-3">
-                <Image src="/partner-logos/electric-sheep.png" alt="Electric Sheep" width={250} height={70} className="object-contain rounded-xl" unoptimized />
+                <Image src="/partner-logos/spar-logo.png" alt="SPAR" width={184} height={100} className="object-contain rounded-xl" unoptimized />
+                <span className="text-sm font-medium text-faint">SPAR</span>
+              </div>
+              <div className="flex flex-col items-center gap-3">
+                <Image src="/partner-logos/electric-sheep.png" alt="Electric Sheep" width={258} height={70} className="object-contain rounded-xl" unoptimized />
                 <span className="text-sm font-medium text-faint">Electric Sheep</span>
               </div>
-
             </div>
           </div>
         </section>
@@ -88,6 +87,16 @@ export default function Home() {
               </div>
               <div className="flex flex-col items-center gap-3">
                 <Image
+                  src="/donor-logos/ea-funds-logo.png"
+                  alt="EA Funds"
+                  width={235}
+                  height={60}
+                  unoptimized
+                />
+                {/* <span className="text-sm font-medium text-faint">EA Funds</span> */}
+              </div>
+              <div className="flex flex-col items-center gap-3">
+                <Image
                   src="/donor-logos/tpp-logo-square.jpg"
                   alt="The Pollination Project"
                   width={112}
@@ -107,17 +116,6 @@ export default function Home() {
                   unoptimized
                 />
                 {/* <span className="text-sm font-medium text-faint">BlueDot Impact</span> */}
-              </div>
-              <div className="flex flex-col items-center gap-3">
-                <Image
-                  src="/donor-logos/spar-logo.png"
-                  alt="SPAR"
-                  width={208}
-                  height={60}
-                  className="rounded-xl"
-                  unoptimized
-                />
-                {/* <span className="text-sm font-medium text-faint">SPAR</span> */}
               </div>
             </div>
             <p className="mt-6 text-base text-faint">
