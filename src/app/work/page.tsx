@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
+import { baseOpenGraph } from "@/lib/metadata";
 import Image from "next/image";
 
+const title = "Our Work — Mycelium";
+const description =
+  "Benchmarks, evals, and red-teaming frameworks for evaluating how frontier models reason about nonhuman welfare and moral patienthood.";
+
 export const metadata: Metadata = {
-  title: "Our Work — Mycelium",
-  description: "Benchmarks, evals, and red-teaming frameworks for evaluating how frontier models reason about nonhuman welfare and moral patienthood.",
+  title,
+  description,
+  openGraph: { ...baseOpenGraph, url: "/work", title, description },
 };
 
 export default function WorkPage() {

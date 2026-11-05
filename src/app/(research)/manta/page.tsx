@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
+import { baseOpenGraph } from "@/lib/metadata";
 import Link from "next/link";
 
+const title = "MANTA: Do LLMs Hold Their Values? — Mycelium";
+const description =
+  "A multi-turn adversarial benchmark of 1,088 five-turn conversations measuring whether frontier AI models maintain animal welfare positions under sustained social, cultural, economic, pragmatic, and epistemic pressure.";
+
 export const metadata: Metadata = {
-  title: "MANTA: Do LLMs Hold Their Values? — Mycelium",
-  description:
-    "A multi-turn adversarial benchmark of 1,088 five-turn conversations measuring whether frontier AI models maintain animal welfare positions under sustained social, cultural, economic, pragmatic, and epistemic pressure.",
+  title,
+  description,
+  openGraph: { ...baseOpenGraph, url: "/manta", title, description },
 };
 
 const stabilityRankings = [

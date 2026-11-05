@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
+import { baseOpenGraph } from "@/lib/metadata";
+
+const title = "Contact — Mycelium";
+const description =
+  "Get in touch with Mycelium. Researchers, funders, and collaborators welcome.";
 
 export const metadata: Metadata = {
-  title: "Contact — Mycelium",
-  description: "Get in touch with Mycelium. Researchers, funders, and collaborators welcome.",
+  title,
+  description,
+  openGraph: { ...baseOpenGraph, url: "/contact", title, description },
 };
 
 export default function ContactPage() {

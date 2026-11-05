@@ -1,10 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { baseOpenGraph } from "@/lib/metadata";
+
+const title = "About — Mycelium";
+const description =
+  "Mycelium works on advancing robust moral values in AI character, through broadening the moral circle of consideration of AI to include all sentient beings - humans and nonhuman beings (digital minds, animals, etc.). Our technical work - benchmarks, evaluations, and other research - builds an evidence base for frontier labs to take seriously the moral patienthood of nonhuman beings.";
 
 export const metadata: Metadata = {
-  title: "About — Mycelium",
-  description: "Mycelium works on advancing robust moral values in AI character, through broadening the moral circle of consideration of AI to include all sentient beings - humans and nonhuman beings (digital minds, animals, etc.). Our technical work - benchmarks, evaluations, and other research - builds an evidence base for frontier labs to take seriously the moral patienthood of nonhuman beings.",
+  title,
+  description,
+  openGraph: { ...baseOpenGraph, url: "/about", title, description },
 };
 
 export default function AboutPage() {

@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
+import { baseOpenGraph } from "@/lib/metadata";
+
+const title = "News — Mycelium";
+const description =
+  "Updates from Mycelium: research releases, announcements, and milestones in AI×animal welfare work.";
 
 export const metadata: Metadata = {
-  title: "News — Mycelium",
-  description:
-    "Updates from Mycelium: research releases, announcements, and milestones in AI×animal welfare work.",
+  title,
+  description,
+  openGraph: { ...baseOpenGraph, url: "/news", title, description },
 };
 
 type NewsItem = {

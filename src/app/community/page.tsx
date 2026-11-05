@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
+import { baseOpenGraph } from "@/lib/metadata";
+
+const title = "Community — Mycelium";
+const description =
+  "Join the AI × Animals community on Slack.";
 
 export const metadata: Metadata = {
-  title: "Community — Mycelium",
-  description: "Join the AI × Animals community on Slack.",
+  title,
+  description,
+  openGraph: { ...baseOpenGraph, url: "/community", title, description },
 };
 
 export default function CommunityPage() {
