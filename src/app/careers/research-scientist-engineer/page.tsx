@@ -22,10 +22,16 @@ const keyFacts = [
   { label: "Deadline", lines: ["Monday, November 30, 2026"] },
 ];
 
-const responsibilities = [
-  "Build robust benchmarks, evals (e.g. MANTA), and training sets to advance the study of, measure, and shape the moral character of frontier AI systems with respect to nonhuman welfare, using this work to inform decision-makers at safety organizations",
+const responsibilities: React.ReactNode[] = [
+  <>
+    Build robust benchmarks, evals (e.g. <ExternalLink href="https://www.mantabench.org/">MANTA</ExternalLink>), and training sets to advance the study of, measure, and shape the moral character of frontier AI systems with respect to nonhuman welfare, using this work to inform decision-makers at safety organizations
+  </>,
   "Ensure evals are created rigorously from start to finish: iterating on construct validity, developing scenarios and grading rubrics, validating LLM judges, and running and analyzing evals across frontier & open-weight models",
-  "Design and run empirical research experiments on the character of AI systems - e.g. how fine-tuning on welfare data affects broader safety & alignment (our current project, building on emergent alignment)",
+  <>
+    Design and run empirical research experiments on the character of AI systems - e.g. how fine-tuning on welfare data affects broader safety &amp; alignment (our{" "}
+    <ExternalLink href="https://sparai.org/projects/f26/rec9MdqTLmwjnxJo3">current project</ExternalLink>, building on{" "}
+    <ExternalLink href="https://arxiv.org/abs/2606.09475">emergent alignment</ExternalLink>)
+  </>,
   "Publish and share research findings through written content (e.g. academic publications, blog posts) and presentations (e.g. ML conferences) to drive adoption and change",
   "Collaborate with researchers at frontier labs, safety orgs and the broader AI safety ecosystem to gather technical feedback to improve our research methodologies",
   "Mentor junior team members and other early-career researchers",
@@ -90,11 +96,19 @@ function Section({ heading, children }: { heading: string; children: React.React
   );
 }
 
-function BulletList({ items }: { items: string[] }) {
+function ExternalLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" className={inlineLink}>
+      {children}
+    </a>
+  );
+}
+
+function BulletList({ items }: { items: React.ReactNode[] }) {
   return (
     <ul className="list-disc space-y-3 pl-6 marker:text-purple">
-      {items.map((item) => (
-        <li key={item}>{item}</li>
+      {items.map((item, i) => (
+        <li key={i}>{item}</li>
       ))}
     </ul>
   );
