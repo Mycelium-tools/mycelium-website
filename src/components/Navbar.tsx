@@ -52,8 +52,9 @@ export default function Navbar() {
           <NavLink href="/about">about</NavLink>
           <NavLink href="/work">our work</NavLink>
           <NavLink href="/news">news</NavLink>
+          <NavLink href="/careers">careers</NavLink>
           <NavLink href="/contact">contact</NavLink>
-          <NavLink href="/community">community</NavLink>
+          {/* <NavLink href="/community">community</NavLink> */}
           <a
             href="https://www.every.org/projectmycelium"
             target="_blank"
@@ -92,8 +93,9 @@ export default function Navbar() {
           <NavLink href="/about" onClick={close}>about</NavLink>
           <NavLink href="/work" onClick={close}>our work</NavLink>
           <NavLink href="/news" onClick={close}>news</NavLink>
+          <NavLink href="/careers" onClick={close}>careers</NavLink>
           <NavLink href="/contact" onClick={close}>contact</NavLink>
-          <NavLink href="/community" onClick={close}>community</NavLink>
+          {/* <NavLink href="/community" onClick={close}>community</NavLink> */}
           <a
             href="https://www.every.org/projectmycelium"
             target="_blank"
