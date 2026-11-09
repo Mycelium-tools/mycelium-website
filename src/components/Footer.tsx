@@ -8,7 +8,7 @@ export default function Footer() {
             href="https://www.linkedin.com/company/projectmycelium/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white/70 transition-colors hover:text-white"
+            className="cursor-pointer text-white/70 transition-colors hover:text-white"
             aria-label="LinkedIn"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">

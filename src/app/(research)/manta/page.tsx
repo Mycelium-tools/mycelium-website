@@ -61,7 +61,7 @@ export default function MantaPage() {
             <div className="flex flex-wrap items-center gap-3">
               <Link
                 href="/work"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-purple transition-colors hover:text-purple/70"
+                className="cursor-pointer inline-flex items-center gap-1.5 text-sm font-medium text-purple transition-colors hover:text-purple/70"
               >
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M19 12H5M12 5l-7 7 7 7" />
