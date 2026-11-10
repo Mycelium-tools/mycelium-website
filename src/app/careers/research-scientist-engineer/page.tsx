@@ -15,11 +15,27 @@ export const metadata: Metadata = {
 // PLACEHOLDER: replace with the application form URL.
 const APPLY_URL = "#";
 
-const keyFacts = [
+type KeyFact = {
+  label: string;
+  lines: React.ReactNode[];
+  note?: string;
+};
+
+const keyFacts: KeyFact[] = [
   { label: "Role type", lines: ["Full-time role, Bay Area preferred (remote considered)"] },
-  { label: "Start date", lines: ["ASAP (ideally by Feb 2027)"] },
-  { label: "Salary", lines: ["Research Scientist/Engineer: $130k-$225k", "Senior RS/RE: $225k-$320k"] },
-  { label: "Deadline", lines: ["Monday, November 30, 2026"] },
+  { label: "Start date", lines: ["ASAP (ideally by Jan 2027)"] },
+  {
+    label: "Salary",
+    lines: [
+      <><span className="text-foreground">Research Scientist/Engineer:</span> $130k-$225k</>,
+      <><span className="text-foreground">Senior Research Scientist/Engineer:</span> $225k-$320k</>,
+    ],
+  },
+  {
+    label: "Application deadline",
+    lines: ["Monday, November 30, 2026"],
+    note: "We review applications on a rolling basis, so we encourage you to apply earlier rather than later. We’ll continue to consider applications after the deadline until roles are filled.",
+  },
 ];
 
 const responsibilities: React.ReactNode[] = [
@@ -38,9 +54,9 @@ const responsibilities: React.ReactNode[] = [
   "Communicate our research agenda to external stakeholders, with a clear theory of change for mitigating long-term suffering risks from ASI to nonhuman beings",
 ];
 
-const levels = [
-  "A Research Scientist / Engineer will pursue self-directed research, owning a project’s workstream from start to finish",
-  "A Senior RS / RE will help shape Mycelium’s research agenda alongside their technical work. You’ll lead entire projects with little oversight, propose what comes next, and mentor junior researchers or contractors. We expect a longer publication record and importantly, an established network in AI safety.",
+const levels: React.ReactNode[] = [
+  <>A <strong className="font-semibold text-foreground">Research Scientist / Engineer</strong> will pursue self-directed research, owning a project’s workstream from start to finish</>,
+  <>A <strong className="font-semibold text-foreground">Senior RS / RE</strong> will help shape Mycelium’s research agenda alongside their technical work. You’ll lead entire projects with little oversight, propose what comes next, and mentor junior researchers or contractors. We expect a longer publication record and importantly, an established network in AI safety.</>,
 ];
 
 const qualifications = [
@@ -51,8 +67,7 @@ const qualifications = [
   "An existing background or track record in AI safety research or other highly technical subject (CS, math, etc.)",
   "High attention to detail. You read closely, can spot bugs in transcripts, and find discrepancies that others miss",
   "Strong external communicator. You communicate well with external stakeholders, and we trust you to stay on the ball with communications with, e.g., lab contacts.",
-  "Project management. You can juggle many balls at once, keep stakeholders updated, and track and anticipate blockers.",
-  "Self-directed, and can carry projects to completion with little oversight",
+  "Self-directed and organized. You can carry projects to completion with little oversight, juggle several workstreams at once, and track and anticipate blockers.",
   "Skill with AI tools. You use AI to speed up your work, know which models suit which tasks, and know when not to use AI",
   "Real, long-standing concern for nonhuman animal welfare. You don’t need a professional background in this, but you can point to specific things you’ve done to corroborate this",
 ];
@@ -77,13 +92,33 @@ function ApplyButton() {
       href={APPLY_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-purple px-8 py-3.5 font-sans font-medium text-white transition-all duration-200 hover:bg-purple-hover hover:scale-[1.02] cursor-pointer"
+      className="inline-flex shrink-0 items-center gap-2 self-start sm:self-center rounded-full bg-purple px-8 py-3.5 font-sans font-medium text-white transition-all duration-200 hover:bg-purple-hover hover:scale-[1.02] cursor-pointer"
     >
       apply
       <svg width="13" height="13" viewBox="0 0 11 11" fill="none" aria-hidden="true">
         <path d="M2 9L9 2M9 2H4M9 2V7" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     </a>
+  );
+}
+
+function InfoTooltip({ text }: { text: string }) {
+  return (
+    <span className="group relative inline-flex">
+      <button
+        type="button"
+        aria-label="More info"
+        className="inline-flex h-5 w-5 cursor-pointer items-center justify-center rounded-full border border-faint font-sans text-xs font-semibold text-faint transition-colors duration-200 hover:border-purple hover:text-purple focus-visible:border-purple focus-visible:text-purple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple/30"
+      >
+        i
+      </button>
+      <span
+        role="tooltip"
+        className="pointer-events-none invisible absolute bottom-full left-1/2 z-10 mb-2 w-64 -translate-x-1/2 rounded-xl border border-border bg-background px-4 py-3 font-sans text-sm font-normal leading-relaxed text-muted opacity-0 shadow-lg transition-opacity duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 motion-reduce:transition-none"
+      >
+        {text}
+      </span>
+    </span>
   );
 }
 
@@ -129,7 +164,7 @@ export default function ResearchScientistEngineerPage() {
           </Link>
 
           {/* Header */}
-          <div className="mt-6 flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+          <div className="mt-6 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
             <h1 className="font-serif text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
               Research Scientist / Engineer (various levels)
             </h1>
@@ -142,10 +177,13 @@ export default function ResearchScientistEngineerPage() {
               <dl className="space-y-6 lg:sticky lg:top-28">
                 {keyFacts.map((fact) => (
                   <div key={fact.label}>
-                    <dt className="font-serif text-xl font-semibold text-foreground">{fact.label}</dt>
-                    <dd className="mt-1 text-base leading-relaxed text-muted">
-                      {fact.lines.map((line) => (
-                        <span key={line} className="block">{line}</span>
+                    <dt className="flex items-center gap-2 font-serif text-xl font-semibold text-foreground">
+                      {fact.label}
+                      {fact.note && <InfoTooltip text={fact.note} />}
+                    </dt>
+                    <dd className="mt-1 w-fit divide-y divide-border text-base leading-relaxed text-muted">
+                      {fact.lines.map((line, i) => (
+                        <span key={i} className="block py-2 first:pt-0 last:pb-0">{line}</span>
                       ))}
                     </dd>
                   </div>
@@ -155,7 +193,7 @@ export default function ResearchScientistEngineerPage() {
 
             <div>
               <p className="text-base leading-relaxed text-muted sm:text-lg">
-                <strong className="font-semibold text-foreground">Deadline: Monday, November 30, 2026.</strong> We review applications on a rolling basis, so we encourage you to apply earlier rather than later. We’ll continue to consider applications after the deadline until roles are filled.
+                We’re hiring for two <strong className="font-semibold text-foreground">Research Scientist / Engineer</strong> roles, open to both mid-level and senior candidates.
               </p>
 
               <Section heading="About Mycelium">
@@ -184,25 +222,19 @@ export default function ResearchScientistEngineerPage() {
                 <h3 className="pt-4 font-serif text-2xl font-semibold text-foreground">Nice to have:</h3>
                 <BulletList items={niceToHave} />
                 <p className="pt-4">
-                  For senior roles, it’s strongly preferred that you have an established network and reputation in AI safety, and experience mentoring or leading research teams
+                  For senior roles, it’s expected that you have an established network and reputation in AI safety, and experience mentoring or leading research teams
                 </p>
               </Section>
 
               <Section heading="Compensation & Benefits">
                 <p>
-                  Our current salary ranges vary based on different levels of seniority, and are roughly: $130k-$225k (RS/RE) and $225k-320k (Senior RS/RE).
+                  Our current salary ranges vary based on different levels of seniority, and are roughly: <strong className="font-semibold text-foreground">$130k-$225k</strong> (RS/RE) and <strong className="font-semibold text-foreground">$225k-$320k</strong> (Senior RS/RE).
                 </p>
                 <p>
                   We recognize that our salaries - while competitive for mission-driven nonprofits - are below market range you’d receive at frontier labs and other safety organizations. We hope that mission-aligned candidates will see the opportunity to shape a neglected field as a real part of what this role offers. If pay is a blocker for you, let us know - we’re happy to work around your needs as best we can.
                 </p>
                 <h3 className="pt-4 font-serif text-2xl font-semibold text-foreground">Benefits (US full-time employees)</h3>
                 <BulletList items={benefits} />
-              </Section>
-
-              <Section heading="Application process">
-                <p>
-                  A short application form, screening interview, technical assessments (coding/ML), research presentation, follow-up interviews (covering technical, values and behavioral), and a paid work trial (1-2 weeks). If you can’t take time away for a work trial, let us know and we’ll work around your schedule. We may tailor the process to your specific background and experience, and will keep you updated along the way.
-                </p>
               </Section>
 
               <Section heading="Logistics">
@@ -212,13 +244,16 @@ export default function ResearchScientistEngineerPage() {
                 <p>
                   <strong className="font-semibold text-foreground">Work authorization:</strong> Existing work authorization is preferred, but strong international candidates are encouraged to apply. Visa support may be possible through a third-party provider, at the candidate’s expense.
                 </p>
+                <p>
+                  <strong className="font-semibold text-foreground">Application process:</strong> A short application form, screening interview, technical assessments (coding/ML), research presentation, follow-up interviews (covering technical, values and behavioral), and a paid work trial (1-2 weeks). If you can’t take time away for a work trial, let us know and we’ll work around your schedule. We may tailor the process to your specific background and experience, and will keep you updated along the way.
+                </p>
               </Section>
 
               <div className="mt-14 space-y-4 text-base leading-relaxed text-muted sm:text-lg">
                 <p>
                   We encourage you to apply even if your background may not seem like the perfect fit! We would rather review a larger pool of applications than risk missing out on a promising candidate for the position.
                 </p>
-                <p>
+                <p className="italic">
                   Mycelium is an equal opportunity employer. We do not discriminate on the basis of race, color, religion, sex, national origin, age, disability, sexual orientation, gender identity, or any other characteristic protected by applicable law.
                 </p>
               </div>

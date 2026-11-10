@@ -12,34 +12,54 @@ export const metadata: Metadata = {
   openGraph: { ...baseOpenGraph, url: "/careers", title, description },
 };
 
+type Detail = {
+  icon?: "calendar" | "location";
+  text: string;
+};
+
 type Role = {
   title: string;
-  details: string[];
+  details: Detail[];
   href?: string;
 };
+
+function DetailIcon({ icon }: { icon: NonNullable<Detail["icon"]> }) {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="shrink-0 text-faint">
+      {icon === "calendar" ? (
+        <>
+          <rect x="3" y="4" width="18" height="18" rx="2" />
+          <path d="M16 2v4M8 2v4M3 10h18" />
+        </>
+      ) : (
+        <>
+          <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+          <circle cx="12" cy="10" r="3" />
+        </>
+      )}
+    </svg>
+  );
+}
 
 const roles: Role[] = [
   {
     title: "Research Scientist / Engineer (various levels)",
     details: [
-      "Full-time · Bay Area preferred (remote considered)",
-      "$130k-$320k",
-      "Priority deadline: November 30, 2026",
-    ],
-    href: "/careers/research-scientist-engineer",
-  },
-  {
-    title: "Research Scientist / Engineer (various levels)",
-    details: [
-      "Full-time · Bay Area preferred (remote considered)",
-      "$130k-$320k",
-      "Priority deadline: November 30, 2026",
+      { icon: "calendar", text: "Application deadline: November 30, 2026" },
+      { icon: "location", text: "Location: Bay Area (remote considered)" },
+      { text: "Salary: $130k-$320k" },
     ],
     href: "/careers/research-scientist-engineer",
   },
   {
     title: "Chief Science Officer",
-    details: ["Full description coming soon"],
+    details: [
+      { icon: "calendar", text: "Application deadline: December 4, 2026" },
+      { icon: "location", text: "Location: Bay Area (remote considered)" },
+      { text: "Salary: $295k-$450k" },
+    ],
+    // Placeholder page until the CSO job description is added.
+    href: "/careers/chief-science-officer",
   },
 ];
 
@@ -54,7 +74,7 @@ export default function CareersPage() {
               work with us
             </h1>
             <p className="mt-6 max-w-4xl text-base leading-relaxed text-muted sm:text-lg">
-              Very few people are working to make sure advanced AI takes the welfare of all sentient beings seriously, including nonhuman animals and digital minds. Mycelium exists to build that field. We&apos;re a small, early team, so you&apos;ll join as a founding member, working directly with the founder to shape our research agenda, culture, and mission from the ground up.
+              We&apos;re growing our team. As one of our first hires, you&apos;ll work directly with the founder to shape our research agenda, culture, and mission from the ground up. If you’re interested in our work, we’d love to hear from you.
             </p>
             <p className="mt-4 max-w-4xl text-base leading-relaxed text-muted sm:text-lg">
               For any inquiries, please don&apos;t hesitate to contact{" "}
@@ -66,7 +86,7 @@ export default function CareersPage() {
         </section>
 
         {/* Open roles */}
-        <section className="pt-12 pb-20 sm:pt-8 sm:pb-24">
+        <section className="pt-16 pb-20 sm:pt-16 sm:pb-24">
           <div className="mx-auto max-w-6xl px-10 sm:px-12 lg:px-8">
             <h2 className="font-serif text-4xl font-semibold text-foreground sm:text-5xl">
               open roles
@@ -79,11 +99,20 @@ export default function CareersPage() {
                 >
                   <div>
                     <h3 className="font-serif text-2xl font-semibold text-foreground sm:text-3xl">
-                      {role.title}
+                      {role.href ? (
+                        <Link href={role.href} className="cursor-pointer transition-colors duration-200 hover:text-purple">
+                          {role.title}
+                        </Link>
+                      ) : (
+                        role.title
+                      )}
                     </h3>
                     <ul className="mt-2 flex flex-wrap gap-x-6 gap-y-1 text-base text-muted">
                       {role.details.map((detail) => (
-                        <li key={detail}>{detail}</li>
+                        <li key={detail.text} className="inline-flex items-center gap-1.5">
+                          {detail.icon && <DetailIcon icon={detail.icon} />}
+                          {detail.text}
+                        </li>
                       ))}
                     </ul>
                   </div>
