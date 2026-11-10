@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 // PLACEHOLDER: replace with the application form URL.
-const APPLY_URL = "#";
+const APPLY_URL = "https://airtable.com/app1JBdvEi5a5N3xa/pag53SJcsITFzFYtj/form";
 
 type KeyFact = {
   label: string;
@@ -211,10 +211,12 @@ export default function ResearchScientistEngineerPage() {
                 <BulletList items={responsibilities} />
                 <p className="pt-4">We’re looking to hire a variety of seniority levels for this role. As a rough guide:</p>
                 <BulletList items={levels} />
+                {/* Hidden until the CSO job description is published.
                 <p className="pt-4">
                   We are also seeking to hire an exceptionally talented and mission-aligned Chief Science Officer. You can find more information on this role{" "}
                   <Link href="/careers/chief-science-officer" target="_blank" rel="noopener noreferrer" className={inlineLink}>here</Link>.
                 </p>
+                */}
               </Section>
 
               <Section heading="Who we’re looking for">

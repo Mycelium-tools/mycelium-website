@@ -51,16 +51,16 @@ const roles: Role[] = [
     ],
     href: "/careers/research-scientist-engineer",
   },
-  {
-    title: "Chief Science Officer",
-    details: [
-      { icon: "calendar", text: "Application deadline: December 4, 2026" },
-      { icon: "location", text: "Location: Bay Area (remote considered)" },
-      { text: "Salary: $295k-$450k" },
-    ],
-    // Placeholder page until the CSO job description is added.
-    href: "/careers/chief-science-officer",
-  },
+  // Hidden until the CSO job description is published.
+  // {
+  //   title: "Chief Science Officer",
+  //   details: [
+  //     { icon: "calendar", text: "Application deadline: December 4, 2026" },
+  //     { icon: "location", text: "Location: Bay Area (remote considered)" },
+  //     { text: "Salary: $295k-$450k" },
+  //   ],
+  //   href: "/careers/chief-science-officer",
+  // },
 ];
 
 export default function CareersPage() {
@@ -77,7 +77,7 @@ export default function CareersPage() {
               We&apos;re growing our team. As one of our first hires, you&apos;ll work directly with the founder to shape our research agenda, culture, and mission from the ground up. If you’re interested in our work, we’d love to hear from you.
             </p>
             <p className="mt-4 max-w-4xl text-base leading-relaxed text-muted sm:text-lg">
-              For any inquiries, please don&apos;t hesitate to contact{" "}
+              For any inquiries, please don&apos;t hesitate to contact us at{" "}
               <a href="mailto:info@projectmycelium.ai" className="cursor-pointer text-purple underline underline-offset-2 transition-colors hover:text-purple-hover">
                 info@projectmycelium.ai
               </a>
