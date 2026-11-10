@@ -41,10 +41,10 @@ export default function AboutPage() {
                   <b>Digital minds:</b> Most future sentient beings could be digital, and vastly outnumber biological beings, whether as advanced AIs, digital humans, or something else. How a model reasons about the moral status of minds unlike its own is part of its character, and one that today&apos;s evaluations largely ignore.
                 </li>
                 <li>
-                  <b>Factory farming:</b> may persist for decades. Many argue that AI-accelerated alternative proteins will prevent this from happening, but there are <a href="https://www.dwarkesh.com/p/lewis-bollard" target="_blank" rel="noopener noreferrer" className="text-[#4a6fa5] underline underline-offset-4 transition-colors hover:text-[#3a5a8a]">good reasons why</a> this is not the case. In worlds where AGI automates future factory farms, it&apos;s important they have more welfare-positive values towards animals.
+                  <b>Factory farming:</b> may persist for decades. Many argue that AI-accelerated alternative proteins will prevent this from happening, but there are <a href="https://www.dwarkesh.com/p/lewis-bollard" target="_blank" rel="noopener noreferrer" className="cursor-pointer text-[#4a6fa5] underline underline-offset-4 transition-colors hover:text-[#3a5a8a]">good reasons why</a> this is not the case. In worlds where AGI automates future factory farms, it&apos;s important they have more welfare-positive values towards animals.
                 </li>
                 <li>
-                  <b>Wild animals:</b> <a href="https://wildanimalsuffering.org/" target="_blank" rel="noopener noreferrer" className="text-[#4a6fa5] underline underline-offset-4 transition-colors hover:text-[#3a5a8a]">Wild animal suffering is vast</a>, and <a href="https://www.lesswrong.com/posts/bSwPsHZdjJHe5SnR5/does-focusing-on-animal-welfare-make-sense-if-you-re-ai" target="_blank" rel="noopener noreferrer" className="text-[#4a6fa5] underline underline-offset-4 transition-colors hover:text-[#3a5a8a]">may actually increase</a> in worlds where humanity flourishes. An AGI with greater moral consideration for nonhuman animals may shape these decisions differently.
+                  <b>Wild animals:</b> <a href="https://wildanimalsuffering.org/" target="_blank" rel="noopener noreferrer" className="cursor-pointer text-[#4a6fa5] underline underline-offset-4 transition-colors hover:text-[#3a5a8a]">Wild animal suffering is vast</a>, and <a href="https://www.lesswrong.com/posts/bSwPsHZdjJHe5SnR5/does-focusing-on-animal-welfare-make-sense-if-you-re-ai" target="_blank" rel="noopener noreferrer" className="cursor-pointer text-[#4a6fa5] underline underline-offset-4 transition-colors hover:text-[#3a5a8a]">may actually increase</a> in worlds where humanity flourishes. An AGI with greater moral consideration for nonhuman animals may shape these decisions differently.
                 </li>
               </ul>
               {/* <p className="text-base leading-relaxed text-muted pb-8 sm:text-lg">
@@ -85,11 +85,11 @@ export default function AboutPage() {
                     href="https://www.linkedin.com/in/allenlu017/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#4a6fa5] underline underline-offset-4 transition-colors hover:text-[#3a5a8a]"
+                    className="cursor-pointer text-[#4a6fa5] underline underline-offset-4 transition-colors hover:text-[#3a5a8a]"
                   >
                     Allen Lu
                   </a>
-                  {" "} is the Founder & Executive Director of Mycelium. Allen is a Visiting Fellow at <a href="https://constellation.org/" target="_blank" rel="noopener noreferrer" className="text-[#4a6fa5] underline underline-offset-4 transition-colors hover:text-[#3a5a8a]">Constellation</a> and a current mentor in <a href="https://sparai.org/" target="_blank" rel="noopener noreferrer" className="text-[#4a6fa5] underline underline-offset-4 transition-colors hover:text-[#3a5a8a]">SPAR</a>. Outside of Mycelium, he works as a Technical Researcher on the <a href="https://nonhumanminds.org/welfare-alignment-project/" target="_blank" rel="noopener noreferrer" className="text-[#4a6fa5] underline underline-offset-4 transition-colors hover:text-[#3a5a8a]">Welfare Alignment Project</a> at the NYU Center for Mind, Ethics, and Policy.
+                  {" "} is the Founder & Executive Director of Mycelium. Allen is a Visiting Fellow at <a href="https://constellation.org/" target="_blank" rel="noopener noreferrer" className="cursor-pointer text-[#4a6fa5] underline underline-offset-4 transition-colors hover:text-[#3a5a8a]">Constellation</a> and a current mentor in <a href="https://sparai.org/" target="_blank" rel="noopener noreferrer" className="cursor-pointer text-[#4a6fa5] underline underline-offset-4 transition-colors hover:text-[#3a5a8a]">SPAR</a>. Outside of Mycelium, he works as a Technical Researcher on the <a href="https://nonhumanminds.org/welfare-alignment-project/" target="_blank" rel="noopener noreferrer" className="cursor-pointer text-[#4a6fa5] underline underline-offset-4 transition-colors hover:text-[#3a5a8a]">Welfare Alignment Project</a> at the NYU Center for Mind, Ethics, and Policy.
                 </p>
               </div>
             </div>
@@ -124,7 +124,7 @@ export default function AboutPage() {
                     href="https://www.linkedin.com/in/allenlu017/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="transition-colors hover:text-purple"
+                    className="cursor-pointer transition-colors hover:text-purple"
                   >
                     Allen Lu
                   </a>
@@ -154,7 +154,7 @@ export default function AboutPage() {
                     href="https://www.linkedin.com/in/isabella-my-luong/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="transition-colors hover:text-purple"
+                    className="cursor-pointer transition-colors hover:text-purple"
                   >
                     Isabella Luong
                   </a>

@@ -21,7 +21,7 @@ function NavLink({
     <Link
       href={href}
       onClick={onClick}
-      className={`group relative inline-block text-lg font-medium transition-colors hover:text-foreground ${
+      className={`cursor-pointer group relative inline-block text-lg font-medium transition-colors hover:text-foreground ${
         isActive ? "text-foreground" : "text-muted"
       }`}
     >
@@ -43,7 +43,7 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-10 sm:px-12 lg:px-8 py-4">
-        <Link href="/" onClick={close} className="flex items-center transition-transform duration-200 hover:scale-105">
+        <Link href="/" onClick={close} className="cursor-pointer flex items-center transition-transform duration-200 hover:scale-105">
           <Image src="/mycelium-logo-v3.1.png" alt="mycelium logo" width={160} height={48} className="object-contain" unoptimized />
         </Link>
 
@@ -52,13 +52,14 @@ export default function Navbar() {
           <NavLink href="/about">about</NavLink>
           <NavLink href="/work">our work</NavLink>
           <NavLink href="/news">news</NavLink>
+          <NavLink href="/careers">careers</NavLink>
           <NavLink href="/contact">contact</NavLink>
-          <NavLink href="/community">community</NavLink>
+          {/* <NavLink href="/community">community</NavLink> */}
           <a
             href="https://www.every.org/projectmycelium"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-green px-5 py-2.5 text-lg font-medium text-white transition-all duration-200 hover:bg-green-hover hover:scale-[1.02]"
+            className="cursor-pointer rounded-full bg-green px-5 py-2.5 text-lg font-medium text-white transition-all duration-200 hover:bg-green-hover hover:scale-[1.02]"
           >
             donate
           </a>
@@ -92,14 +93,15 @@ export default function Navbar() {
           <NavLink href="/about" onClick={close}>about</NavLink>
           <NavLink href="/work" onClick={close}>our work</NavLink>
           <NavLink href="/news" onClick={close}>news</NavLink>
+          <NavLink href="/careers" onClick={close}>careers</NavLink>
           <NavLink href="/contact" onClick={close}>contact</NavLink>
-          <NavLink href="/community" onClick={close}>community</NavLink>
+          {/* <NavLink href="/community" onClick={close}>community</NavLink> */}
           <a
             href="https://www.every.org/projectmycelium"
             target="_blank"
             rel="noopener noreferrer"
             onClick={close}
-            className="self-start rounded-full bg-green px-5 py-2.5 text-lg font-medium text-white transition-all duration-200 hover:bg-green-hover hover:scale-[1.02]"
+            className="cursor-pointer self-start rounded-full bg-green px-5 py-2.5 text-lg font-medium text-white transition-all duration-200 hover:bg-green-hover hover:scale-[1.02]"
           >
             donate
           </a>
