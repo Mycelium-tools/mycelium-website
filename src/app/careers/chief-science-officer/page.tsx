@@ -28,7 +28,7 @@ const keyFacts: KeyFact[] = [
   { label: "Salary", lines: ["$295k-$450k"] },
   {
     label: "Application deadline",
-    lines: ["Tuesday, December 1, 2026, EOD\u00a0AOE"],
+    lines: ["Saturday, December 5, 2026, EOD\u00a0AOE"],
     note: "We review applications on a rolling basis and may make offers early, so we encourage you to apply as soon as possible.",
   },
 ];
