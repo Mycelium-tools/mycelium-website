@@ -35,7 +35,7 @@ const keyFacts: KeyFact[] = [
   },
   {
     label: "Application deadline",
-    lines: ["Monday, November 30, 2026, EOD\u00a0AOE"],
+    lines: ["Tuesday, December 1, 2026, EOD\u00a0AOE"],
     note: "We review applications on a rolling basis and may make offers early, so we encourage you to apply as soon as possible.",
   },
 ];
