@@ -51,16 +51,15 @@ const roles: Role[] = [
     ],
     href: "/careers/research-scientist-engineer",
   },
-  // Hidden until the CSO job description is published.
-  // {
-  //   title: "Chief Science Officer",
-  //   details: [
-  //     { icon: "calendar", text: "Application deadline: December 4, 2026" },
-  //     { icon: "location", text: "Location: Bay Area (remote considered)" },
-  //     { text: "Salary: $295k-$450k" },
-  //   ],
-  //   href: "/careers/chief-science-officer",
-  // },
+  {
+    title: "Chief Science Officer",
+    details: [
+      { icon: "calendar", text: "Application deadline: December 4, 2026" },
+      { icon: "location", text: "Location: Bay Area (remote considered)" },
+      { text: "Salary: $295k-$450k" },
+    ],
+    href: "/careers/chief-science-officer",
+  },
 ];
 
 export default function CareersPage() {
