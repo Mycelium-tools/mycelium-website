@@ -45,7 +45,7 @@ const roles: Role[] = [
   {
     title: "Research Scientist / Engineer (various levels)",
     details: [
-      { icon: "calendar", text: "Application deadline: November 30, 2026, EOD AOE" },
+      { icon: "calendar", text: "Application deadline: December 1, 2026, EOD AOE" },
       { icon: "location", text: "Location: Bay Area (remote considered)" },
       { text: "Salary: $130k-$320k" },
     ],
@@ -54,7 +54,7 @@ const roles: Role[] = [
   {
     title: "Chief Science Officer",
     details: [
-      { icon: "calendar", text: "Application deadline: December 5, 2026, EOD AOE" },
+      { icon: "calendar", text: "Application deadline: December 1, 2026, EOD AOE" },
       { icon: "location", text: "Location: Bay Area (remote considered)" },
       { text: "Salary: $295k-$450k" },
     ],
