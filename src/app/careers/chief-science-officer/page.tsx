@@ -26,7 +26,11 @@ const keyFacts: KeyFact[] = [
   { label: "Role type", lines: ["Full-time role, Bay Area preferred (remote considered)"] },
   { label: "Start date", lines: ["ASAP (ideally by Jan/Feb 2027)"] },
   { label: "Salary", lines: ["$295k-$450k"] },
-  { label: "Application deadline", lines: ["Friday, December 4, 2026"] },
+  {
+    label: "Application deadline",
+    lines: ["Saturday, December 5, 2026, EOD\u00a0AOE"],
+    note: "We review applications on a rolling basis and may make offers early, so we encourage you to apply as soon as possible.",
+  },
 ];
 
 const responsibilities = [

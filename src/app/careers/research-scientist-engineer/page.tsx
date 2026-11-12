@@ -35,8 +35,8 @@ const keyFacts: KeyFact[] = [
   },
   {
     label: "Application deadline",
-    lines: ["Monday, November 30, 2026"],
-    note: "We review applications on a rolling basis, so we encourage you to apply earlier rather than later. We’ll continue to consider applications after the deadline until roles are filled.",
+    lines: ["Monday, November 30, 2026, EOD\u00a0AOE"],
+    note: "We review applications on a rolling basis and may make offers early, so we encourage you to apply as soon as possible.",
   },
 ];
 
@@ -88,7 +88,7 @@ export default function ResearchScientistEngineerPage() {
           We’re hiring for two <strong className="font-semibold text-foreground">Research Scientist / Engineer</strong> roles, open to both mid-level and senior candidates.
         </p>
         <p>
-          Mycelium is hiring research scientists &amp; engineers to do ML research around robust moral values for AI character, with a specific focus on animal welfare and other neglected moral patients. You will pioneer the field of AI character with respect to nonhuman welfare, and work on original, rigorous research to guide and inform decision-makers in the AI safety ecosystem.
+          Mycelium is hiring research scientists &amp; engineers to conduct ML research around robust moral values for AI character, with a specific focus on animal welfare and other neglected moral patients. You’ll be shaping the emerging field of AI character with respect to nonhuman welfare, and work on original research to guide and inform decision-makers in the AI safety ecosystem.
         </p>
       </div>
 
