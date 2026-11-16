@@ -104,8 +104,8 @@ export default function ContactPage() {
 
             <p className="mt-8 text-base text-faint">
               Prefer email? Reach out to {" "}
-              <a href="mailto:allen@projectmycelium.ai" className="cursor-pointer text-muted hover:underline">
-                allen@projectmycelium.ai
+              <a href="mailto:info@projectmycelium.ai" className="cursor-pointer text-muted hover:underline">
+                info@projectmycelium.ai
               </a>
             </p>
           </div>
