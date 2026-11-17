@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { baseOpenGraph } from "@/lib/metadata";
 import {
-  APPLY_URL,
   BulletList,
   JobPosting,
   Section,
@@ -13,6 +12,8 @@ import {
 const title = "Expression of interest — Mycelium";
 const description =
   "Want to work with Mycelium but don't see a role that fits? Submit an expression of interest and we'll reach out if there's a match.";
+
+const EOI_FORM_URL = "https://airtable.com/app1JBdvEi5a5N3xa/pagtKvPol4w8MpBQ5/form";
 
 export const metadata: Metadata = {
   title,
@@ -35,7 +36,7 @@ const interests = [
 
 export default function ExpressionOfInterestPage() {
   return (
-    <JobPosting title="Expression of interest" applyUrl={APPLY_URL} keyFacts={keyFacts} showClosing={false}>
+    <JobPosting title="Expression of interest" applyUrl={EOI_FORM_URL} keyFacts={keyFacts} showClosing={false}>
       <p className="text-base leading-relaxed text-muted sm:text-lg">
         We’re always looking for talented, mission-aligned people. If you’d like to work with Mycelium but none of our{" "}
         <Link href="/careers" className={inlineLink}>open roles</Link> are the right fit, you can still submit an expression of interest.
