@@ -123,6 +123,9 @@ export default function ChiefScienceOfficerPage() {
         <p>
           <strong className="font-semibold text-foreground">Application process:</strong> A short application form, an intro conversation, a research presentation on your past work, a live critique of our current research agenda (what you’d change and what you’d do in your first six months), conversations with our team &amp; advisors, and a paid work trial of 1-2 weeks. If you can’t take time away for a work trial, let us know and we’ll work around your schedule. We may adjust the process based on the applications we receive.
         </p>
+        <p>
+          As part of our hiring process, finalists will complete a short, paid work test so we can see how you approach work, and so you can get a feel for the sort of tasks you’ll do day-to-day at Mycelium. Once you join, we’ll set clear 30/60/90-day goals together and hold a formal check-in at 90 days to make sure the role is a great fit on both sides.
+        </p>
       </Section>
     </JobPosting>
   );

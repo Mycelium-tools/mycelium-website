@@ -91,11 +91,13 @@ export function JobPosting({
   title,
   applyUrl,
   keyFacts,
+  showClosing = true,
   children,
 }: {
   title: string;
   applyUrl?: string;
   keyFacts: KeyFact[];
+  showClosing?: boolean;
   children: React.ReactNode;
 }) {
   return (
@@ -140,14 +142,16 @@ export function JobPosting({
             <div>
               {children}
 
-              <div className="mt-14 space-y-4 text-base leading-relaxed text-muted sm:text-lg">
-                <p>
-                  We encourage you to apply even if your background may not seem like the perfect fit! We would rather review a larger pool of applications than risk missing out on a promising candidate for the position.
-                </p>
-                <p className="italic">
-                  Mycelium is an equal opportunity employer. We do not discriminate on the basis of race, color, religion, sex, national origin, age, disability, sexual orientation, gender identity, or any other characteristic protected by applicable law.
-                </p>
-              </div>
+              {showClosing && (
+                <div className="mt-14 space-y-4 text-base leading-relaxed text-muted sm:text-lg">
+                  <p>
+                    We encourage you to apply even if your background may not seem like the perfect fit! We would rather review a larger pool of applications than risk missing out on a promising candidate for the position.
+                  </p>
+                  <p className="italic">
+                    Mycelium is an equal opportunity employer. We do not discriminate on the basis of race, color, religion, sex, national origin, age, disability, sexual orientation, gender identity, or any other characteristic protected by applicable law.
+                  </p>
+                </div>
+              )}
 
               {applyUrl && (
                 <div className="mt-10">

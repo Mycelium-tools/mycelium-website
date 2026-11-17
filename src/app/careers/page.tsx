@@ -60,6 +60,14 @@ const roles: Role[] = [
     ],
     href: "/careers/chief-science-officer",
   },
+  {
+    title: "Expression of interest",
+    details: [
+      { icon: "calendar", text: "No application deadline" },
+      { icon: "location", text: "Location: In-person/remote" },
+    ],
+    href: "/careers/expression-of-interest",
+  },
 ];
 
 export default function CareersPage() {

@@ -143,6 +143,9 @@ export default function ResearchScientistEngineerPage() {
         <p>
           <strong className="font-semibold text-foreground">Application process:</strong> A short application form, screening interview, technical assessments (coding/ML), research presentation, follow-up interviews (covering technical, values and behavioral), and a paid work trial. If you can’t take time away for a work trial, let us know and we’ll work around your schedule. We may tailor the process to your specific background and experience, and will keep you updated along the way.
         </p>
+        <p>
+          As part of our hiring process, finalists will complete a short, paid work test so we can see how you approach work, and so you can get a feel for the sort of tasks you’ll do day-to-day at Mycelium. Once you join, we’ll set clear 30/60/90-day goals together and hold a formal check-in at 90 days to make sure the role is a great fit on both sides.
+        </p>
       </Section>
     </JobPosting>
   );
