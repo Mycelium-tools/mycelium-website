@@ -19,7 +19,7 @@ export default function AboutPage() {
       <main className="pt-[73px]">
 
         {/* Header / mission */}
-        <section className="py-16 sm:py-10">
+        <section className="pt-8 pb-16 sm:pt-10 sm:pb-10">
           <div className="mx-auto max-w-6xl px-10 sm:px-12 lg:px-8">
             <h1 className="mt-4 font-serif text-5xl font-semibold leading-tight text-foreground sm:text-6xl">
               advancing {" "}

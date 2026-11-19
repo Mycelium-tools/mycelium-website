@@ -103,7 +103,7 @@ export function JobPosting({
   return (
     <div className="bg-background text-foreground">
       <main className="pt-[73px]">
-        <div className="mx-auto max-w-6xl px-10 pt-16 pb-20 sm:px-12 sm:pt-10 sm:pb-24 lg:px-8">
+        <div className="mx-auto max-w-6xl px-10 pt-8 pb-20 sm:px-12 sm:pt-10 sm:pb-24 lg:px-8">
           <Link
             href="/careers"
             className="cursor-pointer inline-flex items-center gap-1 text-base font-medium text-faint transition-colors hover:text-foreground"
