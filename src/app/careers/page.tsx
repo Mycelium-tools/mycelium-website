@@ -75,7 +75,7 @@ export default function CareersPage() {
     <div className="bg-background text-foreground">
       <main className="pt-[73px]">
         {/* Header */}
-        <section className="pt-16 sm:pt-10">
+        <section className="pt-8 sm:pt-10">
           <div className="mx-auto max-w-6xl px-10 sm:px-12 lg:px-8">
             <h1 className="mt-4 font-serif text-5xl font-semibold leading-tight text-foreground sm:text-6xl">
               work with us
@@ -116,8 +116,13 @@ export default function CareersPage() {
                     </h3>
                     <ul className="mt-2 flex flex-wrap gap-x-6 gap-y-1 text-base text-muted">
                       {role.details.map((detail) => (
-                        <li key={detail.text} className="inline-flex items-center gap-1.5">
-                          {detail.icon && <DetailIcon icon={detail.icon} />}
+                        <li key={detail.text} className="inline-flex items-start gap-1.5">
+                          {/* Box one line tall so the icon centers on the first line when the text wraps */}
+                          {detail.icon && (
+                            <span className="flex h-6 shrink-0 items-center">
+                              <DetailIcon icon={detail.icon} />
+                            </span>
+                          )}
                           {detail.text}
                         </li>
                       ))}

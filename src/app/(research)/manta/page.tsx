@@ -55,7 +55,7 @@ export default function MantaPage() {
     <div className="bg-background text-foreground">
       <main className="pt-[73px]">
         {/* Hero */}
-        <section className="py-20">
+        <section className="pt-8 pb-20 sm:pt-10">
           <div className="mx-auto max-w-6xl px-10 sm:px-12 lg:px-8">
           <div className="max-w-4xl">
             <div className="flex flex-wrap items-center gap-3">

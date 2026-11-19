@@ -16,7 +16,7 @@ export default function ContactPage() {
     <div className="bg-background text-foreground">
       <main className="pt-[73px]">
         {/* Header */}
-        <section className="pt-16 sm:pt-10">
+        <section className="pt-8 sm:pt-10">
           <div className="mx-auto max-w-6xl px-10 sm:px-12 lg:px-8">
             <h1 className="mt-4 font-serif text-5xl font-semibold leading-tight text-foreground sm:text-6xl">
               let&apos;s{" "}
